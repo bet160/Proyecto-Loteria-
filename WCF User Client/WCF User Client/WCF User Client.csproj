@@ -71,8 +71,11 @@
     </Compile>
     <Compile Include="Model\Puntajes.cs" />
     <Compile Include="Model\Usuario.cs" />
-    <Compile Include="SeleccionDeCartas.xaml.cs">
-      <DependentUpon>SeleccionDeCartas.xaml</DependentUpon>
+    <Compile Include="SeleccionCartasFutbol.xaml.cs">
+      <DependentUpon>SeleccionCartasFutbol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionCartasCarros.xaml.cs">
+      <DependentUpon>SeleccionCartasCarros.xaml</DependentUpon>
     </Compile>
     <Compile Include="Principal.xaml.cs">
       <DependentUpon>Principal.xaml</DependentUpon>
@@ -95,7 +98,11 @@
     <Compile Include="Verificacion.xaml.cs">
       <DependentUpon>Verificacion.xaml</DependentUpon>
     </Compile>
-    <Page Include="SeleccionDeCartas.xaml">
+    <Page Include="SeleccionCartasFutbol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeleccionCartasCarros.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -230,6 +237,118 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosTematicaFutbol\52.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosTematicaCarros\1.jpg" />
+    <Resource Include="RecursosTematicaCarros\10.jpg" />
+    <Resource Include="RecursosTematicaCarros\11.jpg" />
+    <Resource Include="RecursosTematicaCarros\12.jpg" />
+    <Resource Include="RecursosTematicaCarros\13.jpg" />
+    <Resource Include="RecursosTematicaCarros\14.jpg" />
+    <Resource Include="RecursosTematicaCarros\15.jpg" />
+    <Resource Include="RecursosTematicaCarros\16.jpg" />
+    <Resource Include="RecursosTematicaCarros\17.jpg" />
+    <Resource Include="RecursosTematicaCarros\18.jpg" />
+    <Resource Include="RecursosTematicaCarros\19.jpg" />
+    <Resource Include="RecursosTematicaCarros\2.jpg" />
+    <Resource Include="RecursosTematicaCarros\20.jpg" />
+    <Resource Include="RecursosTematicaCarros\21.jpg" />
+    <Resource Include="RecursosTematicaCarros\22.jpg" />
+    <Resource Include="RecursosTematicaCarros\23.jpg" />
+    <Resource Include="RecursosTematicaCarros\24.jpg" />
+    <Resource Include="RecursosTematicaCarros\25.jpg" />
+    <Resource Include="RecursosTematicaCarros\26.jpg" />
+    <Resource Include="RecursosTematicaCarros\27.jpg" />
+    <Resource Include="RecursosTematicaCarros\28.jpg" />
+    <Resource Include="RecursosTematicaCarros\29.jpg" />
+    <Resource Include="RecursosTematicaCarros\3.jpg" />
+    <Resource Include="RecursosTematicaCarros\30.jpg" />
+    <Resource Include="RecursosTematicaCarros\31.jpg" />
+    <Resource Include="RecursosTematicaCarros\32.jpg" />
+    <Resource Include="RecursosTematicaCarros\33.jpg" />
+    <Resource Include="RecursosTematicaCarros\34.jpg" />
+    <Resource Include="RecursosTematicaCarros\35.jpg" />
+    <Resource Include="RecursosTematicaCarros\36.jpg" />
+    <Resource Include="RecursosTematicaCarros\37.jpg" />
+    <Resource Include="RecursosTematicaCarros\38.jpg" />
+    <Resource Include="RecursosTematicaCarros\39.jpg" />
+    <Resource Include="RecursosTematicaCarros\4.jpg" />
+    <Resource Include="RecursosTematicaCarros\40.jpg" />
+    <Resource Include="RecursosTematicaCarros\41.jpg" />
+    <Resource Include="RecursosTematicaCarros\42.jpg" />
+    <Resource Include="RecursosTematicaCarros\43.jpg" />
+    <Resource Include="RecursosTematicaCarros\44.jpg" />
+    <Resource Include="RecursosTematicaCarros\45.jpg" />
+    <Resource Include="RecursosTematicaCarros\46.jpg" />
+    <Resource Include="RecursosTematicaCarros\47.jpg" />
+    <Resource Include="RecursosTematicaCarros\48.jpg" />
+    <Resource Include="RecursosTematicaCarros\49.jpg" />
+    <Resource Include="RecursosTematicaCarros\5.jpg" />
+    <Resource Include="RecursosTematicaCarros\50.jpg" />
+    <Resource Include="RecursosTematicaCarros\51.jpg" />
+    <Resource Include="RecursosTematicaCarros\52.jpg" />
+    <Resource Include="RecursosTematicaCarros\53.jpg" />
+    <Resource Include="RecursosTematicaCarros\54.jpg" />
+    <Resource Include="RecursosTematicaCarros\55.jpg" />
+    <Resource Include="RecursosTematicaCarros\6.jpg" />
+    <Resource Include="RecursosTematicaCarros\7.jpg" />
+    <Resource Include="RecursosTematicaCarros\8.jpg" />
+    <Resource Include="RecursosTematicaCarros\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosTematicaFutbol\1.jpg" />
+    <Resource Include="RecursosTematicaFutbol\10.jpg" />
+    <Resource Include="RecursosTematicaFutbol\11.jpg" />
+    <Resource Include="RecursosTematicaFutbol\12.jpg" />
+    <Resource Include="RecursosTematicaFutbol\13.jpg" />
+    <Resource Include="RecursosTematicaFutbol\14.jpg" />
+    <Resource Include="RecursosTematicaFutbol\15.jpg" />
+    <Resource Include="RecursosTematicaFutbol\16.jpg" />
+    <Resource Include="RecursosTematicaFutbol\17.jpg" />
+    <Resource Include="RecursosTematicaFutbol\18.jpg" />
+    <Resource Include="RecursosTematicaFutbol\19.jpg" />
+    <Resource Include="RecursosTematicaFutbol\2.jpg" />
+    <Resource Include="RecursosTematicaFutbol\20.jpg" />
+    <Resource Include="RecursosTematicaFutbol\21.jpg" />
+    <Resource Include="RecursosTematicaFutbol\22.jpg" />
+    <Resource Include="RecursosTematicaFutbol\23.jpg" />
+    <Resource Include="RecursosTematicaFutbol\24.jpg" />
+    <Resource Include="RecursosTematicaFutbol\25.jpg" />
+    <Resource Include="RecursosTematicaFutbol\26.jpg" />
+    <Resource Include="RecursosTematicaFutbol\27.jpg" />
+    <Resource Include="RecursosTematicaFutbol\28.jpg" />
+    <Resource Include="RecursosTematicaFutbol\29.jpg" />
+    <Resource Include="RecursosTematicaFutbol\3.jpg" />
+    <Resource Include="RecursosTematicaFutbol\30.jpg" />
+    <Resource Include="RecursosTematicaFutbol\31.jpg" />
+    <Resource Include="RecursosTematicaFutbol\32.jpg" />
+    <Resource Include="RecursosTematicaFutbol\33.jpg" />
+    <Resource Include="RecursosTematicaFutbol\34.jpg" />
+    <Resource Include="RecursosTematicaFutbol\35.jpg" />
+    <Resource Include="RecursosTematicaFutbol\36.jpg" />
+    <Resource Include="RecursosTematicaFutbol\37.jpg" />
+    <Resource Include="RecursosTematicaFutbol\38.jpg" />
+    <Resource Include="RecursosTematicaFutbol\4.jpg" />
+    <Resource Include="RecursosTematicaFutbol\40.jpg" />
+    <Resource Include="RecursosTematicaFutbol\41.jpg" />
+    <Resource Include="RecursosTematicaFutbol\42.jpg" />
+    <Resource Include="RecursosTematicaFutbol\43.jpg" />
+    <Resource Include="RecursosTematicaFutbol\44.jpg" />
+    <Resource Include="RecursosTematicaFutbol\45.jpg" />
+    <Resource Include="RecursosTematicaFutbol\46.jpg" />
+    <Resource Include="RecursosTematicaFutbol\47.jpg" />
+    <Resource Include="RecursosTematicaFutbol\48.jpg" />
+    <Resource Include="RecursosTematicaFutbol\49.jpg" />
+    <Resource Include="RecursosTematicaFutbol\5.jpg" />
+    <Resource Include="RecursosTematicaFutbol\50.jpg" />
+    <Resource Include="RecursosTematicaFutbol\51.jpg" />
+    <Resource Include="RecursosTematicaFutbol\6.jpg" />
+    <Resource Include="RecursosTematicaFutbol\7.jpg" />
+    <Resource Include="RecursosTematicaFutbol\8.jpg" />
+    <Resource Include="RecursosTematicaFutbol\9.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using WCF_User_Client.Model;
+using WCF_User_Client.ServidorLoteria;
+
 
 namespace WCF_User_Client
 {
+    [CallbackBehavior(UseSynchronizationContext = false)]
     /// <summary>
     /// Lógica de interacción para Verificacion.xaml
     /// </summary>
-    public partial class Verificacion : Window
+    public partial class Verificacion : Window, ServidorLoteria.IServicioCuentaUsuarioCallback
     {
         private string codigoVerificacion;
+        private Usuario cuentaCreada;
 
         public Verificacion()
         {
@@ -27,26 +22,32 @@ namespace WCF_User_Client
         }
 
         public string CodigoVerificacion { get => codigoVerificacion; set => codigoVerificacion = value; }
+        internal Usuario CuentaCreada { get => cuentaCreada; set => cuentaCreada = value; }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
         {
-            /*string codigoIngresado = textBoxCodigo.Text.Trim();
+            string codigoIngresado = textBoxCodigo.Text.Trim();
 
             if (ValidarDatosIngresados(codigoIngresado))
             {
                 if (String.Equals(codigoIngresado, codigoVerificacion))
                 {
-                    MessageBox.Show("Validacion exitosa");
+                    RegistrarUsuario();
+                    Principal ventana = new Principal();
+                    ventana.LabelNombreUsuario.Content = cuentaCreada.NombreUsuario;
+                    ventana.Show();
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Codigo incorrecto");
                 }
 
-            }*/
-            Principal ventana = new Principal();
-            ventana.Show();
-            this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No puede dejar campos vacios ni llenarlos con espacios");
+            }
         }
 
         private bool ValidarDatosIngresados(string codigo)
@@ -71,16 +72,24 @@ namespace WCF_User_Client
             this.Close();
         }
 
-        /* private void RegistrarUsuario()
+        private void RegistrarUsuario()
          {
-             ServidorLoteria.ServicioCuentaUsuarioClient cliente = new ServidorLoteria.ServicioCuentaUsuarioClient();
-             ServidorLoteria.Cuenta usuario = new ServidorLoteria.Cuenta();
+            try
+            {
+                InstanceContext instanceContext = new InstanceContext(this);
+                ServidorLoteria.ServicioCuentaUsuarioClient client = new ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
+                ServidorLoteria.CuentaSet cuenta = new ServidorLoteria.CuentaSet();
+                cuenta.nombreUsuario = cuentaCreada.NombreUsuario;
+                cuenta.correo = cuentaCreada.Correo;
+                cuenta.contraseña = cuentaCreada.Contraseña;
+                
+                client.GuardarCuentaUsuario(cuenta);             
+            }
+            catch (EndpointNotFoundException)
+            {
 
-             usuario.nombreUsuario = textNombreUsuario.Text;
-             usuario.correo = textCorreo.Text;
-             usuario.contraseña = textContraseña.Text;
-             usuario.puntajeMaximo = "1234";
-         }*/
+            }
+        }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
         {
@@ -90,6 +99,26 @@ namespace WCF_User_Client
         private void MinimizarVentana(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        public void Respuesta(string mensaje)
+        {
+            MessageBox.Show(mensaje);
+        }
+
+        public void DevuelveCuenta(CuentaSet cuenta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DevuelvePuntajes(PuntajeUsuario[] puntajes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MensajeChat(string mensaje)
+        {
+            throw new NotImplementedException();
         }
     }
 }

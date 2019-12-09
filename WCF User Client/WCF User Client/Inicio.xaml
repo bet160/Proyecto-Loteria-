@@ -65,6 +65,6 @@
                 <SolidColorBrush Color="Black"/>
             </Image.OpacityMask>
         </Image>
-        <Button Content="Jugar Partida" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="224,324,197,41" Background="White" BorderBrush="#FFA70EFF" FontFamily="Century Gothic" Click="DesplegarCodigoInvitacion"/>
+        <Button Content="Jugar Partida" materialDesign:ButtonAssist.CornerRadius="11" Height="32" Margin="226.7,324,199.7,40" Background="White" BorderBrush="#FFA70EFF" FontFamily="Century Gothic" Click="DesplegarCodigoInvitacion" Width="123"/>
     </Grid>
 </Window>

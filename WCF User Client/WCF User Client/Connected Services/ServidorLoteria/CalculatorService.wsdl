@@ -58,6 +58,9 @@
   <wsdl:message name="IServicioCuentaUsuario_SolicitarPuntajes_InputMessage">
     <wsdl:part name="parameters" element="tns:SolicitarPuntajes" />
   </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_MensajeChat_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MensajeChat" />
+  </wsdl:message>
   <wsdl:message name="IServicioCuentaUsuario_Respuesta_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:Respuesta" />
   </wsdl:message>
@@ -88,6 +91,9 @@
     </wsdl:operation>
     <wsdl:operation name="SolicitarPuntajes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/SolicitarPuntajes" message="tns:IServicioCuentaUsuario_SolicitarPuntajes_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MensajeChat">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/MensajeChat" message="tns:IServicioCuentaUsuario_MensajeChat_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="Respuesta">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/Respuesta" message="tns:IServicioCuentaUsuario_Respuesta_OutputCallbackMessage" />
@@ -143,6 +149,12 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MensajeChat">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/MensajeChat" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Respuesta">
       <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/Respuesta" style="document" />

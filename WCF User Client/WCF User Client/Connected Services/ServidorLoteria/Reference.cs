@@ -222,10 +222,10 @@ namespace WCF_User_Client.ServidorLoteria {
         System.Threading.Tasks.Task GuardarCuentaUsuarioAsync(WCF_User_Client.ServidorLoteria.CuentaSet cuenta);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarMensajeChat")]
-        void EnviarMensajeChat(string nombreUsuario, string mensaje);
+        void EnviarMensajeChat(string nombreUsuario, string mensaje, string nombresUsuario);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarMensajeChat")]
-        System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje);
+        System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje, string nombresUsuario);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ModificarCuentaUsuario")]
         void ModificarCuentaUsuario(WCF_User_Client.ServidorLoteria.CuentaSet cuenta);
@@ -248,6 +248,9 @@ namespace WCF_User_Client.ServidorLoteria {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioCuentaUsuarioCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/MensajeChat")]
+        void MensajeChat(string mensaje);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/Respuesta")]
         void Respuesta(string mensaje);
@@ -311,12 +314,12 @@ namespace WCF_User_Client.ServidorLoteria {
             return base.Channel.GuardarCuentaUsuarioAsync(cuenta);
         }
         
-        public void EnviarMensajeChat(string nombreUsuario, string mensaje) {
-            base.Channel.EnviarMensajeChat(nombreUsuario, mensaje);
+        public void EnviarMensajeChat(string nombreUsuario, string mensaje, string nombresUsuario) {
+            base.Channel.EnviarMensajeChat(nombreUsuario, mensaje, nombresUsuario);
         }
         
-        public System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje) {
-            return base.Channel.EnviarMensajeChatAsync(nombreUsuario, mensaje);
+        public System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje, string nombresUsuario) {
+            return base.Channel.EnviarMensajeChatAsync(nombreUsuario, mensaje, nombresUsuario);
         }
         
         public void ModificarCuentaUsuario(WCF_User_Client.ServidorLoteria.CuentaSet cuenta) {

@@ -22,8 +22,9 @@ namespace WCF_User_Client
     /// </summary>
     /// 
     [CallbackBehavior(UseSynchronizationContext = false)]
-    public partial class InicioSesion : Window, ServidorLoteria.IServicioCuentaUsuarioCallback
+    public partial class InicioSesion : Window, IServicioCuentaUsuarioCallback
     {
+        private Usuario usuario;
 
         public InicioSesion()
         {
@@ -32,25 +33,36 @@ namespace WCF_User_Client
 
         private void IniciarSesion(object sender, RoutedEventArgs e)
         {
+            string nombreUsuario = textBoxNombreUsuario.Text;
+            string contraseña = passwordBoxContraseña.Password;
+
             try
             {
                 InstanceContext instanceContext = new InstanceContext(this);
                 ServidorLoteria.ServicioCuentaUsuarioClient client = new ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
 
-                client.IniciarSesion(textBoxNombreUsuario.Text, passwordBoxContraseña.Password);
+                if(ValidarDatosIngresados(nombreUsuario, contraseña))
+                {
+                    client.IniciarSesion(nombreUsuario, contraseña);
+                    DesplegarPrincipal(textBoxNombreUsuario.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Datos invalidos");
+                }   
             }
             catch (EndpointNotFoundException)
             {
                 
             }
-            Principal ventana = new Principal();
-            ventana.Show();
-            this.Close();
+            
         }
 
-        private void DesplegarInicio()
+        private void DesplegarPrincipal(string text)
         {
             Principal ventana = new Principal();
+            ventana.LabelNombreUsuario.Content = text;
+            //ventana.LabelNombreUsuario.Content = usuario.NombreUsuario;
             ventana.Show();
             this.Close();
         }
@@ -87,9 +99,25 @@ namespace WCF_User_Client
             this.WindowState = WindowState.Minimized;
         }
 
-        public void Respuesta(string mensaje)
+        public void Response(string mensaje)
         {
             throw new NotImplementedException();
+        }
+
+        public void DevuelveObjeto(CuentaSet cuenta)
+        {
+            usuario = new Usuario() {
+                NombreUsuario = cuenta.nombreUsuario,
+                Correo = cuenta.correo,
+                Contraseña = cuenta.contraseña,
+                Puntaje = cuenta.puntajeMaximo,
+                FotoPerfil = cuenta.fotoPerfil
+            };
+        }
+
+        public void Respuesta(string mensaje)
+        {
+            MessageBox.Show(mensaje);
         }
 
         public void DevuelveCuenta(CuentaSet cuenta)
@@ -115,6 +143,11 @@ namespace WCF_User_Client
                 puntaje1.Add(modelo);
                 MessageBox.Show(valor.nombreUsuario);
             }
+        }
+
+        public void MensajeChat(string mensaje)
+        {
+            MessageBox.Show(mensaje);
         }
     }
 }

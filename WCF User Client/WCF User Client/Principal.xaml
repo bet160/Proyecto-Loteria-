@@ -8,12 +8,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WCF_User_Client"
         mc:Ignorable="d"
-        Title="Principal" Height="450" Width="579" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+        Title="Principal" Height="488" Width="595" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
     <Window.Background>
         <SolidColorBrush Opacity="0"/>
     </Window.Background>
     <Grid>
-        <Border Margin="0,0,56,408" CornerRadius="40 0 0 0">
+        <Border Margin="0,0,40,446" CornerRadius="40 0 0 0">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF125BB2" Offset="0.241"/>
@@ -30,8 +30,8 @@
                 </Button.Background>
             </Button>
         </Border>
-        <Border Margin="368,0,0,408">
-            <Button Height="Auto" materialDesign:ButtonAssist.CornerRadius="0 40 0 0" BorderThickness="0" Click="CerrarVentana" Margin="154,0,0,0">
+        <Border Margin="371,0,0,408">
+            <Button Height="Auto" materialDesign:ButtonAssist.CornerRadius="0 40 0 0" BorderThickness="0" Click="CerrarVentana" Margin="174,0,0,37">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF125BB2" Offset="0.241"/>
@@ -42,30 +42,18 @@
             </Button>
         </Border>
         <Border CornerRadius="0 0 40 40" Background="White" BorderBrush="#FF2AC308" Margin="0,42,0,0">
-            <Rectangle HorizontalAlignment="Left" Height="3" Margin="0,91,0,0" Stroke="#FFF9F9F9" VerticalAlignment="Top" Width="579" Fill="Black"/>
+            <Rectangle HorizontalAlignment="Left" Height="3" Margin="0,91,0,0" Stroke="#FFF9F9F9" VerticalAlignment="Top" Width="595" Fill="Black"/>
         </Border>
-        <Button Content="Jugar" HorizontalAlignment="Left" Margin="309,326.56,0,0" VerticalAlignment="Top" Width="227"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" Foreground="#DD000000" BorderBrush="#FF76FF04" FontWeight="Normal" FontFamily="Century Gothic" Click="DesplegarTematicas" Height="41"/>
+        <Button Content="¡Jugar Partida!" HorizontalAlignment="Left" Margin="154,411.318,0,0" VerticalAlignment="Top" Width="295"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FF3EFF04" Foreground="#DD000000" BorderBrush="#FF3EFF04" FontWeight="Bold" FontFamily="Century Gothic" Click="DesplegarTematicas" Height="49" FontSize="20"/>
 
-        <Image Source="RecursosUI/loteria.jpg" Margin="189,47,176,323"/>
-        <Button Margin="22,302.317,356.356,107.683" Height="Auto" Background="White" materialDesign:ButtonAssist.CornerRadius="11" FontFamily="Century Gothic" HorizontalContentAlignment="Center" Content="Editar Cuenta" Click="DesplegarEditarPerfil"/>
-        <Button Margin="22,360.317,509,49.682" Height="40" Background="White" materialDesign:ButtonAssist.CornerRadius="11" Foreground="#DD000000" FontFamily="Century Gothic" HorizontalContentAlignment="Right" Click="DesplegarVentanaInicio"/>
-        <materialDesign:PackIcon Kind="FaceOutline" Height="87" Width="109" Margin="70,154.16,0,0" RenderTransformOrigin="0.587,0.506"/>
-        <Label Content="Nombre Usuario" Margin="60.356,246.16,400,176.84" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Label Content="10000" Margin="295,218.71,27,159.29" BorderBrush="#FF08EED9" BorderThickness="0 2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic" FontSize="48" Foreground="#DD09BCFF">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-            <Label.Effect>
-                <DropShadowEffect Color="#FF09ECF7"/>
-            </Label.Effect>
-        </Label>
-        <Label Content="MEJOR PUNTAJE:" Margin="331,167.32,55,247.68" FontFamily="Century Gothic" FontSize="22" Foreground="#DD7E04B8" FontWeight="Bold" RenderTransformOrigin="0.497,-0.035"/>
-        <Rectangle Margin="260,136,318,0" Fill="#FF040202" RenderTransformOrigin="0.5,0.5">
+        <Image Source="RecursosUI/loteria.jpg" Margin="195,47,186,361" Width="214"/>
+        <Button Margin="43.322,321.317,351.678,126.683" Height="40" Background="White" materialDesign:ButtonAssist.CornerRadius="11" FontFamily="Century Gothic" HorizontalContentAlignment="Center" Content="Editar Cuenta" Click="DesplegarEditarPerfil" Width="200"/>
+        <Button Margin="545,54,11,408" Height="26" Background="White" materialDesign:ButtonAssist.CornerRadius="11" Foreground="#DD000000" FontFamily="Century Gothic" HorizontalContentAlignment="Right" Click="DesplegarVentanaInicio" Width="39"/>
+        <materialDesign:PackIcon Kind="FaceOutline" Height="87" Width="109" Margin="86.356,153.16,0,0" RenderTransformOrigin="0.587,0.506"/>
+        <Label Name="LabelNombreUsuario" Content="Nombre Usuario" Margin="86.356,255.77,390,205.23" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Height="27"/>
+        <Label Content="10000" Margin="315,220.16,23,195.84" BorderBrush="#FF08EED9" BorderThickness="0 2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic" FontSize="48" Foreground="#DD09BCFF" Width="257" Height="72" Background="White"/>
+        <Label Content="MEJOR PUNTAJE:" Margin="352,164.16,50,288.84" FontFamily="Century Gothic" FontSize="22" Foreground="#DD7E04B8" FontWeight="Bold" RenderTransformOrigin="0.497,-0.035" Width="193"/>
+        <Rectangle Margin="297,135,296,104" Fill="#FF040202" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -75,8 +63,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <materialDesign:PackIcon Kind="AccountEdit" Margin="24,302.317,0,0" Height="40" Width="37" RenderTransformOrigin="0.595,0.936"/>
-        <materialDesign:PackIcon Kind="Logout" Margin="24,0,0,49.682" VerticalAlignment="Bottom" Height="37" Width="39" RenderTransformOrigin="1.256,0.471"/>
-        <Button Content="Consultar Máximos Puntajes" Margin="309,388.318,43,0" VerticalAlignment="Top"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" FontWeight="Normal" FontFamily="Century Gothic" Click="DesplegarPuntajes" RenderTransformOrigin="0.515,1.209"/>
+        <materialDesign:PackIcon Kind="AccountEdit" Margin="43.322,321.317,0,0" Height="40" Width="37" RenderTransformOrigin="0.595,0.936"/>
+        <materialDesign:PackIcon Kind="Logout" Margin="557,0,0,408" VerticalAlignment="Bottom" Height="26" Width="15" RenderTransformOrigin="1.256,0.471"/>
+        <Button Content="Consultar Máximos Puntajes" Margin="328,321.317,40,0" VerticalAlignment="Top"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" FontWeight="Normal" FontFamily="Century Gothic" Click="DesplegarPuntajes" RenderTransformOrigin="0.515,1.209" Height="40" Width="227"/>
     </Grid>
 </Window>

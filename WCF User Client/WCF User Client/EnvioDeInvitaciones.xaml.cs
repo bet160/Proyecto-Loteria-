@@ -28,11 +28,11 @@ namespace WCF_User_Client
 
        
 
-        private void DesplegarTematicas(object sender, RoutedEventArgs e)
+        private void DesplegarSalaDeJuego(object sender, RoutedEventArgs e)
         {
-            SeleccionTematica ventana = new SeleccionTematica();
+            /*SeleccionTematicaCarros ventana = new SeleccionTematicaCarros();
             ventana.Show();
-            this.Close();
+            this.Close();*/
         }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)

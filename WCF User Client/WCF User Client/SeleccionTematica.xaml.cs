@@ -25,9 +25,16 @@ namespace WCF_User_Client
             InitializeComponent();
         }
         
-        private void DesplegarEnvioInvitaciones(object sender, RoutedEventArgs e)
+        private void DesplegarSeleccionCartasCarros(object sender, RoutedEventArgs e)
         {
-            EnvioDeInvitaciones newForm = new EnvioDeInvitaciones();
+            SeleccionCartasCarros newForm = new SeleccionCartasCarros();
+            newForm.Show();
+            this.Close();
+        }
+
+        private void DesplegarSeleccionCartasFutbol(object sender, RoutedEventArgs e)
+        {
+            SeleccionCartasFutbol newForm = new SeleccionCartasFutbol();
             newForm.Show();
             this.Close();
         }

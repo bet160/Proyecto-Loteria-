@@ -25,7 +25,7 @@ namespace WCF_User_Client
     [CallbackBehavior(UseSynchronizationContext = false)]
     public partial class EditarPerfil : Window, ServidorLoteria.IServicioCuentaUsuarioCallback
     {
-        
+
 
         public EditarPerfil()
         {
@@ -44,6 +44,8 @@ namespace WCF_User_Client
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
         {
+
+
             Principal ventana = new Principal();
             ventana.Show();
             this.Close();
@@ -59,6 +61,16 @@ namespace WCF_User_Client
             this.WindowState = WindowState.Minimized;
         }
 
+        public void Response(string mensaje)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DevuelveObjeto(CuentaSet cuenta)
+        {
+
+        }
+
         public void Respuesta(string mensaje)
         {
             throw new NotImplementedException();
@@ -66,10 +78,15 @@ namespace WCF_User_Client
 
         public void DevuelveCuenta(CuentaSet cuenta)
         {
-
+            throw new NotImplementedException();
         }
 
         public void DevuelvePuntajes(PuntajeUsuario[] puntajes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MensajeChat(string mensaje)
         {
             throw new NotImplementedException();
         }

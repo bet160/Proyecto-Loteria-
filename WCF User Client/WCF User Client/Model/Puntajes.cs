@@ -10,9 +10,9 @@ namespace WCF_User_Client.Model
     {
         string nombreUsuario;
         long? puntaje;
-       
+
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
-        
+
         public long? Puntaje { get => puntaje; set => puntaje = value; }
     }
 }

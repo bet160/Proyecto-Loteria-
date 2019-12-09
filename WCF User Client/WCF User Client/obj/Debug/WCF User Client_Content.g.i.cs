@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("recursosui/mustang.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("recursostematicafutbol/52.jpg")]
 
 
