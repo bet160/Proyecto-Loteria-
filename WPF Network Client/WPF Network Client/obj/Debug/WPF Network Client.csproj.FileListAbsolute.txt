@@ -1,0 +1,30 @@
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\bin\Debug\WPF Network Client.exe.config
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\bin\Debug\WPF Network Client.exe
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\bin\Debug\WPF Network Client.pdb
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.csprojAssemblyReference.cache
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\MainWindow.g.cs
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\App.g.cs
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client_MarkupCompile.cache
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client_MarkupCompile.lref
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\MainWindow.baml
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.g.resources
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF_Network_Client.Properties.Resources.resources
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.csproj.GenerateResource.cache
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.csproj.CoreCompileInputs.cache
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.exe
+C:\Users\juaperez\source\repos\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.pdb
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\bin\Debug\WPF Network Client.exe.config
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\bin\Debug\WPF Network Client.exe
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\bin\Debug\WPF Network Client.pdb
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.csprojAssemblyReference.cache
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\MainWindow.g.cs
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\App.g.cs
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client_MarkupCompile.cache
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client_MarkupCompile.lref
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\MainWindow.baml
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.g.resources
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF_Network_Client.Properties.Resources.resources
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.csproj.GenerateResource.cache
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.csproj.CoreCompileInputs.cache
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.exe
+C:\Users\javie\Documents\WPF Network Client\WPF Network Client\obj\Debug\WPF Network Client.pdb
