@@ -89,7 +89,7 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }

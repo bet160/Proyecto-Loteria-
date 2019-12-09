@@ -67,6 +67,9 @@
     <Compile Include="ConfirmarInvitacion.xaml.cs">
       <DependentUpon>ConfirmarInvitacion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Chat.xaml.cs">
+      <DependentUpon>Chat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServidorLoteria\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,9 +118,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Chat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Partida.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecursosIdiomaPrincipal\Strings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SeleccionTablaAleatoriaCarros.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -208,7 +219,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ServidorLoteria\CalculatorService.wsdl" />
     <None Include="Connected Services\ServidorLoteria\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -221,9 +231,7 @@
     <None Include="Connected Services\ServidorLoteria\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServidorLoteria\item31.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Connected Services\ServidorLoteria\ServicioCuentaUsuario.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -241,6 +249,10 @@
       <Project>{85ad05e1-ba23-43af-a715-18740a311564}</Project>
       <Name>LoteriaEmail</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Recursos_en-US\Recursos_en-US.csproj">
+      <Project>{9f845aee-1896-4065-921a-770262e5ab75}</Project>
+      <Name>Recursos_en-US</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="RecursosUI\Balon.jpg" />
@@ -251,24 +263,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="RecursosUI\Mustang.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServidorLoteria\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServidorLoteria\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServidorLoteria\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServidorLoteria\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServidorLoteria\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="RecursosTematicaFutbol\52.jpg" />
@@ -381,6 +375,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="RecursosTematicaFutbol\39.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServidorLoteria\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,13 +58,11 @@
         </Border>
         <Border CornerRadius="0 0 40 40" Background="White" Margin="0,42,0,0">
         </Border>
-        <Button Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="397,324,0,0" VerticalAlignment="Top" Width="123" materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" Foreground="#DD000000" BorderBrush="#FF2CF000" FontWeight="Normal" Click="DesplegarInicioSesion" FontFamily="Century Gothic"/>
-        <Button Content="Registrar Cuenta" HorizontalAlignment="Left" Margin="30,324,0,0" VerticalAlignment="Top" Width="147" materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" Foreground="#DD000000" BorderBrush="#FF00F0C4" FontWeight="Normal" Click="DesplegarRegistroUsuario" FontFamily="Century Gothic"/>
-        <Image HorizontalAlignment="Left" Height="123" Margin="54,117,0,0" VerticalAlignment="Top" Width="428" Source="RecursosUI/loteria.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-            <Image.OpacityMask>
-                <SolidColorBrush Color="Black"/>
-            </Image.OpacityMask>
-        </Image>
-        <Button Content="Jugar Partida" materialDesign:ButtonAssist.CornerRadius="11" Height="32" Margin="226.7,324,199.7,40" Background="White" BorderBrush="#FFA70EFF" FontFamily="Century Gothic" Click="DesplegarCodigoInvitacion" Width="123"/>
+        <Button Content="{DynamicResource ResourceKey=IniciarSesion}" HorizontalAlignment="Left" Margin="368,272.743,0,0" VerticalAlignment="Top" Width="123" materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" Foreground="#DD000000" BorderBrush="#FFA70EFF" FontWeight="Normal" Click="DesplegarInicioSesion" FontFamily="Century Gothic" RenderTransformOrigin="0.512,-0.562"/>
+        <Button Content="{DynamicResource ResourceKey=RegistrarCuenta}" HorizontalAlignment="Left" Margin="63,272.743,0,0" VerticalAlignment="Top" Width="147" materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" Foreground="#DD000000" BorderBrush="#FF00F0C4" FontWeight="Normal" Click="DesplegarRegistroUsuario" FontFamily="Century Gothic"/>
+        <Image HorizontalAlignment="Left" Height="123" Margin="63,89,0,0" VerticalAlignment="Top" Width="428" Source="RecursosUI/loteria.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+        <RadioButton Content="{DynamicResource ResourceKey=Español}" Margin="367.6,349.977,104.4,25.023" FontFamily="Century Gothic" Checked="CambiarIdiomaAEspañol"/>
+        <RadioButton Content="{DynamicResource ResourceKey=Ingles}" Margin="275.4,349.977,200.8,26.023"  FontFamily="Century Gothic" Checked="CambiarIdiomaAIngles"/>
+        <Label Content="{DynamicResource ResourceKey=CambioIdioma}" Margin="99,346,306,24" FontFamily="Century Gothic" FontSize="14"/>
     </Grid>
 </Window>

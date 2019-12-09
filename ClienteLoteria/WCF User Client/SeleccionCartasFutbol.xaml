@@ -137,9 +137,9 @@
                 <Image x:Name="imagen52" Source="RecursosTematicaFutbol/52.jpg" Stretch="Fill" Width="125" Height="104" Margin="390,1308,-17,0" MouseLeftButtonDown="EstablecerImagen52"/>
             </Grid>
         </ScrollViewer>
-        <Label Content="TABLA" Margin="252,98,1015,588" FontFamily="Century Gothic" FontSize="30" FontWeight="Bold" Foreground="#DDCA00F7" RenderTransformOrigin="1,0.8"/>
-        <Label Content="Opciones de cartas" Margin="790,98,277,588" FontFamily="Century Gothic" FontSize="30" FontWeight="Bold" Foreground="#DDCA00F7"/>
-        <Label Content="Seleccione las tarjetas que quiera incluir en su tabla" Margin="698,180,165,516" FontFamily="Century Gothic" FontSize="20" Foreground="#DD0043F7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="521"/>
+        <Label Content="{DynamicResource ResourceKey=Tabla}" Margin="252,98,1015,588" FontFamily="Century Gothic" FontSize="30" FontWeight="Bold" Foreground="#DDCA00F7" RenderTransformOrigin="1,0.8"/>
+        <Label Content="{DynamicResource ResourceKey=OpcionesCarta}" Margin="790,98,277,588" FontFamily="Century Gothic" FontSize="30" FontWeight="Bold" Foreground="#DDCA00F7"/>
+        <Label Content="{DynamicResource ResourceKey=MensajeSeleccion}" Margin="698,180,165,516" FontFamily="Century Gothic" FontSize="20" Foreground="#DD0043F7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="521"/>
         <Rectangle Stroke="Black" Margin="943,-39,439,232" StrokeThickness="2" RenderTransformOrigin="0.5,0.5" Fill="#FF080808">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -151,10 +151,7 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Rectangle Stroke="Black" Margin="652,168,148,141" StrokeThickness="2"/>
-        <Button Content="Salir de partida" Margin="652,628,586,71" Height="Auto" BorderBrush="Red" Background="White" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic"/>
-        <Button Content="¡A JUGAR!" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Margin="1112,628,150,71" Background="#FF0448FF" Foreground="#DDFFFFFF" BorderBrush="#FF043DFF" FontWeight="Bold" Click="DesplegarPartida"/>
-        <Button Content="Elegir TABLA con cartas aleatorias" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Foreground="#DD000000" BorderBrush="#FF14F93D" Margin="837,628,277,71" Background="White" Click="DesplegarTablasAleaotias"/>
-        <Ellipse Fill="White" Margin="531,63,663,568" Stroke="DarkGreen" StrokeThickness="2"/>
-        <TextBox x:Name ="segundos" HorizontalAlignment="Left" Height="23" Margin="572,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="{DynamicResource ResourceKey=SeleccionAleatoria}" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Foreground="#DD000000" BorderBrush="#FF14F93D" Margin="837,628,277,71" Background="White" Click="DesplegarTablasAleaotias"/>
+        <TextBlock x:Name="segundos" Margin="477,83,599,568" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
     </Grid>
 </Window>

@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Recursos_en_US" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="IniciarSesion">Log In</system:String>
+    <system:String x:Key="RegistrarCuenta">Sign up</system:String>
+    <system:String x:Key="Continuar">Continue</system:String>
+    <system:String x:Key="Cancelar">Cancel</system:String>
+    <system:String x:Key="Correo">E-mail</system:String>
+    <system:String x:Key="Contraseña">Password</system:String>
+    <system:String x:Key="InicioSesión">Log In</system:String>
+    <system:String x:Key="NombreUsuario">User name</system:String>
+    <system:String x:Key="MejorPuntaje">Best Score</system:String>
+    <system:String x:Key="EditarCuenta">Edit Account</system:String>
+    <system:String x:Key="ConsultarMejoresPuntajes">Consult Better Scores</system:String>
+    <system:String x:Key="JugarPartida">¡Play Game!</system:String>
+    <system:String x:Key="Tematica">Choose a theme to continue</system:String>
+    <system:String x:Key="Tabla">Table</system:String>
+    <system:String x:Key="SalirDePartida">Leave starting</system:String>
+    <system:String x:Key="OpcionesCarta">Card options</system:String>
+    <system:String x:Key="MensajeSeleccion">Select the cards you want to include in your table</system:String>
+    <system:String x:Key="Jugar">¡TO PLAY!</system:String>
+    <system:String x:Key="SeleccionAleatoria">Choose TABLE with random cards</system:String>
+    <system:String x:Key="MensajeTablaAleatoria">Select a random TABLE with which you want to play</system:String>
+    <system:String x:Key="Tabla1">Table 1</system:String>
+    <system:String x:Key="Tabla2">Table 2</system:String>
+    <system:String x:Key="Tabla3">Table 3</system:String>
+    <system:String x:Key="Tabla4">Table 4</system:String>
+    <system:String x:Key="RegresarAPersonalizada">Choose custom TABLE</system:String>
+    <system:String x:Key="Codigo">Code</system:String>
+    <system:String x:Key="MensajeVerificacion">Enter the code sent to your email to complete your registration</system:String>
+    <system:String x:Key="CambioIdioma">Change of language:</system:String>
+    <system:String x:Key="Ingles">English</system:String>
+    <system:String x:Key="Español">Spanish</system:String>
+</ResourceDictionary>

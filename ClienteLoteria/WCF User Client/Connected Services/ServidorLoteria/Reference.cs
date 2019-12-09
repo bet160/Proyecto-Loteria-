@@ -222,10 +222,10 @@ namespace WCF_User_Client.ServidorLoteria {
         System.Threading.Tasks.Task GuardarCuentaUsuarioAsync(WCF_User_Client.ServidorLoteria.CuentaSet cuenta);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarMensajeChat")]
-        void EnviarMensajeChat(string nombreUsuario, string mensaje, string[] nombresUSuario);
+        void EnviarMensajeChat(string nombreUsuario, string mensaje, string nombreRemitente);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarMensajeChat")]
-        System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje, string[] nombresUSuario);
+        System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje, string nombreRemitente);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ModificarCuentaUsuario")]
         void ModificarCuentaUsuario(WCF_User_Client.ServidorLoteria.CuentaSet cuenta);
@@ -246,10 +246,10 @@ namespace WCF_User_Client.ServidorLoteria {
         System.Threading.Tasks.Task SolicitarPuntajesAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarInivitacion")]
-        void EnviarInivitacion(string nombreUsuario, string tematica, string[] nombresUsuario);
+        void EnviarInivitacion(string nombreUsuario, string tematica, string nombreRemitente);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarInivitacion")]
-        System.Threading.Tasks.Task EnviarInivitacionAsync(string nombreUsuario, string tematica, string[] nombresUsuario);
+        System.Threading.Tasks.Task EnviarInivitacionAsync(string nombreUsuario, string tematica, string nombreRemitente);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ConfirmacionInvitacion")]
         void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica);
@@ -257,17 +257,17 @@ namespace WCF_User_Client.ServidorLoteria {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ConfirmacionInvitacion")]
         System.Threading.Tasks.Task ConfirmacionInvitacionAsync(bool opcion, string nombreUsuario, string tematica);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ComenzarPartida")]
-        void ComenzarPartida(int[] orden, string[] nombresUsuario);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ComenzarPartida")]
-        System.Threading.Tasks.Task ComenzarPartidaAsync(int[] orden, string[] nombresUsuario);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida")]
+        void FinalizarPartida(string nombreUsuario, string nombreRemitente);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida")]
-        void FinalizarPartida(string nombreUsuario, string[] nombresUsuario);
+        System.Threading.Tasks.Task FinalizarPartidaAsync(string nombreUsuario, string nombreRemitente);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida")]
-        System.Threading.Tasks.Task FinalizarPartidaAsync(string nombreUsuario, string[] nombresUsuario);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ActualizarUsuario")]
+        void ActualizarUsuario(string nombreUsuario, string contraseña);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ActualizarUsuario")]
+        System.Threading.Tasks.Task ActualizarUsuarioAsync(string nombreUsuario, string contraseña);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -289,13 +289,10 @@ namespace WCF_User_Client.ServidorLoteria {
         void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/RecibirConfirmacion")]
-        void RecibirConfirmacion(bool opcion, string tematica);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/RecibirOrdenTarjetas")]
-        void RecibirOrdenTarjetas(int[] orden);
+        void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/RecibirFinPartida")]
-        void RecibirFinPartida(string nombreUsuario);
+        void RecibirFinPartida(string mensaje);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -350,12 +347,12 @@ namespace WCF_User_Client.ServidorLoteria {
             return base.Channel.GuardarCuentaUsuarioAsync(cuenta);
         }
         
-        public void EnviarMensajeChat(string nombreUsuario, string mensaje, string[] nombresUSuario) {
-            base.Channel.EnviarMensajeChat(nombreUsuario, mensaje, nombresUSuario);
+        public void EnviarMensajeChat(string nombreUsuario, string mensaje, string nombreRemitente) {
+            base.Channel.EnviarMensajeChat(nombreUsuario, mensaje, nombreRemitente);
         }
         
-        public System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje, string[] nombresUSuario) {
-            return base.Channel.EnviarMensajeChatAsync(nombreUsuario, mensaje, nombresUSuario);
+        public System.Threading.Tasks.Task EnviarMensajeChatAsync(string nombreUsuario, string mensaje, string nombreRemitente) {
+            return base.Channel.EnviarMensajeChatAsync(nombreUsuario, mensaje, nombreRemitente);
         }
         
         public void ModificarCuentaUsuario(WCF_User_Client.ServidorLoteria.CuentaSet cuenta) {
@@ -382,12 +379,12 @@ namespace WCF_User_Client.ServidorLoteria {
             return base.Channel.SolicitarPuntajesAsync();
         }
         
-        public void EnviarInivitacion(string nombreUsuario, string tematica, string[] nombresUsuario) {
-            base.Channel.EnviarInivitacion(nombreUsuario, tematica, nombresUsuario);
+        public void EnviarInivitacion(string nombreUsuario, string tematica, string nombreRemitente) {
+            base.Channel.EnviarInivitacion(nombreUsuario, tematica, nombreRemitente);
         }
         
-        public System.Threading.Tasks.Task EnviarInivitacionAsync(string nombreUsuario, string tematica, string[] nombresUsuario) {
-            return base.Channel.EnviarInivitacionAsync(nombreUsuario, tematica, nombresUsuario);
+        public System.Threading.Tasks.Task EnviarInivitacionAsync(string nombreUsuario, string tematica, string nombreRemitente) {
+            return base.Channel.EnviarInivitacionAsync(nombreUsuario, tematica, nombreRemitente);
         }
         
         public void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica) {
@@ -398,20 +395,20 @@ namespace WCF_User_Client.ServidorLoteria {
             return base.Channel.ConfirmacionInvitacionAsync(opcion, nombreUsuario, tematica);
         }
         
-        public void ComenzarPartida(int[] orden, string[] nombresUsuario) {
-            base.Channel.ComenzarPartida(orden, nombresUsuario);
+        public void FinalizarPartida(string nombreUsuario, string nombreRemitente) {
+            base.Channel.FinalizarPartida(nombreUsuario, nombreRemitente);
         }
         
-        public System.Threading.Tasks.Task ComenzarPartidaAsync(int[] orden, string[] nombresUsuario) {
-            return base.Channel.ComenzarPartidaAsync(orden, nombresUsuario);
+        public System.Threading.Tasks.Task FinalizarPartidaAsync(string nombreUsuario, string nombreRemitente) {
+            return base.Channel.FinalizarPartidaAsync(nombreUsuario, nombreRemitente);
         }
         
-        public void FinalizarPartida(string nombreUsuario, string[] nombresUsuario) {
-            base.Channel.FinalizarPartida(nombreUsuario, nombresUsuario);
+        public void ActualizarUsuario(string nombreUsuario, string contraseña) {
+            base.Channel.ActualizarUsuario(nombreUsuario, contraseña);
         }
         
-        public System.Threading.Tasks.Task FinalizarPartidaAsync(string nombreUsuario, string[] nombresUsuario) {
-            return base.Channel.FinalizarPartidaAsync(nombreUsuario, nombresUsuario);
+        public System.Threading.Tasks.Task ActualizarUsuarioAsync(string nombreUsuario, string contraseña) {
+            return base.Channel.ActualizarUsuarioAsync(nombreUsuario, contraseña);
         }
     }
 }

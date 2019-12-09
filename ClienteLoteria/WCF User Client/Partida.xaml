@@ -35,57 +35,57 @@
         <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="21" Width="21.5" Margin="1282.799,10,0,0"/>
         <Rectangle Stroke="Black" Margin="46.5,84,805.5,85.5"/>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="70.285,110.651,1210.514,511.65">
-            <Image x:Name="imagenSeleccionada1" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccion"/>
+            <Image x:Name="imagenSeleccionada1" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen1"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="194.785,110.651,1086.014,511.65">
-            <Image x:Name="imagenSeleccionada2" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada2" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen2"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="319.285,110.651,961.514,511.65">
-            <Image x:Name="imagenSeleccionada3" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada3" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen3"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="452.785,110.651,828.014,511.65">
-            <Image x:Name="imagenSeleccionada4" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada4" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen4"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="70.285,241.151,1210.514,381.15">
-            <Image x:Name="imagenSeleccionada5" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada5" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen5"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="194.785,241.151,1086.014,381.15">
-            <Image x:Name="imagenSeleccionada6" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada6" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen6"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="319.285,241.151,961.514,381.15">
-            <Image x:Name="imagenSeleccionada7" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada7" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen7"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="452.785,241.151,828.014,381.15">
-            <Image x:Name="imagenSeleccionada8" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada8" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen8"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="70.285,376.151,1210.514,246.15">
-            <Image x:Name="imagenSeleccionada9" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada9" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen9"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="194.785,376.151,1086.014,246.15">
-            <Image x:Name="imagenSeleccionada10" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada10" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen10"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="319.285,376.151,961.514,246.15">
-            <Image x:Name="imagenSeleccionada11" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada11" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen11"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="452.785,376.151,828.014,246.15">
-            <Image x:Name="imagenSeleccionada12" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada12" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen12"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="70.285,511.151,1210.514,111.15">
-            <Image x:Name="imagenSeleccionada13" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada13" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen13"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="194.785,511.151,1086.014,111.15">
-            <Image x:Name="imagenSeleccionada14" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada14" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen14"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="319.285,511.151,961.514,111.15">
-            <Image x:Name="imagenSeleccionada15" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada15" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen15"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="452.785,511.151,828.014,111.15">
-            <Image x:Name="imagenSeleccionada16" Stretch="Fill"/>
+            <Image x:Name="imagenSeleccionada16" Stretch="Fill" MouseLeftButtonDown="ValidarSeleccionImagen16"/>
         </Border>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="832.285,110.651,235.514,274.65">
             <Image x:Name="imagenActual" Stretch="Fill"/>
         </Border>
-        <Button Content="Sair" Margin="577.5,672.801,612,10" Height="Auto" Click="DesplegarAleatoria"/>
+        <Button Content="Salir" Margin="577.5,672.801,612,10" Height="Auto" Click="AbandonarPartida"/>
         <Ellipse Fill="White" Margin="832.285,493.651,235.514,48.801" Stroke="DarkGreen" StrokeThickness="2"/>
         <TextBlock x:Name="segundos" Margin="832.285,493.651,235.514,48.801" FontFamily="Century Gothic" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100"/>
     </Grid>

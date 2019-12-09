@@ -17,7 +17,7 @@ namespace ServidorLoteria
         [OperationContract(IsOneWay = true)]
         void GuardarCuentaUsuario(CuentaSet cuenta);
         [OperationContract(IsOneWay = true)]
-        void EnviarMensajeChat(string nombreUsuario, string mensaje, List<string>nombresUSuario);
+        void EnviarMensajeChat(string nombreUsuario, string mensaje, string nombreRemitente);
         [OperationContract(IsOneWay = true)]
         void ModificarCuentaUsuario(CuentaSet cuenta);
         [OperationContract(IsOneWay = true)]
@@ -25,13 +25,13 @@ namespace ServidorLoteria
         [OperationContract(IsOneWay = true)]
         void SolicitarPuntajes();
         [OperationContract(IsOneWay = true)]
-        void EnviarInivitacion(string nombreUsuario,string tematica, List<string>nombresUsuario);
+        void EnviarInivitacion(string nombreUsuario,string tematica, string nombreRemitente);
         [OperationContract(IsOneWay = true)]
         void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica);
         [OperationContract(IsOneWay = true)]
-        void ComenzarPartida(List<int>orden, List<string>nombresUsuario);
+        void FinalizarPartida(string nombreUsuario,string nombreRemitente);
         [OperationContract(IsOneWay = true)]
-        void FinalizarPartida(string nombreUsuario,List<string>nombresUsuario);
+        void ActualizarUsuario(string nombreUsuario, string contraseña);
     }
 
     [ServiceContract]
@@ -50,11 +50,9 @@ namespace ServidorLoteria
         [OperationContract(IsOneWay = true)]
         void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica);
         [OperationContract(IsOneWay = true)]
-        void RecibirConfirmacion(bool opcion, string tematica);
+        void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario);
         [OperationContract(IsOneWay = true)]
-        void RecibirOrdenTarjetas(List<int>orden);
-        [OperationContract(IsOneWay = true)]
-        void RecibirFinPartida(string nombreUsuario);
+        void RecibirFinPartida(string mensaje);
 
     }
 

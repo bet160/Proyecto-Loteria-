@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace ClienteLoteria
 {
-    /// <summary>
-    /// Lógica de interacción para Inisio_sesion.xaml
-    /// </summary>
+
     public partial class Inicio : Window
     {
         public Inicio()
@@ -53,6 +51,41 @@ namespace ClienteLoteria
             CodigoInvitacion ventana = new CodigoInvitacion();
             ventana.Show();
             this.Close();
+        }
+
+
+        private void LoadStringResource(string locale)
+        {
+            var resources = new ResourceDictionary();
+
+            resources.Source = new Uri("pack://application:,,,/Recursos_" + locale + ";component/Strings.xaml", UriKind.Absolute);
+
+            var currentResource = Application.Current.Resources.MergedDictionaries.FirstOrDefault(
+                             resource => resource.Source.OriginalString.EndsWith("Strings.xaml"));
+
+
+            if (currentResource != null)
+            {
+                Application.Current.Resources.MergedDictionaries.Remove(currentResource);
+            }
+
+            Application.Current.Resources.MergedDictionaries.Add(resources);
+
+        }
+
+
+        private void CambiarIdiomaAIngles(object sender, RoutedEventArgs e)
+        {
+            LoadStringResource("en-US");
+        }
+
+        private void CambiarIdiomaAEspañol(object sender, RoutedEventArgs e)
+        {
+            var resources = new ResourceDictionary();
+
+            resources.Source = new Uri("pack://application:,,,/RecursosIdiomaPrincipal/Strings.xaml");
+
+            Application.Current.Resources.MergedDictionaries.Add(resources);
         }
     }
 }

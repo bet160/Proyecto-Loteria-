@@ -46,7 +46,6 @@ namespace ServidorLoteria
                 BDLoteriaEntities db = new BDLoteriaEntities();
                 db.CuentaSet.Where(d => d.nombreUsuario == nombreUsuario && d.contraseña == contraseña).First();
                 var cuenta = (from per in db.CuentaSet where per.nombreUsuario == nombreUsuario && per.contraseña == contraseña select per).First();
-                cuenta.contraseña = "";
                 OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().DevuelveCuenta(cuenta);
                 var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
                 _users[connection] = nombreUsuario;
@@ -112,7 +111,7 @@ namespace ServidorLoteria
             }
         }
 
-        public void EnviarMensajeChat(string nombreUsuario, string mensaje, List<string> nombresUSuario)
+        public void EnviarMensajeChat(string nombreUsuario, string mensaje, string nombreRemitente)
         {
             string mensaje1 = "[" + nombreUsuario + "]" + mensaje;
             Thread.Sleep(50);
@@ -120,15 +119,12 @@ namespace ServidorLoteria
 
             foreach (var other in _users)
             {
-                foreach(var nombre1 in nombresUSuario)
-                {
-                    if (other.Value.Equals(nombre1))
+                    if (other.Value.Equals(nombreRemitente))
                     {
                         if (other.Key == connection)
                             continue;
                         other.Key.MensajeChat(mensaje1);
                     }
-                }
             }
         }
 
@@ -165,7 +161,7 @@ namespace ServidorLoteria
             _users[connection] = nombreUsuario;
         }
 
-        public void EnviarInivitacion(string nombreUsuario, string tematica, List<string> nombresUsuario)
+        public void EnviarInivitacion(string nombreUsuario, string tematica, string nombreRemitente)
         {
             try
             {
@@ -173,14 +169,12 @@ namespace ServidorLoteria
 
                 foreach (var other in _users)
                 {
-                    foreach (var nombre1 in nombresUsuario)
-                    {
-                        if ((other.Value.Equals(nombre1))&&(!other.Value.Equals(nombreUsuario))){
-                            if (other.Key == connection)
-                                continue;
-                            other.Key.RecibirInvitacion("Quiere jugar contigo", nombreUsuario, tematica);
-                        }
+                    if (other.Value.Equals(nombreRemitente)){
+                        if (other.Key == connection)
+                            continue;
+                        other.Key.RecibirInvitacion("Quiere jugar contigo", nombreUsuario, tematica);
                     }
+
                 }
             }
             catch (NullReferenceException)
@@ -193,53 +187,49 @@ namespace ServidorLoteria
         public void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica)
         {
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
-
+            Console.WriteLine("Se le envia invitación a "+nombreUsuario);
             foreach (var other in _users)
             {
                     if (other.Value.Equals(nombreUsuario))
                     {
                         if (other.Key == connection)
                             continue;
-                    other.Key.RecibirConfirmacion(opcion,tematica);
+                    other.Key.RecibirConfirmacion(opcion,tematica,nombreUsuario);
                     }
             }
         }
 
-        public void ComenzarPartida(List<int> orden, List<string> nombresUsuario)
+        public void FinalizarPartida(string nombreUsuario, string nombreRemitente)
         {
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
 
             foreach (var other in _users)
             {
-                foreach (var nombre1 in nombresUsuario)
+                if (other.Value.Equals(nombreRemitente))
                 {
-                    if (other.Value.Equals(nombre1))
-                    {
-                        if (other.Key == connection)
-                            continue;
-                        other.Key.RecibirOrdenTarjetas(orden);
-                    }
+                    if (other.Key == connection)
+                        continue;
+                    other.Key.RecibirFinPartida("El usuario "+nombreUsuario+" ha ganado la partida");
                 }
             }
+
         }
 
-        public void FinalizarPartida(string nombreUsuario, List<string> nombresUsuario)
+        public void ActualizarUsuario(string nombreUsuario, string contraseña)
         {
-            var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
-
-            foreach (var other in _users)
+            try
             {
-                foreach (var nombre1 in nombresUsuario)
-                {
-                    if (other.Value.Equals(nombre1))
-                    {
-                        if (other.Key == connection)
-                            continue;
-                        other.Key.RecibirFinPartida(nombreUsuario);
-                    }
-                }
+                BDLoteriaEntities db = new BDLoteriaEntities();
+                db.CuentaSet.Where(d => d.nombreUsuario == nombreUsuario && d.contraseña == contraseña).First();
+                var cuenta = (from per in db.CuentaSet where per.nombreUsuario == nombreUsuario && per.contraseña == contraseña select per).First();
+                OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().DevuelveCuenta(cuenta);
+                Console.WriteLine(nombreUsuario + ": Ha actualizado su cuenta");
+                db.Dispose();
             }
-
+            catch (InvalidOperationException)
+            {
+                OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().Respuesta("Error al registrar en la base de datos");
+            }
         }
     }
 }

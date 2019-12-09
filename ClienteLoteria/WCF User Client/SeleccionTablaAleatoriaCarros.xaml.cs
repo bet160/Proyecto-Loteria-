@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using WCF_User_Client.Model;
 
 namespace ClienteLoteria
@@ -27,15 +28,42 @@ namespace ClienteLoteria
         private List<Image> imagenesVisiblesUI = new List<Image>();
         private Tabla tabla = new Tabla();
 
-        public SeleccionTablaAleatoriaCarros()
+        private int tiempoDisponible;
+        private DispatcherTimer timer;
+
+        public SeleccionTablaAleatoriaCarros(int tiempoDisponible)
         {
             InitializeComponent();
+            this.tiempoDisponible = tiempoDisponible;
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
             CrearListaImagenesDisponibles();
             GuardarElementosEnListaDeImagenesVisiblesUI();
             guardarImagenesEnListaDeTabla(imagenesTabla1);
             guardarImagenesEnListaDeTabla(imagenesTabla2);
             guardarImagenesEnListaDeTabla(imagenesTabla3);
             guardarImagenesEnListaDeTabla(imagenesTabla4);
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            if (tiempoDisponible >= 0)
+            {
+                segundos.Text = string.Format("{0}", tiempoDisponible % 60);
+                tiempoDisponible--;
+            }
+            else
+            {
+                timer.Stop();
+                Partida ventana = new Partida();
+                ventana.Tabla = tabla;
+                ventana.MostrarImagenesVisibles();
+                ventana.Show();
+                this.Close();
+            }
         }
 
         private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
@@ -162,7 +190,8 @@ namespace ClienteLoteria
 
         private void DesplegarSeleccionPersonalizada(object sender, RoutedEventArgs e)
         {
-            SeleccionCartasCarros ventana = new SeleccionCartasCarros();
+            timer.Stop();
+            SeleccionCartasCarros ventana = new SeleccionCartasCarros(tiempoDisponible);
             ventana.Show();
             this.Close();
         }

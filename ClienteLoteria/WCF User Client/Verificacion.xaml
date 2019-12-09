@@ -41,11 +41,11 @@
         </Border>
 
         <Border CornerRadius="0 0 40 40" Background="White" Margin="0,42,0,0"/>
-        <TextBlock Height="56" Margin="41,82.866,51,222.134" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" Foreground="#FF980DCB"><Run Text="Ingrese "/><Run Text="el código enviado a su correo para "/><Run Text="completar su registro"/></TextBlock>
+        <TextBlock Height="56" Margin="41,82.866,51,222.134" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=MensajeVerificacion}"></TextBlock>
 
-        <Button Margin="300,302.243,51,26.756" materialDesign:ButtonAssist.CornerRadius="11" Content="Continuar" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FontFamily="Century Gothic" Click="DesplegarPrincipal"/>
-        <Button Margin="59,302.243,0,26.756" Content="Cancelar" materialDesign:ButtonAssist.CornerRadius="11" BorderBrush="#FFF90F0F" Background="White" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" HorizontalAlignment="Left" Width="98"  Click="DesplegarInicio" FontFamily="Century Gothic"/>
-        <TextBox x:Name="textBoxCodigo" HorizontalAlignment="Left" Height="44" Margin="59,199.366,0,0"  VerticalAlignment="Top" Width="345" materialDesign:HintAssist.Hint="Código" materialDesign:HintAssist.IsFloating="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderBrush="#89081DF5" BorderThickness="0,0,0,1" FontFamily="Century Gothic" FontSize="16" Foreground="#FF39009C" Background="Transparent"/>
+        <Button Margin="300,302.243,51,26.756" materialDesign:ButtonAssist.CornerRadius="11" Content="{DynamicResource ResourceKey=Continuar}" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FontFamily="Century Gothic" Click="DesplegarPrincipal"/>
+        <Button Margin="59,302.243,0,26.756" Content="{DynamicResource ResourceKey=Cancelar}" materialDesign:ButtonAssist.CornerRadius="11" BorderBrush="#FFF90F0F" Background="White" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" HorizontalAlignment="Left" Width="98"  Click="DesplegarInicio" FontFamily="Century Gothic"/>
+        <TextBox x:Name="textBoxCodigo" HorizontalAlignment="Left" Height="44" Margin="59,199.366,0,0"  VerticalAlignment="Top" Width="345" materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=Codigo}" materialDesign:HintAssist.IsFloating="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderBrush="#89081DF5" BorderThickness="0,0,0,1" FontFamily="Century Gothic" FontSize="16" Foreground="#FF39009C" Background="Transparent"/>
 
     </Grid>
 </Window>

@@ -32,9 +32,7 @@
             </Button.Background>
         </Button>
         <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="21" Width="21.5" Margin="1282.799,10,0,0"/>
-        <Button Content="Salir de partida" Margin="642,614,592,85" Height="32" BorderBrush="Red" Background="White" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic"/>
-        <Button Content="¡A JUGAR!" Height="Auto" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Margin="1154,614,122,85" Background="#FF0448FF" Foreground="#DDFFFFFF" BorderBrush="#FF043DFF" FontWeight="Bold" RenderTransformOrigin="0.714,0.647" Click="DesplegarPartida"/>
-        <Button Content="Elegir TABLA personalizada" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Foreground="#DD000000" BorderBrush="#FF14F93D" Margin="869,614,263,85" Background="White" Click="DesplegarSeleccionPersonalizada"/>
+        <Button Content="{DynamicResource ResourceKey=RegresarAPersonalizada}" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Foreground="#DD000000" BorderBrush="#FF14F93D" Margin="869,614,263,85" Background="White" Click="DesplegarSeleccionPersonalizada"/>
         <Rectangle Stroke="Black" Margin="46.5,84,805.5,85.5"/>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="70.285,110.651,1210.514,511.65">
             <Image x:Name="imagenSeleccionada1" Stretch="Fill"/>
@@ -84,12 +82,13 @@
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="452.785,511.151,828.014,111.15">
             <Image x:Name="imagenSeleccionada16" Stretch="Fill"/>
         </Border>
-        <Button Content="Tabla 1" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="642.118,333.891,437.882,327.91" Click="EstablecerImagenesTabla1" Background="White" BorderBrush="#FF7C03F4" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Tabla 2" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="978.451,333.891,101.549,327.91" Click="EstablecerImagenesTabla2" Background="White" BorderBrush="#FFF4FF06" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Tabla 3" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="642.118,439.224,437.882,222.577" Click="EstablecerImagenesTabla3" Background="White" BorderBrush="#FFFFB008" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Tabla 4" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="978.451,439.224,101.549,222.577" Click="EstablecerImagenesTabla4" Background="White" BorderBrush="#FFBDB1B1" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Seleccione una TABLA ALEATORIA&#xD;&#xA;          con la que desee jugar" Margin="765,189,197,473" Foreground="#DD0000FF" FontFamily="Century Gothic" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="422"/>
-        <Rectangle Stroke="Black" Margin="642.118,277.334,101.549,452.967" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
-        <Rectangle Stroke="Black" Margin="642.118,554.001,101.549,176.3" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
+        <Button Content="{DynamicResource ResourceKey=Tabla1}" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="663.667,337.558,416.333,324.243" Click="EstablecerImagenesTabla1" Background="White" BorderBrush="#FF7C03F4" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
+        <Button Content="{DynamicResource ResourceKey=Tabla2}" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="1000,337.558,80,324.243" Click="EstablecerImagenesTabla2" Background="White" BorderBrush="#FFF4FF06" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
+        <Button Content="{DynamicResource ResourceKey=Tabla3}" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="663.667,442.891,416.333,218.91" Click="EstablecerImagenesTabla3" Background="White" BorderBrush="#FFFFB008" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
+        <Button Content="{DynamicResource ResourceKey=Tabla4}" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="1000,442.891,80,218.91" Click="EstablecerImagenesTabla4" Background="White" BorderBrush="#FFBDB1B1" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold"/>
+        <Label Content="{DynamicResource ResourceKey=MensajeTablaAleatoria}" Margin="629.951,178.928,67.049,488.947" Foreground="#DD0000FF" FontFamily="Century Gothic" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="687.299" Height="63.426"/>
+        <Rectangle Stroke="Black" Margin="642.118,277.334,67.049,452.967" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
+        <Rectangle Stroke="Black" Margin="642.118,554.001,67.049,176.3" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
     </Grid>
 </Window>
+

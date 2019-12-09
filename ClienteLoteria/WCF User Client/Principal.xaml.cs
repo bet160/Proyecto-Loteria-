@@ -27,8 +27,8 @@ namespace ClienteLoteria
         {
             InitializeComponent();
             this.cuenta = cuenta;
-            LabelNombreUsuario.Content = cuenta.nombreUsuario;
-            LabelPuntajeMaximo.Content = cuenta.puntajeMaximo;
+            labelNombreUsuario.Content = cuenta.nombreUsuario;
+            labelPuntajeMaximo.Content = cuenta.puntajeMaximo;
         }
 
 
@@ -66,9 +66,9 @@ namespace ClienteLoteria
         private void DesplegarTematicas(object sender, RoutedEventArgs e)
         {
             SeleccionTematica newForm = new SeleccionTematica(cuenta);
-            this.Close();
             newForm.Show();
-            
+            this.Close();
+
         }
     }
 }

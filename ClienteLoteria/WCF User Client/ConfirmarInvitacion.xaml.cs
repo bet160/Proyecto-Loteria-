@@ -38,10 +38,10 @@ namespace WCF_User_Client
         {
             InstanceContext instanceContext = new InstanceContext(this);
             WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-            client.ConfirmacionInvitacion(true, nombreUsuario,tematica);
+            client.ConfirmacionInvitacion(true,nombreUsuario,tematica);
             if (tematica.Equals("Carros"))
             {
-                SeleccionCartasCarros ventana = new SeleccionCartasCarros();
+                SeleccionCartasCarros ventana = new SeleccionCartasCarros(60);
                 this.Close();
                 ventana.Show();
             }
@@ -98,7 +98,7 @@ namespace WCF_User_Client
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }

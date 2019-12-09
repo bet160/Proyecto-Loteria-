@@ -27,6 +27,7 @@ namespace ClienteLoteria
         private List<int> pos = new List<int>();
         private List<Image> mazo = new List<Image>();
         private int pc = 0;
+        private List<Image> cartasMarcadas = new List<Image>();
 
         internal Tabla Tabla { get => tabla; set => tabla = value; }
 
@@ -58,27 +59,122 @@ namespace ClienteLoteria
                 timer.Stop();
                 if(pc <= 51)
                 {
-                    tiempoDisponible = 5;
-                    CambiarCarta(pc);
-                    timer.Start();
+                    if(cartasMarcadas.Count < 16)
+                    {
+                        tiempoDisponible = 5;
+                        CambiarCarta(pc);
+                        timer.Start();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ganaste!!!!!!!!");
+                    }
                 }
             }
         }
 
-        private void ValidarSeleccion(object sender, MouseButtonEventArgs e)
+        private void AgregarCartaMarcada(Image imagen)
         {
-            CompararCartas(imagenSeleccionada1);
+            if (CompararCartas(imagen))
+            {
+                cartasMarcadas.Add(imagen);
+            }
         }
 
-        private void CompararCartas(Image imagen)
+        private void ValidarSeleccionImagen1(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada1);
+        }
+
+        private void ValidarSeleccionImagen2(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada2);
+        }
+
+        private void ValidarSeleccionImagen3(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada3);
+        }
+
+        private void ValidarSeleccionImagen4(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada4);
+
+        }
+
+        private void ValidarSeleccionImagen5(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada5);
+        }
+
+        private void ValidarSeleccionImagen6(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada6);
+        }
+
+        private void ValidarSeleccionImagen7(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada7);
+        }
+
+        private void ValidarSeleccionImagen8(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada8);
+        }
+
+        private void ValidarSeleccionImagen9(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada9);
+
+        }
+
+        private void ValidarSeleccionImagen10(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada10);
+        }
+
+        private void ValidarSeleccionImagen11(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada11);
+        }
+
+        private void ValidarSeleccionImagen12(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada12);
+        }
+
+        private void ValidarSeleccionImagen13(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada13);
+        }
+
+        private void ValidarSeleccionImagen14(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada14);
+
+        }
+
+        private void ValidarSeleccionImagen15(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada15);
+        }
+
+        private void ValidarSeleccionImagen16(object sender, MouseButtonEventArgs e)
+        {
+            AgregarCartaMarcada(imagenSeleccionada16);
+        }
+
+        private bool CompararCartas(Image imagen)
         {
             if(imagenActual.Source.ToString().Equals(imagen.Source.ToString()))
             {
-                imagen.Opacity = .5;  
+                imagen.Opacity = .5;
+                return true;
             }
             else
             {
                 MessageBox.Show("Imagen invalida");
+                return false;
             }
         }
 
@@ -98,6 +194,10 @@ namespace ClienteLoteria
                 Uri resourceUri = new Uri("RecursosTematicaCarros/" + i.ToString() + ".jpg", UriKind.Relative);
                 imagen.Source = new BitmapImage(resourceUri);
                 mazo.Add(imagen);
+                if (i > 52)
+                {
+                    this.Close();
+                }
             }
         }
 
@@ -157,7 +257,12 @@ namespace ClienteLoteria
 
         private void DesplegarAleatoria(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
 
+        private void AbandonarPartida(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

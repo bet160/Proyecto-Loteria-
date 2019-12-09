@@ -42,15 +42,16 @@
             </Button>
         </Border>
         <Border CornerRadius="0 0 40 40" Background="#FFFBFBFB" BorderBrush="#FF2AC308" Margin="0,42,0,0">
-            <TextBlock HorizontalAlignment="Left" Height="45" Margin="31,39,0,0" TextWrapping="Wrap" Text="Elija una tematica para continuar" VerticalAlignment="Top" Width="508" FontFamily="Century Gothic" FontSize="24" TextAlignment="Center" Foreground="#FF1125F1" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Height="45" Margin="31,39,0,0" TextWrapping="Wrap" Text="{DynamicResource ResourceKey=Tematica}" VerticalAlignment="Top" Width="508" FontFamily="Century Gothic" FontSize="24" TextAlignment="Center" Foreground="#FF1125F1" FontWeight="Bold"/>
         </Border>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="445,388.203,0,0" VerticalAlignment="Top" Width="97"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" Foreground="#DD000000" BorderBrush="#FFF90F0F" FontWeight="Normal" Click="DesplegarPrincipal" FontFamily="Century Gothic"/>
+        <Button Content="{DynamicResource ResourceKey=Cancelar}" HorizontalAlignment="Left" Margin="445,388.203,0,0" VerticalAlignment="Top" Width="97"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" Foreground="#DD000000" BorderBrush="#FFF90F0F" FontWeight="Normal" Click="DesplegarPrincipal" FontFamily="Century Gothic"/>
         <Button HorizontalAlignment="Left" Height="185" Margin="27,151,0,0" VerticalAlignment="Top" Width="234" Background="White" Click="DesplegarSeleccionCartasFutbol">
             <Image Source="RecursosUI/Balon.jpg"/>
         </Button>
         <Button Margin="308,151,37,114" Height="Auto" Background="White" Click="DesplegarSeleccionCartasCarros">
             <Image Source="RecursosUI/mtang.jpg" Stretch="Fill" Width="205" Height="112"/>
         </Button>
+
 
     </Grid>
 </Window>

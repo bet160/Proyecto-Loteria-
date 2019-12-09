@@ -36,18 +36,13 @@ namespace ClienteLoteria
 
         private void DesplegarSalaDeJuego(object sender, RoutedEventArgs e)
         {
-            string[] usuarios = new string[2];
-        
-            if (!Invitado1.Text.Equals(""))
-            {
-                usuarios[0] = Invitado1.Text;
-                   
-            }
 
             InstanceContext instanceContext = new InstanceContext(this);
             WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-            client.EnviarInivitacion("Javier23",v, usuarios);
-
+            client.EnviarInivitacion(cuenta.nombreUsuario,v, Invitado1.Text);
+            Principal ventana = new Principal(cuenta);
+            this.Close();
+            ventana.Show();
         }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
@@ -92,8 +87,9 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
+            MessageBox.Show("invitaciones");
             if (opcion == true)
             {
                 if (tematica.Equals("Carros"))
@@ -101,7 +97,7 @@ namespace ClienteLoteria
                     MessageBox.Show("Se ha aceptado su invitación");
                     this.Dispatcher.Invoke(() =>
                     {
-                        SeleccionCartasCarros ventana = new SeleccionCartasCarros();
+                        SeleccionCartasCarros ventana = new SeleccionCartasCarros(60);
                         this.Close();
                         ventana.Show();
 

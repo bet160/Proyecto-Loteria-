@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClienteLoteria" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="IniciarSesion">Iniciar Sesión</system:String>
+    <system:String x:Key="RegistrarCuenta">Registrarte</system:String>
+    <system:String x:Key="Continuar">Continuar</system:String>
+    <system:String x:Key="Cancelar">Cancelar</system:String>
+    <system:String x:Key="NombreUsuario">Nombre de usuario</system:String>
+    <system:String x:Key="Correo">Correo Electrónico</system:String>
+    <system:String x:Key="Contraseña">Contraseña</system:String>
+    <system:String x:Key="InicioSesión">Inicio de Sesión</system:String>
+    <system:String x:Key="MejorPuntaje">Mejor Puntaje</system:String>
+    <system:String x:Key="EditarCuenta">Editar Cuenta</system:String>
+    <system:String x:Key="ConsultarMejoresPuntajes">Consultar Mejores Puntajes</system:String>
+    <system:String x:Key="JugarPartida">¡Jugar Partida!</system:String>
+    <system:String x:Key="Tematica">Elija una temática para continuar</system:String>
+    <system:String x:Key="Tabla">Tabla</system:String>
+    <system:String x:Key="SalirDePartida">Salir de partida</system:String>
+    <system:String x:Key="OpcionesCarta">Opciones de tarjetas</system:String>
+    <system:String x:Key="MensajeSeleccion">seleccione las tarjetas que quiere incluir en su tabla</system:String>
+    <system:String x:Key="Jugar">¡A JUGAR!</system:String>
+    <system:String x:Key="SeleccionAleatoria">Elegir TABLA con tarjetas aleatorias</system:String>
+    <system:String x:Key="MensajeTablaAleatoria">Selecciona una TABLA aleatoria con la que quieras jugar</system:String>
+    <system:String x:Key="Tabla1">Tabla 1</system:String>
+    <system:String x:Key="Tabla2">Tabla 2</system:String>
+    <system:String x:Key="Tabla3">Tabla 3</system:String>
+    <system:String x:Key="Tabla4">Tabla 4</system:String>
+    <system:String x:Key="RegresarAPersonalizada">Elegir TABLA personalizada</system:String>
+    <system:String x:Key="Codigo">Código</system:String>
+    <system:String x:Key="MensajeVerificacion">Ingrese el código enviado a su correo para completar su registro</system:String>
+    <system:String x:Key="CambioIdioma">Cambio de idioma:</system:String>
+    <system:String x:Key="Ingles">Inglés</system:String>
+    <system:String x:Key="Español">Español</system:String>
+</ResourceDictionary>

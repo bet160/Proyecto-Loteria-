@@ -10,11 +10,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoBD" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ServidorLoteria" />
+      <xsd:import schemaLocation="http://192.168.0.10:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.0.10:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.0.10:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoBD" />
+      <xsd:import schemaLocation="http://192.168.0.10:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ServidorLoteria" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServicioCuentaUsuario_IniciarSesion_InputMessage">
@@ -44,11 +43,11 @@
   <wsdl:message name="IServicioCuentaUsuario_ConfirmacionInvitacion_InputMessage">
     <wsdl:part name="parameters" element="tns:ConfirmacionInvitacion" />
   </wsdl:message>
-  <wsdl:message name="IServicioCuentaUsuario_ComenzarPartida_InputMessage">
-    <wsdl:part name="parameters" element="tns:ComenzarPartida" />
-  </wsdl:message>
   <wsdl:message name="IServicioCuentaUsuario_FinalizarPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:FinalizarPartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_ActualizarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarUsuario" />
   </wsdl:message>
   <wsdl:message name="IServicioCuentaUsuario_MensajeChat_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:MensajeChat" />
@@ -67,9 +66,6 @@
   </wsdl:message>
   <wsdl:message name="IServicioCuentaUsuario_RecibirConfirmacion_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RecibirConfirmacion" />
-  </wsdl:message>
-  <wsdl:message name="IServicioCuentaUsuario_RecibirOrdenTarjetas_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:RecibirOrdenTarjetas" />
   </wsdl:message>
   <wsdl:message name="IServicioCuentaUsuario_RecibirFinPartida_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RecibirFinPartida" />
@@ -102,11 +98,11 @@
     <wsdl:operation name="ConfirmacionInvitacion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/ConfirmacionInvitacion" message="tns:IServicioCuentaUsuario_ConfirmacionInvitacion_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ComenzarPartida">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/ComenzarPartida" message="tns:IServicioCuentaUsuario_ComenzarPartida_InputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="FinalizarPartida">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida" message="tns:IServicioCuentaUsuario_FinalizarPartida_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/ActualizarUsuario" message="tns:IServicioCuentaUsuario_ActualizarUsuario_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="MensajeChat">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/MensajeChat" message="tns:IServicioCuentaUsuario_MensajeChat_OutputCallbackMessage" />
@@ -125,9 +121,6 @@
     </wsdl:operation>
     <wsdl:operation name="RecibirConfirmacion">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RecibirConfirmacion" message="tns:IServicioCuentaUsuario_RecibirConfirmacion_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RecibirOrdenTarjetas">
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RecibirOrdenTarjetas" message="tns:IServicioCuentaUsuario_RecibirOrdenTarjetas_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="RecibirFinPartida">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RecibirFinPartida" message="tns:IServicioCuentaUsuario_RecibirFinPartida_OutputCallbackMessage" />
@@ -190,14 +183,14 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="ComenzarPartida">
-      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/ComenzarPartida" style="document" />
+    <wsdl:operation name="FinalizarPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="FinalizarPartida">
-      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida" style="document" />
+    <wsdl:operation name="ActualizarUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/ActualizarUsuario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -238,12 +231,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RecibirOrdenTarjetas">
-      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/RecibirOrdenTarjetas" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="RecibirFinPartida">
       <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/RecibirFinPartida" style="document" />
       <wsdl:output>
@@ -253,9 +240,9 @@
   </wsdl:binding>
   <wsdl:service name="ServicioCuentaUsuario">
     <wsdl:port name="NetTcpBinding_IServicioCuentaUsuario" binding="tns:NetTcpBinding_IServicioCuentaUsuario">
-      <soap12:address location="net.tcp://localhost:8090/CalculatorService" />
+      <soap12:address location="net.tcp://192.168.0.10:8090/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8090/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.0.10:8090/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

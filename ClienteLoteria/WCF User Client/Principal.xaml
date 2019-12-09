@@ -44,15 +44,15 @@
         <Border CornerRadius="0 0 40 40" Background="White" BorderBrush="#FF2AC308" Margin="0,42,0,0">
             <Rectangle HorizontalAlignment="Left" Height="3" Margin="0,91,0,0" Stroke="#FFF9F9F9" VerticalAlignment="Top" Width="595" Fill="Black"/>
         </Border>
-        <Button Content="¡Jugar Partida!" HorizontalAlignment="Left" Margin="154,411.318,0,0" VerticalAlignment="Top" Width="295"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FF3EFF04" Foreground="#DD000000" BorderBrush="#FF3EFF04" FontWeight="Bold" FontFamily="Century Gothic" Click="DesplegarTematicas" Height="49" FontSize="20"/>
+        <Button Content="{DynamicResource ResourceKey=JugarPartida}" HorizontalAlignment="Left" Margin="154,411.318,0,0" VerticalAlignment="Top" Width="295"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FF3EFF04" Foreground="#DD000000" BorderBrush="#FF3EFF04" FontWeight="Bold" FontFamily="Century Gothic" Click="DesplegarTematicas" Height="49" FontSize="20"/>
 
         <Image Source="RecursosUI/loteria.jpg" Margin="195,47,186,361" Width="214"/>
-        <Button Margin="43.322,321.317,351.678,126.683" Height="40" Background="White" materialDesign:ButtonAssist.CornerRadius="11" FontFamily="Century Gothic" HorizontalContentAlignment="Center" Content="Editar Cuenta" Click="DesplegarEditarPerfil" Width="200"/>
+        <Button Margin="43.322,321.317,351.678,126.683" Height="40" Background="White" materialDesign:ButtonAssist.CornerRadius="11" FontFamily="Century Gothic" HorizontalContentAlignment="Center" Content="{DynamicResource ResourceKey=EditarCuenta}" Click="DesplegarEditarPerfil" Width="200"/>
         <Button Margin="545,54,11,408" Height="26" Background="White" materialDesign:ButtonAssist.CornerRadius="11" Foreground="#DD000000" FontFamily="Century Gothic" HorizontalContentAlignment="Right" Click="DesplegarVentanaInicio" Width="39"/>
         <materialDesign:PackIcon Kind="FaceOutline" Height="87" Width="109" Margin="86.356,153.16,0,0" RenderTransformOrigin="0.587,0.506"/>
-        <Label Name="LabelNombreUsuario" Content="Nombre Usuario" Margin="86.356,255.77,390,205.23" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Height="27"/>
-        <Label Name="LabelPuntajeMaximo" Content="10000" Margin="315,220.16,23,195.84" BorderBrush="#FF08EED9" BorderThickness="0 2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic" FontSize="48" Foreground="#DD09BCFF" Width="257" Height="72" Background="White"/>
-        <Label Content="MEJOR PUNTAJE:" Margin="352,164.16,50,288.84" FontFamily="Century Gothic" FontSize="22" Foreground="#DD7E04B8" FontWeight="Bold" RenderTransformOrigin="0.497,-0.035" Width="193"/>
+        <Label Name="labelNombreUsuario" Content="Nombre Usuario" Margin="86.356,255.77,390,205.23" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Height="27"/>
+        <Label  Name="labelPuntajeMaximo" Content="10000" Margin="315,220.16,23,195.84" BorderBrush="#FF08EED9" BorderThickness="0 2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic" FontSize="48" Foreground="#DD09BCFF" Width="257" Height="72" Background="White"/>
+        <Label Content="{DynamicResource ResourceKey=MejorPuntaje}" Margin="371,165.16,64,287.84" FontFamily="Century Gothic" FontSize="22" Foreground="#DD7E04B8" FontWeight="Bold" RenderTransformOrigin="0.497,-0.035"/>
         <Rectangle Margin="297,135,296,104" Fill="#FF040202" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -65,6 +65,6 @@
         </Rectangle>
         <materialDesign:PackIcon Kind="AccountEdit" Margin="43.322,321.317,0,0" Height="40" Width="37" RenderTransformOrigin="0.595,0.936"/>
         <materialDesign:PackIcon Kind="Logout" Margin="557,0,0,408" VerticalAlignment="Bottom" Height="26" Width="15" RenderTransformOrigin="1.256,0.471"/>
-        <Button Content="Consultar Máximos Puntajes" Margin="328,321.317,40,0" VerticalAlignment="Top"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" FontWeight="Normal" FontFamily="Century Gothic" Click="DesplegarPuntajes" RenderTransformOrigin="0.515,1.209" Height="40" Width="227"/>
+        <Button Content="{DynamicResource ResourceKey=ConsultarMejoresPuntajes}" Margin="328,321.317,40,0" VerticalAlignment="Top"  materialDesign:ButtonAssist.CornerRadius="11" Background="#FFF9F9F9" FontWeight="Normal" FontFamily="Century Gothic" Click="DesplegarPuntajes" RenderTransformOrigin="0.515,1.209" Height="40" Width="227"/>
     </Grid>
 </Window>
