@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using WCF_User_Client.Model;
+using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 
@@ -18,14 +19,25 @@ namespace ClienteLoteria
         private List<int> pos = new List<int>();
         private List<Image> mazo = new List<Image>();
         private int pc = 0;
-        public SeleccionCartasFutbol()
+        private List<Image> imagenesOcultas = new List<Image>();
+        Tabla tabla;
+        private CuentaSet cuenta;
+        private int v;
+        private string nombreUsuario;
+        private string tematica;
+        private List<Image> lugaresDisponibles = new List<Image>();
+        public SeleccionCartasFutbol(CuentaSet cuenta, int v, string nombreUsuario)
         {
             InitializeComponent();
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
+            this.cuenta = cuenta;
+            this.tiempoDisponible = v;
+            this.nombreUsuario = nombreUsuario;
         }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
 
@@ -37,19 +49,16 @@ namespace ClienteLoteria
             else
             {
                 timer.Stop();
-                if (pc <= 51)
-                {
-                    tiempoDisponible = 60;
-                    Partida newForm = new Partida();
-                    newForm.Show();
-                    this.Close();
-
-                }
+                tabla = new Tabla();
+                tabla.CartasDeTabla = lugaresDisponibles;
+                Partida ventana = new Partida(cuenta, nombreUsuario);
+                ventana.Tabla = tabla;
+                ventana.MostrarImagenesVisibles();
+                ventana.Show();
+                this.Close();
             }
         }
 
-        private List<Image> imagenesOcultas = new List<Image>();
-        Tabla tabla;
 
         private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
         {
@@ -583,6 +592,7 @@ namespace ClienteLoteria
 
         private void DesplegarTablasAleaotias(object sender, RoutedEventArgs e)
         {
+            timer.Stop();
             SeleccionTablaAleatoriaFutbol ventana = new SeleccionTablaAleatoriaFutbol();
             ventana.Show();
             this.Close();
@@ -602,7 +612,7 @@ namespace ClienteLoteria
         {
             if (ValidarCantidadDeCartasSeleccionadas())
             {
-                Partida ventana = new Partida();
+                Partida ventana = new Partida(cuenta,nombreUsuario);
                 tabla = new Tabla();
                 tabla.CartasDeTabla = imagenesOcultas;
                 //ventana.ImagenesTabla = imagenesOcultas;

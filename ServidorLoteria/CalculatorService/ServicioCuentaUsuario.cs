@@ -169,7 +169,7 @@ namespace ServidorLoteria
 
                 foreach (var other in _users)
                 {
-                    if (other.Value.Equals(nombreRemitente)){
+                    if ((other.Value.Equals(nombreRemitente))&&(!other.Value.Equals(nombreUsuario))){
                         if (other.Key == connection)
                             continue;
                         other.Key.RecibirInvitacion("Quiere jugar contigo", nombreUsuario, tematica);
@@ -187,7 +187,7 @@ namespace ServidorLoteria
         public void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica)
         {
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
-            Console.WriteLine("Se le envia invitación a "+nombreUsuario);
+
             foreach (var other in _users)
             {
                     if (other.Value.Equals(nombreUsuario))

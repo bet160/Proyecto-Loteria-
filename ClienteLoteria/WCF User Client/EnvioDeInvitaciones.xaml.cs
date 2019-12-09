@@ -41,8 +41,8 @@ namespace ClienteLoteria
             WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
             client.EnviarInivitacion(cuenta.nombreUsuario,v, Invitado1.Text);
             Principal ventana = new Principal(cuenta);
-            this.Close();
             ventana.Show();
+            this.Close();
         }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
@@ -84,20 +84,18 @@ namespace ClienteLoteria
 
         public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
         {
-            throw new NotImplementedException();
+           
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
         {
-            MessageBox.Show("invitaciones");
             if (opcion == true)
             {
                 if (tematica.Equals("Carros"))
                 {
-                    MessageBox.Show("Se ha aceptado su invitación");
                     this.Dispatcher.Invoke(() =>
                     {
-                        SeleccionCartasCarros ventana = new SeleccionCartasCarros(60);
+                       SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta,60,Invitado1.Text);
                         this.Close();
                         ventana.Show();
 
@@ -105,12 +103,11 @@ namespace ClienteLoteria
                 }
                 if (tematica.Equals("Futbol"))
                 {
-                    MessageBox.Show("Se ha aceptado su invitación");
                     this.Dispatcher.Invoke(() =>
                     {
-                        SeleccionCartasFutbol ventana = new SeleccionCartasFutbol();
-                        this.Close();
-                        ventana.Show();
+                       SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta,60,Invitado1.Text);
+                       this.Close();
+                       ventana.Show();
 
                     });
                 }

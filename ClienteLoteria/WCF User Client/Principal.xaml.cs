@@ -19,7 +19,7 @@ namespace ClienteLoteria
     /// <summary>
     /// Lógica de interacción para InicioSesion.xaml
     /// </summary>
-    public partial class Principal : Window
+    public partial class Principal : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
     {
         private CuentaSet cuenta;
 
@@ -66,9 +66,49 @@ namespace ClienteLoteria
         private void DesplegarTematicas(object sender, RoutedEventArgs e)
         {
             SeleccionTematica newForm = new SeleccionTematica(cuenta);
-            newForm.Show();
             this.Close();
+            newForm.Show();
+            
+        }
 
+        public void MensajeChat(string mensaje)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Respuesta(string mensaje)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DevuelveCuenta(CuentaSet cuenta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DevuelvePuntajes(PuntajeUsuario[] puntajes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        {
+
+        }
+
+        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecibirOrdenTarjetas(int[] orden)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecibirFinPartida(string nombreUsuario)
+        {
+            throw new NotImplementedException();
         }
     }
 }

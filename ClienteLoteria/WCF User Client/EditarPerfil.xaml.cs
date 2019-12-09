@@ -89,7 +89,7 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
         {
             throw new NotImplementedException();
         }
@@ -109,27 +109,6 @@ namespace ClienteLoteria
             Principal ventana = new Principal(cuenta);
             ventana.Show();
             this.Close();
-        }
-
-        private void CambiarFoto_Click(object sender, RoutedEventArgs e)
-        {
-            if (imgFoto.Source == null)
-
-            {
-                OpenFileDialog openFile = new OpenFileDialog();
-                BitmapImage b = new BitmapImage();
-                openFile.Title = "Seleccione la imagen que desea";
-                openFile.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp";
-                if (openFile.ShowDialog() == true)
-                {
-                    b.BeginInit();
-                    b.UriSource = new Uri(openFile.FileName);
-                    b.EndInit();
-                    imgFoto.Stretch = Stretch.Fill;
-                    imgFoto.Source = b;
-                }
-
-            }
         }
     }
 }

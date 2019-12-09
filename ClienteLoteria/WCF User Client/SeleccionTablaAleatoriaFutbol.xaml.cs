@@ -162,19 +162,19 @@ namespace ClienteLoteria
 
         private void DesplegarPartida(object sender, RoutedEventArgs e)
         {
-            Partida ventana = new Partida();
+            //Partida ventana = new Partida();
             //ventana.ImagenesTabla = imagenesVisiblesUI;
-            ventana.Tabla = tabla;
-            ventana.MostrarImagenesVisibles();
-            ventana.Show();
+            //ventana.Tabla = tabla;
+            //ventana.MostrarImagenesVisibles();
+            //ventana.Show();
             this.Close();
         }
 
         private void DesplegarSeleccionPersonalizada(object sender, RoutedEventArgs e)
         {
-            SeleccionCartasFutbol ventana = new SeleccionCartasFutbol();
-            ventana.Show();
-            this.Close();
+           // SeleccionCartasFutbol ventana = new SeleccionCartasFutbol();
+           // ventana.Show();
+           // this.Close();
         }
     }
 }

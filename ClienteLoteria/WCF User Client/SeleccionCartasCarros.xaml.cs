@@ -13,24 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WCF_User_Client.Model;
+using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 
 {
     public partial class SeleccionCartasCarros : Window
     {
-        
         private int tiempoDisponible;
         private DispatcherTimer timer;
 
         private Tabla tabla;
         private List<Image> imagenesOcultas = new List<Image>();
         private List<Image> lugaresDisponibles = new List<Image>();
+        private CuentaSet cuenta;
+        private string nombreUsuario;
 
-        public SeleccionCartasCarros(int tiempoDisponible)
+        public SeleccionCartasCarros(CuentaSet cuenta, int v, string nombreUsuario)
         {
             InitializeComponent();
-            this.tiempoDisponible = tiempoDisponible;
+            this.tiempoDisponible = v;
+            this.nombreUsuario = nombreUsuario;
+            this.cuenta = cuenta;
             GuardarLugaresDisponibles();
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -51,7 +55,7 @@ namespace ClienteLoteria
                 timer.Stop();
                 tabla = new Tabla();
                 tabla.CartasDeTabla = lugaresDisponibles;
-                Partida ventana = new Partida();
+                Partida ventana = new Partida(cuenta,nombreUsuario);
                 ventana.Tabla = tabla;
                 ventana.MostrarImagenesVisibles();
                 ventana.Show();
@@ -59,13 +63,6 @@ namespace ClienteLoteria
             }
         }
 
-
-        private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
-        {
-            Inicio newForm = new Inicio();
-            newForm.Show();
-            this.Close();
-        }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
         {
@@ -480,7 +477,7 @@ namespace ClienteLoteria
         private void DesplegarTablasAleaotias(object sender, RoutedEventArgs e)
         {
             timer.Stop();
-            SeleccionTablaAleatoriaCarros ventana = new SeleccionTablaAleatoriaCarros(tiempoDisponible);
+            SeleccionTablaAleatoriaCarros ventana = new SeleccionTablaAleatoriaCarros(tiempoDisponible, cuenta, nombreUsuario);
             ventana.Show();
             this.Close();
         }

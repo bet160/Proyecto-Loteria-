@@ -50,7 +50,7 @@ namespace ServidorLoteria
         [OperationContract(IsOneWay = true)]
         void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica);
         [OperationContract(IsOneWay = true)]
-        void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario);
+        void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario);
         [OperationContract(IsOneWay = true)]
         void RecibirFinPartida(string mensaje);
 

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WCF_User_Client.Model;
+using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 
@@ -30,11 +31,15 @@ namespace ClienteLoteria
 
         private int tiempoDisponible;
         private DispatcherTimer timer;
+        private CuentaSet cuenta;
+        private string nombreUsuario;
 
-        public SeleccionTablaAleatoriaCarros(int tiempoDisponible)
+        public SeleccionTablaAleatoriaCarros(int tiempoDisponible, CuentaSet cuenta, string nombreUsuario)
         {
             InitializeComponent();
             this.tiempoDisponible = tiempoDisponible;
+            this.cuenta = cuenta;
+            this.nombreUsuario = nombreUsuario;
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
@@ -58,7 +63,7 @@ namespace ClienteLoteria
             else
             {
                 timer.Stop();
-                Partida ventana = new Partida();
+                Partida ventana = new Partida(cuenta,nombreUsuario);
                 ventana.Tabla = tabla;
                 ventana.MostrarImagenesVisibles();
                 ventana.Show();
@@ -191,19 +196,19 @@ namespace ClienteLoteria
         private void DesplegarSeleccionPersonalizada(object sender, RoutedEventArgs e)
         {
             timer.Stop();
-            SeleccionCartasCarros ventana = new SeleccionCartasCarros(tiempoDisponible);
-            ventana.Show();
-            this.Close();
+            //SeleccionCartasCarros ventana = new SeleccionCartasCarros(tiempoDisponible);
+            //ventana.Show();
+            //this.Close();
         }
 
         private void DesplegarPartida(object sender, RoutedEventArgs e)
         {
-            Partida ventana = new Partida();
+            //Partida ventana = new Partida();
             //ventana.ImagenesTabla = imagenesVisiblesUI;
-            ventana.Tabla = tabla;
-            ventana.MostrarImagenesVisibles();
-            ventana.Show();
-            this.Close();
+            //ventana.Tabla = tabla;
+            //ventana.MostrarImagenesVisibles();
+            //ventana.Show();
+            //this.Close();
         }
     }
 }

@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,11 +14,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using WCF_User_Client.Model;
+using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 
 {
-    public partial class Partida : Window
+    public partial class Partida : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
     {
         //private List<Image> imagenesTabla = new List<Image>();
         Tabla tabla;
@@ -28,14 +30,19 @@ namespace ClienteLoteria
         private List<Image> mazo = new List<Image>();
         private int pc = 0;
         private List<Image> cartasMarcadas = new List<Image>();
+        private CuentaSet cuenta;
+        private string nombreUsuario;
+        private int puntaje = 3600;
 
         internal Tabla Tabla { get => tabla; set => tabla = value; }
 
         //public List<Image> ImagenesTabla { get => imagenesTabla; set => imagenesTabla = value; }
 
-        public Partida()
+        public Partida(CuentaSet cuenta, string nombreUsuario)
         {
             InitializeComponent();
+            this.cuenta = cuenta;
+            this.nombreUsuario = nombreUsuario;
             GuardarElementosEnListaDeImagenesVisiblesUI();
             Mazo();
             Lista();
@@ -67,7 +74,18 @@ namespace ClienteLoteria
                     }
                     else
                     {
-                        MessageBox.Show("Ganaste!!!!!!!!");
+                        InstanceContext instanceContext = new InstanceContext(this);
+                        WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
+                        client.FinalizarPartida(cuenta.nombreUsuario,nombreUsuario);
+                        client.RegistrarPuntajeMáximo(cuenta.nombreUsuario,puntaje);
+                        cuenta.puntajeMaximo = puntaje;
+                        Principal ventana = new Principal(cuenta);
+                        this.Close();
+                        ventana.Show();
+                    }
+                    if(pc > 16)
+                    {
+                        puntaje = puntaje - 100;
                     }
                 }
             }
@@ -260,9 +278,44 @@ namespace ClienteLoteria
             this.Close();
         }
 
-        private void AbandonarPartida(object sender, RoutedEventArgs e)
+        public void MensajeChat(string mensaje)
         {
-            this.Close();
+            throw new NotImplementedException();
+        }
+
+        public void Respuesta(string mensaje)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DevuelveCuenta(CuentaSet cuenta)
+        {
+            this.cuenta = cuenta;
+        }
+
+        public void DevuelvePuntajes(PuntajeUsuario[] puntajes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecibirOrdenTarjetas(int[] orden)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RecibirFinPartida(string mensaje)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -25,11 +25,12 @@ namespace WCF_User_Client
     {
         private string nombreUsuario;
         private string tematica;
+        private CuentaSet cuenta;
 
-
-        public ConfirmarInvitacion(string nombreUsuario, string tematica)
+        public ConfirmarInvitacion(CuentaSet cuenta, string nombreUsuario, string tematica)
         {
             InitializeComponent();
+            this.cuenta = cuenta;
             this.nombreUsuario = nombreUsuario;
             this.tematica = tematica;
         }
@@ -38,16 +39,16 @@ namespace WCF_User_Client
         {
             InstanceContext instanceContext = new InstanceContext(this);
             WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-            client.ConfirmacionInvitacion(true,nombreUsuario,tematica);
+            client.ConfirmacionInvitacion(true, nombreUsuario,tematica);
             if (tematica.Equals("Carros"))
             {
-                SeleccionCartasCarros ventana = new SeleccionCartasCarros(60);
+                SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta,60,nombreUsuario);
                 this.Close();
                 ventana.Show();
             }
             if (tematica.Equals("Futbol"))
             {
-                SeleccionCartasFutbol ventana = new SeleccionCartasFutbol();
+                SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta, 60, nombreUsuario);
                 this.Close();
                 ventana.Show();
             }
@@ -98,7 +99,7 @@ namespace WCF_User_Client
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
         {
             throw new NotImplementedException();
         }

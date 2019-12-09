@@ -25,8 +25,8 @@ namespace ClienteLoteria
     [CallbackBehavior(UseSynchronizationContext = false)]
     public partial class InicioSesion : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
     {
-        CuentaSet cuenta;
 
+        private CuentaSet cuenta;
         public InicioSesion()
         {
             InitializeComponent();
@@ -119,26 +119,25 @@ namespace ClienteLoteria
 
         public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
         {
-            MessageBox.Show("inicio sesión");
+
             this.Dispatcher.Invoke(() =>
             {
-                ConfirmarInvitacion ventana = new ConfirmarInvitacion(nombreUsuario,tematica);
+                this.Close();
+                ConfirmarInvitacion ventana = new ConfirmarInvitacion(cuenta,nombreUsuario,tematica);
                 ventana.MensajeInvitacion.Content = nombreUsuario + " " + mensaje + " en la tematica de " + tematica;
                 ventana.Show();
-                this.Close();
             });
         }
 
         public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
         {
-            MessageBox.Show("inicio sesión");
             if (opcion == true)
             {
                 if (tematica.Equals("Carros"))
                 {
                     this.Dispatcher.Invoke(() =>
                     {
-                        SeleccionCartasCarros ventana = new SeleccionCartasCarros(60);
+                        SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta,60,nombreUsuario);
                         this.Close();
                         ventana.Show();
 
@@ -149,7 +148,7 @@ namespace ClienteLoteria
                     MessageBox.Show("Se ha aceptado su invitación");
                     this.Dispatcher.Invoke(() =>
                     {
-                        SeleccionCartasFutbol ventana = new SeleccionCartasFutbol();
+                        SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta,60,nombreUsuario);
                         this.Close();
                         ventana.Show();
 
