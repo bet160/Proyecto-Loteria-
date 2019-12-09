@@ -43,16 +43,14 @@
         <Border CornerRadius="0 0 40 40" Background="White" Margin="0,42,0,0"/>
         <TextBlock Height="39" Margin="41,86.866,51,243.134" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="30" TextAlignment="Center" Foreground="#FF980DCB" Text="Máximos puntajes"/>
         <Button Margin="300,302.243,51,26.756" materialDesign:ButtonAssist.CornerRadius="11" Content="Aceptar" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FontFamily="Century Gothic" Click="DesplegarPrincipal"/>
-        <Grid>
-            <ListView Margin="52,147,34,81" Name="lvUsers" RenderTransformOrigin="0.498,0.354">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="NombreUsuario" Width="120" DisplayMemberBinding="{Binding NombreUsuario}" />
-                        <GridViewColumn Header="Puntaje" Width="150" DisplayMemberBinding="{Binding Puntaje}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Grid>
+        <ListView Margin="52,147,34,81" Name="lvUsers" RenderTransformOrigin="0.498,0.354">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="NombreUsuario" Width="120" DisplayMemberBinding="{Binding NombreUsuario}" />
+                    <GridViewColumn Header="Puntaje" Width="150" DisplayMemberBinding="{Binding Puntaje}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

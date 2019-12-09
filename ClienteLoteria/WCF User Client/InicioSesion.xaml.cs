@@ -1,6 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using ClienteLoteria.Model;
 using WCF_User_Client;
 using WCF_User_Client.ServidorLoteria;
@@ -14,6 +25,7 @@ namespace ClienteLoteria
     [CallbackBehavior(UseSynchronizationContext = false)]
     public partial class InicioSesion : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
     {
+
 
         public InicioSesion()
         {
@@ -30,7 +42,7 @@ namespace ClienteLoteria
                 InstanceContext instanceContext = new InstanceContext(this);
                 WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
 
-                if (ValidarDatosIngresados(nombreUsuario, contraseña))
+                if(ValidarDatosIngresados(nombreUsuario, contraseña))
                 {
                     client.IniciarSesion(nombreUsuario, contraseña);
                 }
@@ -44,6 +56,7 @@ namespace ClienteLoteria
                 
             }
         }
+
 
         private bool ValidarDatosIngresados(string nombreUsuario, string contraseña)
         {
@@ -63,9 +76,8 @@ namespace ClienteLoteria
         private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
         {
             Inicio newForm = new Inicio();
-            this.Close();
             newForm.Show();
-
+            this.Close();
         }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
@@ -78,16 +90,25 @@ namespace ClienteLoteria
             this.WindowState = WindowState.Minimized;
         }
 
-        public void Respuesta(string mensaje)
+        public void MensajeChat(string mensaje)
         {
             throw new NotImplementedException();
         }
 
+        public void Respuesta(string mensaje)
+        {
+            MessageBox.Show(mensaje);
+        }
+
         public void DevuelveCuenta(CuentaSet cuenta)
         {
-            Principal ventana = new Principal(cuenta);
-            this.Close();
-            ventana.Show();
+            this.Dispatcher.Invoke(() =>
+            {
+                Principal ventana = new Principal(cuenta);
+                this.Close();
+                ventana.Show();
+               
+            });
         }
 
         public void DevuelvePuntajes(PuntajeUsuario[] puntajes)
@@ -95,26 +116,48 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void MensajeChat(string mensaje)
-        {
-            MessageBox.Show(mensaje);
-        }
-
         public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
         {
             this.Dispatcher.Invoke(() =>
             {
-                ConfirmarInvitacion ventana = new ConfirmarInvitacion();
-                ventana.MensajeInvitacion.Content = nombreUsuario+" "+ mensaje+" en la tematica de "+tematica;
+                ConfirmarInvitacion ventana = new ConfirmarInvitacion(nombreUsuario,tematica);
+                ventana.MensajeInvitacion.Content = nombreUsuario + " " + mensaje + " en la tematica de " + tematica;
                 ventana.Show();
                 this.Close();
             });
-
         }
 
-        public void RecibirConfirmacion(bool opcion)
+        public void RecibirConfirmacion(bool opcion, string tematica)
         {
-            throw new NotImplementedException();
+            if (opcion == true)
+            {
+                if (tematica.Equals("Carros"))
+                {
+                    MessageBox.Show("Se ha aceptado su invitación");
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        SeleccionCartasCarros ventana = new SeleccionCartasCarros();
+                        this.Close();
+                        ventana.Show();
+
+                    });
+                }
+                if (tematica.Equals("Futbol"))
+                {
+                    MessageBox.Show("Se ha aceptado su invitación");
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        SeleccionCartasFutbol ventana = new SeleccionCartasFutbol();
+                        this.Close();
+                        ventana.Show();
+
+                    });
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se acepto la invitación");
+            }
         }
 
         public void RecibirOrdenTarjetas(int[] orden)

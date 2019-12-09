@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Threading;
+using WCF_User_Client.Model;
 
 namespace ClienteLoteria
 
@@ -18,12 +12,44 @@ namespace ClienteLoteria
 
     public partial class SeleccionCartasFutbol : Window
     {
+        private List<Image> imagenesVisiblesUI = new List<Image>();
+        private int tiempoDisponible = 60;
+        private DispatcherTimer timer;
+        private List<int> pos = new List<int>();
+        private List<Image> mazo = new List<Image>();
+        private int pc = 0;
         public SeleccionCartasFutbol()
         {
             InitializeComponent();
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            if (tiempoDisponible >= 0)
+            {
+                segundos.Text = string.Format("{0}", tiempoDisponible % 60);
+                tiempoDisponible--;
+            }
+            else
+            {
+                timer.Stop();
+                if (pc <= 51)
+                {
+                    tiempoDisponible = 60;
+                    Partida newForm = new Partida();
+                    newForm.Show();
+                    this.Close();
+
+                }
+            }
         }
 
         private List<Image> imagenesOcultas = new List<Image>();
+        Tabla tabla;
 
         private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
         {
@@ -577,7 +603,10 @@ namespace ClienteLoteria
             if (ValidarCantidadDeCartasSeleccionadas())
             {
                 Partida ventana = new Partida();
-                ventana.ImagenesTabla = imagenesOcultas;
+                tabla = new Tabla();
+                tabla.CartasDeTabla = imagenesOcultas;
+                //ventana.ImagenesTabla = imagenesOcultas;
+                ventana.Tabla = tabla;
                 ventana.MostrarImagenesVisibles();
                 ventana.Show();
                 this.Close();

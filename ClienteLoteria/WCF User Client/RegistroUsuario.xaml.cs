@@ -111,6 +111,11 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
+        public void MensajeChat(string mensaje)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Respuesta(string mensaje)
         {
             throw new NotImplementedException();
@@ -126,17 +131,12 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void MensajeChat(string mensaje)
-        {
-            throw new NotImplementedException();
-        }
-
         public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
         {
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion)
+        public void RecibirConfirmacion(bool opcion,string tematica)
         {
             throw new NotImplementedException();
         }

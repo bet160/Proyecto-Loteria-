@@ -51,7 +51,7 @@
         <Button Margin="545,54,11,408" Height="26" Background="White" materialDesign:ButtonAssist.CornerRadius="11" Foreground="#DD000000" FontFamily="Century Gothic" HorizontalContentAlignment="Right" Click="DesplegarVentanaInicio" Width="39"/>
         <materialDesign:PackIcon Kind="FaceOutline" Height="87" Width="109" Margin="86.356,153.16,0,0" RenderTransformOrigin="0.587,0.506"/>
         <Label Name="LabelNombreUsuario" Content="Nombre Usuario" Margin="86.356,255.77,390,205.23" FontFamily="Century Gothic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Height="27"/>
-        <Label Name="LabelPuntaje" Content="10000" Margin="315,220.16,23,195.84" BorderBrush="#FF08EED9" BorderThickness="0 2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic" FontSize="48" Foreground="#DD09BCFF" Width="257" Height="72" Background="White"/>
+        <Label Name="LabelPuntajeMaximo" Content="10000" Margin="315,220.16,23,195.84" BorderBrush="#FF08EED9" BorderThickness="0 2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic" FontSize="48" Foreground="#DD09BCFF" Width="257" Height="72" Background="White"/>
         <Label Content="MEJOR PUNTAJE:" Margin="352,164.16,50,288.84" FontFamily="Century Gothic" FontSize="22" Foreground="#DD7E04B8" FontWeight="Bold" RenderTransformOrigin="0.497,-0.035" Width="193"/>
         <Rectangle Margin="297,135,296,104" Fill="#FF040202" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>

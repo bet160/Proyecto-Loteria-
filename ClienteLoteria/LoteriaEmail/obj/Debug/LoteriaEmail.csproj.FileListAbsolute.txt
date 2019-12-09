@@ -12,10 +12,10 @@ C:\Users\javie\Desktop\chat\WCF User Client\LoteriaEmail\obj\Debug\LoteriaEmail.
 C:\Users\javie\Desktop\chat\WCF User Client\LoteriaEmail\obj\Debug\LoteriaEmail.csproj.CoreCompileInputs.cache
 C:\Users\javie\Desktop\chat\WCF User Client\LoteriaEmail\obj\Debug\LoteriaEmail.exe
 C:\Users\javie\Desktop\chat\WCF User Client\LoteriaEmail\obj\Debug\LoteriaEmail.pdb
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe.config
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.pdb
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csprojAssemblyReference.cache
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csproj.CoreCompileInputs.cache
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.exe
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csprojAssemblyReference.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csproj.CoreCompileInputs.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.pdb

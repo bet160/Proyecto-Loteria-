@@ -44,7 +44,7 @@ namespace ClienteLoteria
                 }
 
             }
-            Principal ventana = new Principal(cuenta);
+            InicioSesion ventana = new InicioSesion();
             ventana.Show();
             this.Close();
         }

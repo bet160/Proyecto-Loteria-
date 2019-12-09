@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 {
@@ -19,29 +20,31 @@ namespace ClienteLoteria
     /// </summary>
     public partial class SeleccionTematica : Window
     {
+        private CuentaSet cuenta;
 
-        public SeleccionTematica()
+        public SeleccionTematica(CuentaSet cuenta)
         {
             InitializeComponent();
+            this.cuenta = cuenta;
         }
-        
+
         private void DesplegarSeleccionCartasCarros(object sender, RoutedEventArgs e)
         {
-            SeleccionCartasCarros newForm = new SeleccionCartasCarros();
+            EnvioDeInvitaciones newForm = new EnvioDeInvitaciones(cuenta,"Carros");
             newForm.Show();
             this.Close();
         }
 
         private void DesplegarSeleccionCartasFutbol(object sender, RoutedEventArgs e)
         {
-            SeleccionCartasFutbol newForm = new SeleccionCartasFutbol();
+            EnvioDeInvitaciones newForm = new EnvioDeInvitaciones(cuenta,"Futbol");
             newForm.Show();
             this.Close();
         }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
         {
-            Principal newForm = new Principal();
+            Principal newForm = new Principal(cuenta);
             newForm.Show();
             this.Close();
         }
