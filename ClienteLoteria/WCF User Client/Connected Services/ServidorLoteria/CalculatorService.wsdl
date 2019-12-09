@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioCuentaUsuario" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioCuentaUsuario_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoBD" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ServidorLoteria" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioCuentaUsuario_IniciarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_CerrarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_GuardarCuentaUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarCuentaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_EnviarMensajeChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarMensajeChat" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_ModificarCuentaUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarCuentaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_RegistrarPuntajeMáximo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarPuntajeMáximo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_SolicitarPuntajes_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitarPuntajes" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_EnviarInivitacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarInivitacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_ConfirmacionInvitacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmacionInvitacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_ComenzarPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:ComenzarPartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_FinalizarPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinalizarPartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_MensajeChat_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MensajeChat" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_Respuesta_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Respuesta" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_DevuelveCuenta_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:DevuelveCuenta" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_DevuelvePuntajes_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:DevuelvePuntajes" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_RecibirInvitacion_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecibirInvitacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_RecibirConfirmacion_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecibirConfirmacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_RecibirOrdenTarjetas_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecibirOrdenTarjetas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioCuentaUsuario_RecibirFinPartida_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecibirFinPartida" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioCuentaUsuario">
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/IniciarSesion" message="tns:IServicioCuentaUsuario_IniciarSesion_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/CerrarSesion" message="tns:IServicioCuentaUsuario_CerrarSesion_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarCuentaUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/GuardarCuentaUsuario" message="tns:IServicioCuentaUsuario_GuardarCuentaUsuario_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarMensajeChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/EnviarMensajeChat" message="tns:IServicioCuentaUsuario_EnviarMensajeChat_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCuentaUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/ModificarCuentaUsuario" message="tns:IServicioCuentaUsuario_ModificarCuentaUsuario_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarPuntajeMáximo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RegistrarPuntajeMáximo" message="tns:IServicioCuentaUsuario_RegistrarPuntajeMáximo_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SolicitarPuntajes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/SolicitarPuntajes" message="tns:IServicioCuentaUsuario_SolicitarPuntajes_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarInivitacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/EnviarInivitacion" message="tns:IServicioCuentaUsuario_EnviarInivitacion_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmacionInvitacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/ConfirmacionInvitacion" message="tns:IServicioCuentaUsuario_ConfirmacionInvitacion_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ComenzarPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/ComenzarPartida" message="tns:IServicioCuentaUsuario_ComenzarPartida_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinalizarPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida" message="tns:IServicioCuentaUsuario_FinalizarPartida_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MensajeChat">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/MensajeChat" message="tns:IServicioCuentaUsuario_MensajeChat_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Respuesta">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/Respuesta" message="tns:IServicioCuentaUsuario_Respuesta_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevuelveCuenta">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/DevuelveCuenta" message="tns:IServicioCuentaUsuario_DevuelveCuenta_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevuelvePuntajes">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/DevuelvePuntajes" message="tns:IServicioCuentaUsuario_DevuelvePuntajes_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirInvitacion">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RecibirInvitacion" message="tns:IServicioCuentaUsuario_RecibirInvitacion_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirConfirmacion">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RecibirConfirmacion" message="tns:IServicioCuentaUsuario_RecibirConfirmacion_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirOrdenTarjetas">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RecibirOrdenTarjetas" message="tns:IServicioCuentaUsuario_RecibirOrdenTarjetas_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirFinPartida">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioCuentaUsuario/RecibirFinPartida" message="tns:IServicioCuentaUsuario_RecibirFinPartida_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IServicioCuentaUsuario" type="tns:IServicioCuentaUsuario">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioCuentaUsuario_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="IniciarSesion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/IniciarSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/CerrarSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarCuentaUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/GuardarCuentaUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarMensajeChat">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/EnviarMensajeChat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCuentaUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/ModificarCuentaUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarPuntajeMáximo">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/RegistrarPuntajeMáximo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SolicitarPuntajes">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/SolicitarPuntajes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarInivitacion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/EnviarInivitacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmacionInvitacion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/ConfirmacionInvitacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ComenzarPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/ComenzarPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="FinalizarPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MensajeChat">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/MensajeChat" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Respuesta">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/Respuesta" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevuelveCuenta">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/DevuelveCuenta" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevuelvePuntajes">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/DevuelvePuntajes" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirInvitacion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/RecibirInvitacion" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirConfirmacion">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/RecibirConfirmacion" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirOrdenTarjetas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/RecibirOrdenTarjetas" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirFinPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioCuentaUsuario/RecibirFinPartida" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioCuentaUsuario">
+    <wsdl:port name="NetTcpBinding_IServicioCuentaUsuario" binding="tns:NetTcpBinding_IServicioCuentaUsuario">
+      <soap12:address location="net.tcp://localhost:8090/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/CalculatorService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

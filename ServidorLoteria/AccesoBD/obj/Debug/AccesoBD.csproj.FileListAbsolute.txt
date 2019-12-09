@@ -21,3 +21,15 @@ C:\Users\javie\Desktop\Proyecto\ProyectoVersion2\ServidorLoteria\AccesoBD\obj\De
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion2\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.csproj.CopyComplete
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion2\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.dll
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion2\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\bin\Debug\AccesoBD.dll.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\bin\Debug\AccesoBD.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\bin\Debug\AccesoBD.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\bin\Debug\EntityFramework.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\bin\Debug\EntityFramework.xml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.csprojAssemblyReference.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.csproj.CoreCompileInputs.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.csproj.CopyComplete
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ServidorLoteria\AccesoBD\obj\Debug\AccesoBD.pdb

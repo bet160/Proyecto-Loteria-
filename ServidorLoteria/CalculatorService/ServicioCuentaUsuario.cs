@@ -14,31 +14,15 @@ namespace ServidorLoteria
     {
         readonly Dictionary<ICalculatorServiceCallback, string> _users  = new Dictionary<ICalculatorServiceCallback, string>();
 
-        public void CerrarSesion(string nombreUsuario)
-        {
-            try
-            { 
-                foreach (var other in _users.Keys)
-                {
-                    if (other.Equals(nombreUsuario))
-                        _users.Remove(other);
-                }
-                Console.WriteLine(nombreUsuario + ": Ha terminado su sesión");
-            }
-            catch (InvalidOperationException)
-            {
-                OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().Respuesta("Ocurrio un error al intentar cerrar sesión");
-            }
-        }
-
         public void GuardarCuentaUsuario(CuentaSet cuenta)
         {
             try
             {
+                Console.WriteLine("BDloteriaEntities1");
                 BDLoteriaEntities db = new BDLoteriaEntities();
+                Console.WriteLine("BDloteriaEntities");
                 var c = (from per in db.CuentaSet where per.nombreUsuario == cuenta.nombreUsuario select per).First();
-                c.correo = cuenta.correo;
-
+                Console.WriteLine("Consulta");
                 if (c != null)
                 {
                     OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().Respuesta("El usuario ya ha sido registrado");
@@ -53,7 +37,7 @@ namespace ServidorLoteria
             }
             catch (InvalidOperationException)
             {
-                OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().Respuesta("El usuario o contrasela son erroneos");
+                OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().Respuesta("El usuario o contraseña son erroneos");
             }
         }
 
@@ -63,10 +47,10 @@ namespace ServidorLoteria
             {
                 BDLoteriaEntities db = new BDLoteriaEntities();
                 db.CuentaSet.Where(d => d.nombreUsuario == nombreUsuario && d.contraseña == contraseña).First();
-                var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
-                _users[connection] = nombreUsuario;
                 var cuenta = (from per in db.CuentaSet where per.nombreUsuario == nombreUsuario && per.contraseña == contraseña select per).First();
                 OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().DevuelveCuenta(cuenta);
+                var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
+                _users[connection] = nombreUsuario;
                 Console.WriteLine(nombreUsuario + ": Ha iniciado sesión");
                 db.Dispose();
             }
@@ -129,19 +113,24 @@ namespace ServidorLoteria
             }
         }
 
-        public void EnviarMensajeChat(string nombreUsuario, string mensaje)
+        public void EnviarMensajeChat(string nombreUsuario, string mensaje, List<string> nombresUSuario)
         {
             string mensaje1 = "[" + nombreUsuario + "]" + mensaje;
             Thread.Sleep(50);
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
 
-            foreach (var other in _users.Keys)
+            foreach (var other in _users)
             {
-                if (other == connection)
-                    continue;
-                other.Respuesta(mensaje1);
+                foreach(var nombre1 in nombresUSuario)
+                {
+                    if (other.Value.Equals(nombre1))
+                    {
+                        if (other.Key == connection)
+                            continue;
+                        other.Key.MensajeChat(mensaje1);
+                    }
+                }
             }
-
         }
 
         public void SolicitarPuntajes()
@@ -169,6 +158,74 @@ namespace ServidorLoteria
             {
                 OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().Respuesta("Ocurrio un error al intentar acceder a la base de datos intentelo más tarde");
             }
+        }
+
+        public void CerrarSesion(string nombreUsuario)
+        {
+            var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
+            _users[connection] = nombreUsuario;
+            Console.WriteLine(nombreUsuario+" Acaba de cerrar sesión");
+        }
+
+        public void EnviarInivitacion(string nombreUsuario, string tematica, List<string> invitados)
+        {
+            var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
+
+            foreach (var other in _users)
+            {
+                foreach (var nombre1 in nombresUsuario)
+                {
+                    if (other.Value.Equals(nombre1))
+                    {
+                        if (other.Key == connection)
+                            continue;
+                        other.Key.RecibirInvitacion("Quiere jugar contigo",nombreUsuario,tematica);
+                    }
+                }
+            }
+        }
+
+        public void ConfirmacionInvitacion(bool opcion, string nombreUsuario)
+        {
+        
+  
+        }
+
+        public void ComenzarPartida(List<int> orden, List<string> nombresUsuario)
+        {
+            var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
+
+            foreach (var other in _users)
+            {
+                foreach (var nombre1 in nombresUsuario)
+                {
+                    if (other.Value.Equals(nombre1))
+                    {
+                        if (other.Key == connection)
+                            continue;
+                        other.Key.RecibirOrdenTarjetas(orden);
+                    }
+                }
+            }
+        }
+
+        public void FinalizarPartida(string nombreUsuario, List<string> nombresUsuario)
+        {
+            var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
+
+            foreach (var other in _users)
+            {
+                foreach (var nombre1 in nombresUsuario)
+                {
+                    if (other.Value.Equals(nombre1))
+                    {
+                        if (other.Key == connection)
+                            continue;
+                        other.Key.RecibirFinPartida(nombreUsuario);
+                    }
+                }
+            }
+
         }
     }
 }

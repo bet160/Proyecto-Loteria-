@@ -1,0 +1,161 @@
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\WCF User Client.exe.config
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\WCF User Client.exe
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\WCF User Client.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\LoteriaEmail.exe
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\MaterialDesignColors.dll
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\LoteriaEmail.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\LoteriaEmail.exe.config
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\MaterialDesignColors.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\GUI.csprojAssemblyReference.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Partida.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionTablaAleatoriaCarros.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionTablaAleatoriaFutbol.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionCartasFutbol.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionCartasCarros.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Principal.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\EnvioDeInvitaciones.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionTematica.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\InicioSesion.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Inicio.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\RegistroUsuario.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\EditarPerfil.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\ConsultaPuntajes.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\CodigoInvitacion.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Verificacion.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\App.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\WCF User Client_MarkupCompile.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\WCF User Client_MarkupCompile.lref
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\App.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Partida.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionTablaAleatoriaFutbol.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionCartasFutbol.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionCartasCarros.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Principal.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\EnvioDeInvitaciones.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionTematica.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\InicioSesion.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Inicio.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\RegistroUsuario.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\EditarPerfil.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\ConsultaPuntajes.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\CodigoInvitacion.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\Verificacion.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\SeleccionTablaAleatoriaCarros.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\WCF User Client.g.resources
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\WCF_User_Client.Properties.Resources.resources
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\GUI.csproj.CopyComplete
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\WCF User Client.exe
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\WCF User Client\WCF User Client\obj\Debug\WCF User Client.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\WCF User Client.exe.config
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\WCF User Client.exe
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\WCF User Client.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\LoteriaEmail.exe
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignColors.dll
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\LoteriaEmail.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\LoteriaEmail.exe.config
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignColors.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\GUI.csprojAssemblyReference.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Partida.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaCarros.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaFutbol.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasFutbol.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasCarros.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Principal.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\EnvioDeInvitaciones.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTematica.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\InicioSesion.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Inicio.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\RegistroUsuario.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\EditarPerfil.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\ConsultaPuntajes.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\CodigoInvitacion.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Verificacion.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\App.g.cs
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client_MarkupCompile.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client_MarkupCompile.lref
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\App.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Partida.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaCarros.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaFutbol.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasFutbol.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasCarros.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Principal.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\EnvioDeInvitaciones.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTematica.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\InicioSesion.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Inicio.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\RegistroUsuario.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\EditarPerfil.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\ConsultaPuntajes.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\CodigoInvitacion.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\Verificacion.baml
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client.g.resources
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\WCF_User_Client.Properties.Resources.resources
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\GUI.csproj.CopyComplete
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client.exe
+C:\Users\beto\Documents\LoteriaActualizado\Proyecto\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\GUI.csprojAssemblyReference.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Partida.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaCarros.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaFutbol.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasFutbol.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasCarros.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Principal.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\EnvioDeInvitaciones.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTematica.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\InicioSesion.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Inicio.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\RegistroUsuario.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\EditarPerfil.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\ConsultaPuntajes.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\CodigoInvitacion.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Verificacion.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\App.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client_MarkupCompile.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client_MarkupCompile.lref
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\WCF User Client.exe.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\WCF User Client.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\WCF User Client.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\LoteriaEmail.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignColors.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\LoteriaEmail.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\LoteriaEmail.exe.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignColors.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\App.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Partida.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaCarros.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTablaAleatoriaFutbol.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasFutbol.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionCartasCarros.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Principal.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\EnvioDeInvitaciones.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\SeleccionTematica.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\InicioSesion.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Inicio.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\RegistroUsuario.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\EditarPerfil.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\ConsultaPuntajes.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\CodigoInvitacion.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\Verificacion.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\WCF User Client.g.resources
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\WCF_User_Client.Properties.Resources.resources
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\GUI.csproj.GenerateResource.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\GUI.csproj.CopyComplete
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\ConfirmarInvitacion.g.cs
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion4\ClienteLoteria\WCF User Client\obj\Debug\ConfirmarInvitacion.baml

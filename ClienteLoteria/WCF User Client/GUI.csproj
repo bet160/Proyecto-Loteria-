@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D30A4695-6ABA-45CE-9BC9-1D3227346E14}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WCF_User_Client</RootNamespace>
+    <AssemblyName>WCF User Client</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ConfirmarInvitacion.xaml.cs">
+      <DependentUpon>ConfirmarInvitacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServidorLoteria\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Puntajes.cs" />
+    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Partida.xaml.cs">
+      <DependentUpon>Partida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionTablaAleatoriaCarros.xaml.cs">
+      <DependentUpon>SeleccionTablaAleatoriaCarros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionTablaAleatoriaFutbol.xaml.cs">
+      <DependentUpon>SeleccionTablaAleatoriaFutbol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionCartasFutbol.xaml.cs">
+      <DependentUpon>SeleccionCartasFutbol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionCartasCarros.xaml.cs">
+      <DependentUpon>SeleccionCartasCarros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.xaml.cs">
+      <DependentUpon>Principal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EnvioDeInvitaciones.xaml.cs">
+      <DependentUpon>EnvioDeInvitaciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionTematica.xaml.cs">
+      <DependentUpon>SeleccionTematica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarPerfil.xaml.cs">
+      <DependentUpon>EditarPerfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaPuntajes.xaml.cs">
+      <DependentUpon>ConsultaPuntajes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CodigoInvitacion.xaml.cs">
+      <DependentUpon>CodigoInvitacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Verificacion.xaml.cs">
+      <DependentUpon>Verificacion.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ConfirmarInvitacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partida.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeleccionTablaAleatoriaCarros.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeleccionTablaAleatoriaFutbol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeleccionCartasFutbol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeleccionCartasCarros.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Principal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EnvioDeInvitaciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SeleccionTematica.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InicioSesion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Inicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistroUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InicioSesion.xaml.cs">
+      <DependentUpon>InicioSesion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.xaml.cs">
+      <DependentUpon>Inicio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroUsuario.xaml.cs">
+      <DependentUpon>RegistroUsuario.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="EditarPerfil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConsultaPuntajes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CodigoInvitacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Verificacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Connected Services\ServidorLoteria\CalculatorService.wsdl" />
+    <None Include="Connected Services\ServidorLoteria\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServidorLoteria\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServidorLoteria\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServidorLoteria\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServidorLoteria\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoteriaEmail\LoteriaEmail.csproj">
+      <Project>{85ad05e1-ba23-43af-a715-18740a311564}</Project>
+      <Name>LoteriaEmail</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosUI\Balon.jpg" />
+    <Resource Include="RecursosUI\loteria.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosUI\mtang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosUI\Mustang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServidorLoteria\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServidorLoteria\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosTematicaFutbol\52.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosTematicaCarros\1.jpg" />
+    <Resource Include="RecursosTematicaCarros\10.jpg" />
+    <Resource Include="RecursosTematicaCarros\11.jpg" />
+    <Resource Include="RecursosTematicaCarros\12.jpg" />
+    <Resource Include="RecursosTematicaCarros\13.jpg" />
+    <Resource Include="RecursosTematicaCarros\14.jpg" />
+    <Resource Include="RecursosTematicaCarros\15.jpg" />
+    <Resource Include="RecursosTematicaCarros\16.jpg" />
+    <Resource Include="RecursosTematicaCarros\17.jpg" />
+    <Resource Include="RecursosTematicaCarros\18.jpg" />
+    <Resource Include="RecursosTematicaCarros\19.jpg" />
+    <Resource Include="RecursosTematicaCarros\2.jpg" />
+    <Resource Include="RecursosTematicaCarros\20.jpg" />
+    <Resource Include="RecursosTematicaCarros\21.jpg" />
+    <Resource Include="RecursosTematicaCarros\22.jpg" />
+    <Resource Include="RecursosTematicaCarros\23.jpg" />
+    <Resource Include="RecursosTematicaCarros\24.jpg" />
+    <Resource Include="RecursosTematicaCarros\25.jpg" />
+    <Resource Include="RecursosTematicaCarros\26.jpg" />
+    <Resource Include="RecursosTematicaCarros\27.jpg" />
+    <Resource Include="RecursosTematicaCarros\28.jpg" />
+    <Resource Include="RecursosTematicaCarros\29.jpg" />
+    <Resource Include="RecursosTematicaCarros\3.jpg" />
+    <Resource Include="RecursosTematicaCarros\30.jpg" />
+    <Resource Include="RecursosTematicaCarros\31.jpg" />
+    <Resource Include="RecursosTematicaCarros\32.jpg" />
+    <Resource Include="RecursosTematicaCarros\33.jpg" />
+    <Resource Include="RecursosTematicaCarros\34.jpg" />
+    <Resource Include="RecursosTematicaCarros\35.jpg" />
+    <Resource Include="RecursosTematicaCarros\36.jpg" />
+    <Resource Include="RecursosTematicaCarros\37.jpg" />
+    <Resource Include="RecursosTematicaCarros\38.jpg" />
+    <Resource Include="RecursosTematicaCarros\39.jpg" />
+    <Resource Include="RecursosTematicaCarros\4.jpg" />
+    <Resource Include="RecursosTematicaCarros\40.jpg" />
+    <Resource Include="RecursosTematicaCarros\41.jpg" />
+    <Resource Include="RecursosTematicaCarros\42.jpg" />
+    <Resource Include="RecursosTematicaCarros\43.jpg" />
+    <Resource Include="RecursosTematicaCarros\44.jpg" />
+    <Resource Include="RecursosTematicaCarros\45.jpg" />
+    <Resource Include="RecursosTematicaCarros\46.jpg" />
+    <Resource Include="RecursosTematicaCarros\47.jpg" />
+    <Resource Include="RecursosTematicaCarros\48.jpg" />
+    <Resource Include="RecursosTematicaCarros\49.jpg" />
+    <Resource Include="RecursosTematicaCarros\5.jpg" />
+    <Resource Include="RecursosTematicaCarros\50.jpg" />
+    <Resource Include="RecursosTematicaCarros\51.jpg" />
+    <Resource Include="RecursosTematicaCarros\52.jpg" />
+    <Resource Include="RecursosTematicaCarros\6.jpg" />
+    <Resource Include="RecursosTematicaCarros\7.jpg" />
+    <Resource Include="RecursosTematicaCarros\8.jpg" />
+    <Resource Include="RecursosTematicaCarros\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosTematicaFutbol\1.jpg" />
+    <Resource Include="RecursosTematicaFutbol\10.jpg" />
+    <Resource Include="RecursosTematicaFutbol\11.jpg" />
+    <Resource Include="RecursosTematicaFutbol\12.jpg" />
+    <Resource Include="RecursosTematicaFutbol\13.jpg" />
+    <Resource Include="RecursosTematicaFutbol\14.jpg" />
+    <Resource Include="RecursosTematicaFutbol\15.jpg" />
+    <Resource Include="RecursosTematicaFutbol\16.jpg" />
+    <Resource Include="RecursosTematicaFutbol\17.jpg" />
+    <Resource Include="RecursosTematicaFutbol\18.jpg" />
+    <Resource Include="RecursosTematicaFutbol\19.jpg" />
+    <Resource Include="RecursosTematicaFutbol\2.jpg" />
+    <Resource Include="RecursosTematicaFutbol\20.jpg" />
+    <Resource Include="RecursosTematicaFutbol\21.jpg" />
+    <Resource Include="RecursosTematicaFutbol\22.jpg" />
+    <Resource Include="RecursosTematicaFutbol\23.jpg" />
+    <Resource Include="RecursosTematicaFutbol\24.jpg" />
+    <Resource Include="RecursosTematicaFutbol\25.jpg" />
+    <Resource Include="RecursosTematicaFutbol\26.jpg" />
+    <Resource Include="RecursosTematicaFutbol\27.jpg" />
+    <Resource Include="RecursosTematicaFutbol\28.jpg" />
+    <Resource Include="RecursosTematicaFutbol\29.jpg" />
+    <Resource Include="RecursosTematicaFutbol\3.jpg" />
+    <Resource Include="RecursosTematicaFutbol\30.jpg" />
+    <Resource Include="RecursosTematicaFutbol\31.jpg" />
+    <Resource Include="RecursosTematicaFutbol\32.jpg" />
+    <Resource Include="RecursosTematicaFutbol\33.jpg" />
+    <Resource Include="RecursosTematicaFutbol\34.jpg" />
+    <Resource Include="RecursosTematicaFutbol\35.jpg" />
+    <Resource Include="RecursosTematicaFutbol\36.jpg" />
+    <Resource Include="RecursosTematicaFutbol\37.jpg" />
+    <Resource Include="RecursosTematicaFutbol\38.jpg" />
+    <Resource Include="RecursosTematicaFutbol\4.jpg" />
+    <Resource Include="RecursosTematicaFutbol\40.jpg" />
+    <Resource Include="RecursosTematicaFutbol\41.jpg" />
+    <Resource Include="RecursosTematicaFutbol\42.jpg" />
+    <Resource Include="RecursosTematicaFutbol\43.jpg" />
+    <Resource Include="RecursosTematicaFutbol\44.jpg" />
+    <Resource Include="RecursosTematicaFutbol\45.jpg" />
+    <Resource Include="RecursosTematicaFutbol\46.jpg" />
+    <Resource Include="RecursosTematicaFutbol\47.jpg" />
+    <Resource Include="RecursosTematicaFutbol\48.jpg" />
+    <Resource Include="RecursosTematicaFutbol\49.jpg" />
+    <Resource Include="RecursosTematicaFutbol\5.jpg" />
+    <Resource Include="RecursosTematicaFutbol\50.jpg" />
+    <Resource Include="RecursosTematicaFutbol\51.jpg" />
+    <Resource Include="RecursosTematicaFutbol\6.jpg" />
+    <Resource Include="RecursosTematicaFutbol\7.jpg" />
+    <Resource Include="RecursosTematicaFutbol\8.jpg" />
+    <Resource Include="RecursosTematicaFutbol\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RecursosTematicaFutbol\39.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
