@@ -1,16 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using WCF_User_Client.Model;
 using WCF_User_Client.ServidorLoteria;
@@ -28,11 +20,13 @@ namespace ClienteLoteria
         private List<Image> imagenesTabla4 = new List<Image>();
         private List<Image> imagenesVisiblesUI = new List<Image>();
         private Tabla tabla = new Tabla();
-
+        private const string TEMATICA = "Carros";
         private int tiempoDisponible;
         private DispatcherTimer timer;
         private CuentaSet cuenta;
         private string nombreUsuario;
+        private const int CANTIDADMINIMADECARTAS = 16;
+        private const int TIEMPOLIMITEPARAELEGIRCARTAS = 0;
 
         public SeleccionTablaAleatoriaCarros(int tiempoDisponible, CuentaSet cuenta, string nombreUsuario)
         {
@@ -40,10 +34,7 @@ namespace ClienteLoteria
             this.tiempoDisponible = tiempoDisponible;
             this.cuenta = cuenta;
             this.nombreUsuario = nombreUsuario;
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            IniciarCuentaRegresiva();
             CrearListaImagenesDisponibles();
             GuardarElementosEnListaDeImagenesVisiblesUI();
             guardarImagenesEnListaDeTabla(imagenesTabla1);
@@ -55,27 +46,40 @@ namespace ClienteLoteria
         private void Timer_Tick(object sender, EventArgs e)
         {
 
-            if (tiempoDisponible >= 0)
+            if (tiempoDisponible >= TIEMPOLIMITEPARAELEGIRCARTAS)
             {
-                segundos.Text = string.Format("{0}", tiempoDisponible % 60);
+                segundos.Text = tiempoDisponible.ToString();
                 tiempoDisponible--;
             }
             else
             {
                 timer.Stop();
-                Partida ventana = new Partida(cuenta,nombreUsuario);
-                ventana.Tabla = tabla;
-                ventana.MostrarImagenesVisibles();
-                ventana.Show();
-                this.Close();
+                ValidarSeleccion();
+                Chat ventana = new Chat(tabla, cuenta, nombreUsuario, TEMATICA);
+                DesplegarVentana(ventana);
             }
         }
 
-        private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
+        private void DesplegarVentana(Window ventana)
         {
-            Inicio newForm = new Inicio();
-            newForm.Show();
+            ventana.Show();
             this.Close();
+        }
+
+        private void IniciarCuentaRegresiva()
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void ValidarSeleccion()
+        {
+            if(imagenSeleccionada1.Source == null)
+            {
+                tabla.CartasDeTabla = imagenesTabla1;
+            }
         }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
@@ -175,7 +179,7 @@ namespace ClienteLoteria
         {
             int numeroImagen;
 
-            while (imagenes.Count < 16) {
+            while (imagenes.Count < CANTIDADMINIMADECARTAS) {
                 numeroImagen = GenerarNumeroAleatorio();
                 if (!imagenes.Contains(numeroImagen))
                 {
@@ -195,20 +199,8 @@ namespace ClienteLoteria
 
         private void DesplegarSeleccionPersonalizada(object sender, RoutedEventArgs e)
         {
-            timer.Stop();
-            //SeleccionCartasCarros ventana = new SeleccionCartasCarros(tiempoDisponible);
-            //ventana.Show();
-            //this.Close();
-        }
-
-        private void DesplegarPartida(object sender, RoutedEventArgs e)
-        {
-            //Partida ventana = new Partida();
-            //ventana.ImagenesTabla = imagenesVisiblesUI;
-            //ventana.Tabla = tabla;
-            //ventana.MostrarImagenesVisibles();
-            //ventana.Show();
-            //this.Close();
+            SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta, tiempoDisponible, nombreUsuario);
+            DesplegarVentana(ventana);
         }
     }
 }

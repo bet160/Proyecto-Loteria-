@@ -1,42 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 
 {
-    /// <summary>
-    /// Lógica de interacción para InicioSesion.xaml
-    /// </summary>
-    public partial class Principal : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
+    public partial class Principal : Window, IServicioCuentaUsuarioCallback
     {
         private CuentaSet cuenta;
 
-        public Principal(CuentaSet cuenta)
+        public Principal(CuentaSet cuentaRecuperada)
         {
             InitializeComponent();
-            this.cuenta = cuenta;
-            labelNombreUsuario.Content = cuenta.nombreUsuario;
-            labelPuntajeMaximo.Content = cuenta.puntajeMaximo;
+            labelNombreUsuario.Content = cuentaRecuperada.nombreUsuario;
+            labelPuntajeMaximo.Content = cuentaRecuperada.puntajeMaximo.ToString();
+            this.cuenta = cuentaRecuperada;
         }
 
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
 
         private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
         {
-            Inicio newForm = new Inicio();
-            newForm.Show();
-            this.Close();
+            Inicio ventana = new Inicio();
+            DesplegarVentana(ventana);
         }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
@@ -51,23 +41,20 @@ namespace ClienteLoteria
 
         private void DesplegarEditarPerfil(object sender, RoutedEventArgs e)
         {
-            EditarPerfil newForm = new EditarPerfil(cuenta);
-            newForm.Show();
-            this.Close();
+            EditarPerfil ventana = new EditarPerfil(cuenta);
+            DesplegarVentana(ventana);
         }
 
         private void DesplegarPuntajes(object sender, RoutedEventArgs e)
         {
-            ConsultaPuntajes newForm = new ConsultaPuntajes(cuenta);
-            newForm.Show();
-            this.Close();
+            ConsultaPuntajes ventana = new ConsultaPuntajes(cuenta);
+            DesplegarVentana(ventana);
         }
 
         private void DesplegarTematicas(object sender, RoutedEventArgs e)
         {
-            SeleccionTematica newForm = new SeleccionTematica(cuenta);
-            this.Close();
-            newForm.Show();
+            SeleccionTematica ventana = new SeleccionTematica(cuenta);
+            DesplegarVentana(ventana);
             
         }
 
@@ -91,12 +78,12 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
-
+            throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }
@@ -106,7 +93,7 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirFinPartida(string nombreUsuario)
+        public void RecibirFinPartida(string mensaje)
         {
             throw new NotImplementedException();
         }

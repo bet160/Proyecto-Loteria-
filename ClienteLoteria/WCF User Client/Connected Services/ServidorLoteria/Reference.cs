@@ -246,16 +246,16 @@ namespace WCF_User_Client.ServidorLoteria {
         System.Threading.Tasks.Task SolicitarPuntajesAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarInivitacion")]
-        void EnviarInivitacion(string nombreUsuario, string tematica, string nombreRemitente);
+        void EnviarInivitacion(string mensaje, string nombreUsuario, string tematica, string nombreRemitente);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/EnviarInivitacion")]
-        System.Threading.Tasks.Task EnviarInivitacionAsync(string nombreUsuario, string tematica, string nombreRemitente);
+        System.Threading.Tasks.Task EnviarInivitacionAsync(string mensaje, string nombreUsuario, string tematica, string nombreRemitente);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ConfirmacionInvitacion")]
-        void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica);
+        void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica, string emisor);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/ConfirmacionInvitacion")]
-        System.Threading.Tasks.Task ConfirmacionInvitacionAsync(bool opcion, string nombreUsuario, string tematica);
+        System.Threading.Tasks.Task ConfirmacionInvitacionAsync(bool opcion, string nombreUsuario, string tematica, string emisor);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/FinalizarPartida")]
         void FinalizarPartida(string nombreUsuario, string nombreRemitente);
@@ -286,7 +286,7 @@ namespace WCF_User_Client.ServidorLoteria {
         void DevuelvePuntajes(WCF_User_Client.ServidorLoteria.PuntajeUsuario[] puntajes);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/RecibirInvitacion")]
-        void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica);
+        void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioCuentaUsuario/RecibirConfirmacion")]
         void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario);
@@ -379,20 +379,20 @@ namespace WCF_User_Client.ServidorLoteria {
             return base.Channel.SolicitarPuntajesAsync();
         }
         
-        public void EnviarInivitacion(string nombreUsuario, string tematica, string nombreRemitente) {
-            base.Channel.EnviarInivitacion(nombreUsuario, tematica, nombreRemitente);
+        public void EnviarInivitacion(string mensaje, string nombreUsuario, string tematica, string nombreRemitente) {
+            base.Channel.EnviarInivitacion(mensaje, nombreUsuario, tematica, nombreRemitente);
         }
         
-        public System.Threading.Tasks.Task EnviarInivitacionAsync(string nombreUsuario, string tematica, string nombreRemitente) {
-            return base.Channel.EnviarInivitacionAsync(nombreUsuario, tematica, nombreRemitente);
+        public System.Threading.Tasks.Task EnviarInivitacionAsync(string mensaje, string nombreUsuario, string tematica, string nombreRemitente) {
+            return base.Channel.EnviarInivitacionAsync(mensaje, nombreUsuario, tematica, nombreRemitente);
         }
         
-        public void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica) {
-            base.Channel.ConfirmacionInvitacion(opcion, nombreUsuario, tematica);
+        public void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica, string emisor) {
+            base.Channel.ConfirmacionInvitacion(opcion, nombreUsuario, tematica, emisor);
         }
         
-        public System.Threading.Tasks.Task ConfirmacionInvitacionAsync(bool opcion, string nombreUsuario, string tematica) {
-            return base.Channel.ConfirmacionInvitacionAsync(opcion, nombreUsuario, tematica);
+        public System.Threading.Tasks.Task ConfirmacionInvitacionAsync(bool opcion, string nombreUsuario, string tematica, string emisor) {
+            return base.Channel.ConfirmacionInvitacionAsync(opcion, nombreUsuario, tematica, emisor);
         }
         
         public void FinalizarPartida(string nombreUsuario, string nombreRemitente) {

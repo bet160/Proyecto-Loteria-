@@ -8,9 +8,7 @@ using WCF_User_Client.ServidorLoteria;
 namespace ClienteLoteria
 {
     [CallbackBehavior(UseSynchronizationContext = false)]
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class RegistroUsuario : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
     {
         public RegistroUsuario()
@@ -28,29 +26,32 @@ namespace ClienteLoteria
 
             if(ValidarDatosIngresados(nombreUsuario, correoIngresado, contraseña))
             {
-                if (correo.EnviarCorreo(correoIngresado, codigoGenerado))
+                if (ValidarCorreo(correoIngresado))
                 {
-                    Verificacion ventana = new Verificacion();
-                    Usuario cuentaUsuario = new Usuario()
+                    if (correo.EnviarCorreo(correoIngresado, codigoGenerado))
                     {
-                        NombreUsuario = nombreUsuario,
-                        Correo = correoIngresado,
-                        Contraseña = contraseña
-                    };
-                    
-                    ventana.CuentaCreada = cuentaUsuario;
-                    ventana.CodigoVerificacion = codigoGenerado;
-                    ventana.Show();
-                    this.Close();
+                        Usuario cuentaUsuario = new Usuario()
+                        {
+                            NombreUsuario = nombreUsuario,
+                            Correo = correoIngresado,
+                            Contraseña = contraseña
+                        };
+                        Verificacion ventana = new Verificacion(codigoGenerado, cuentaUsuario);
+                        DesplegarVentana(ventana);
+                    }
+                    else
+                    {
+                        MessageBox.Show(Application.Current.Resources["ErrorEnvioDeCorreo"].ToString());
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un error");
+                    MessageBox.Show(Application.Current.Resources["CorreoInvalido"].ToString());
                 }
             }
             else
             {
-                MessageBox.Show("Datos invalidos");
+                MessageBox.Show(Application.Current.Resources["DatosInvalidos"].ToString());
             }
         }
 
@@ -60,15 +61,8 @@ namespace ClienteLoteria
 
             if (nombreUsuario != "" && correo != "" && contraseña != "")
             {
-                if (correo.Contains("@gmail.com") || correo.Contains("@hotmail.com"))
-                {
-                    datosValidos = true;
-                    return datosValidos;
-                }
-                else
-                {
-                    return datosValidos;
-                }
+                datosValidos = true;
+                return datosValidos;
             }
             else
             {
@@ -76,11 +70,31 @@ namespace ClienteLoteria
             }
         }
 
+        private bool ValidarCorreo(String correo)
+        {
+            bool datosValidos = false;
+
+            if (correo.Contains("@gmail.com") || correo.Contains("@hotmail.com"))
+                {
+                    datosValidos = true;
+                    return datosValidos;
+                }
+                else
+                {
+                    return datosValidos;
+                } 
+        }
+
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
+
         private void DesplegarInicio(object sender, RoutedEventArgs e)
         {
             Inicio ventana = new Inicio();
-            ventana.Show();
-            this.Close();
+            DesplegarVentana(ventana);
         }
 
         private int GenerarCodigoVerificacion()
@@ -131,12 +145,12 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion,string tematica,string NombreUsuario)
+        public void RecibirConfirmacion(bool opcion,string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }
@@ -146,7 +160,7 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirFinPartida(string nombreUsuario)
+        public void RecibirFinPartida(string mensaje)
         {
             throw new NotImplementedException();
         }

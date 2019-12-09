@@ -49,13 +49,13 @@
             </Button>
         </Border>
         <Border CornerRadius="0 0 40 40" Background="White" Margin="0,42,0,110">
-            <TextBlock HorizontalAlignment="Left" Height="66" Margin="42,51,0,0" TextWrapping="Wrap" Text="Para continuar ingrese por lo menos un correo al que enviaremos un código de invitación para unirse a la partida" VerticalAlignment="Top" Width="344" FontFamily="Century Gothic" FontSize="18" LineHeight="8" TextAlignment="Center" Foreground="#FFFF9701"/>
+            <TextBlock HorizontalAlignment="Left" Height="66" Margin="42,51,0,0" TextWrapping="Wrap" Text="{DynamicResource ResourceKey=MensajeEnviarInvitacion}" VerticalAlignment="Top" Width="344" FontFamily="Century Gothic" FontSize="18" LineHeight="8" TextAlignment="Center" Foreground="#FFFF9701"/>
         </Border>
 
-        <Button Margin="273,382.5,40,170.5" materialDesign:ButtonAssist.CornerRadius="11" Content="Continuar" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" UseLayoutRounding="False" Click="DesplegarSalaDeJuego" FontFamily="Century Gothic"/>
-        <Button Margin="32,382,0,171" Content="Cancelar" materialDesign:ButtonAssist.CornerRadius="11" BorderBrush="#FFF90F0F" Background="White" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" HorizontalAlignment="Left" Width="98"  Click="DesplegarPrincipal" FontFamily="Century Gothic"/>
-        <TextBox x:Name="Invitado1" HorizontalAlignment="Left" Height="39" Margin="77,251,0,0"  VerticalAlignment="Top" Width="308" materialDesign:HintAssist.Hint="" materialDesign:HintAssist.IsFloating="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderBrush="#8906E8E8" BorderThickness="0,0,0,1" FontFamily="Century Gothic" FontSize="16" Foreground="#FF673AB7"/>
-        <materialDesign:PackIcon Kind="Email" VerticalAlignment="Bottom" Margin="32,0,0,295" RenderTransformOrigin="-2.375,0.562" Height="22" Width="29"/>
+        <Button Margin="273,382.5,40,170.5" materialDesign:ButtonAssist.CornerRadius="11" Content="{DynamicResource ResourceKey=Continuar}" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" UseLayoutRounding="False" Click="DesplegarSalaDeJuego" FontFamily="Century Gothic"/>
+        <Button Margin="32,382,0,171" Content="{DynamicResource ResourceKey=Cancelar}" materialDesign:ButtonAssist.CornerRadius="11" BorderBrush="#FFF90F0F" Background="White" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" HorizontalAlignment="Left" Width="98"  Click="DesplegarPrincipal" FontFamily="Century Gothic"/>
+        <TextBox x:Name="Invitado1" HorizontalAlignment="Left" Height="39" Margin="77,251,0,0"  VerticalAlignment="Top" Width="308" materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=NombreUsuario}" materialDesign:HintAssist.IsFloating="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderBrush="#8906E8E8" BorderThickness="0,0,0,1" FontFamily="Century Gothic" FontSize="16" Foreground="#FF673AB7"/>
+        <materialDesign:PackIcon Kind="User" VerticalAlignment="Bottom" Margin="32,0,0,295" RenderTransformOrigin="-2.375,0.562" Height="22" Width="29"/>
 
     </Grid>
 </Window>

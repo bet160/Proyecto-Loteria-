@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace ClienteLoteria
 {
@@ -22,18 +13,22 @@ namespace ClienteLoteria
             InitializeComponent();
         }
 
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
+
         private void DesplegarInicioSesion(object sender, RoutedEventArgs e)
         {
             InicioSesion ventana = new InicioSesion();
-            ventana.Show(); 
-            this.Close();
+            DesplegarVentana(ventana);
         }
 
         private void DesplegarRegistroUsuario(object sender, RoutedEventArgs e)
         {
             RegistroUsuario ventana = new RegistroUsuario();
-            ventana.Show();
-            this.Close();
+            DesplegarVentana(ventana);
         }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
@@ -49,12 +44,11 @@ namespace ClienteLoteria
         private void DesplegarCodigoInvitacion(object sender, RoutedEventArgs e)
         {
             CodigoInvitacion ventana = new CodigoInvitacion();
-            ventana.Show();
-            this.Close();
+            DesplegarVentana(ventana);
         }
 
 
-        private void LoadStringResource(string locale)
+        private void CargarRecursosDeIdioma(string locale)
         {
             var resources = new ResourceDictionary();
 
@@ -73,10 +67,9 @@ namespace ClienteLoteria
 
         }
 
-
         private void CambiarIdiomaAIngles(object sender, RoutedEventArgs e)
         {
-            LoadStringResource("en-US");
+            CargarRecursosDeIdioma("en-US");
         }
 
         private void CambiarIdiomaAEspañol(object sender, RoutedEventArgs e)

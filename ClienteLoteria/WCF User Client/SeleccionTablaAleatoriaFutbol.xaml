@@ -89,6 +89,7 @@
         <Label Content="{DynamicResource ResourceKey=MensajeTablaAleatoria}" Margin="629.951,178.928,67.049,488.947" Foreground="#DD0000FF" FontFamily="Century Gothic" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="687.299" Height="63.426"/>
         <Rectangle Stroke="Black" Margin="642.118,277.334,67.049,452.967" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
         <Rectangle Stroke="Black" Margin="642.118,554.001,67.049,176.3" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
+        <TextBlock Text="50" x:Name="segundos" Margin="944.799,84,354.994,598.201" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Width="84.506" TextAlignment="Center"/>
     </Grid>
 </Window>
 

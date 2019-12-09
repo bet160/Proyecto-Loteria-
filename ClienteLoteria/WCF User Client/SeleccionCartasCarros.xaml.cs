@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using WCF_User_Client.Model;
 using WCF_User_Client.ServidorLoteria;
@@ -22,20 +15,37 @@ namespace ClienteLoteria
     {
         private int tiempoDisponible;
         private DispatcherTimer timer;
-
-        private Tabla tabla;
+        private List<Image> imagenesDisponibles = new List<Image>();
+        private List<int> numeroDeImagenSeleccionada = new List<int>();
         private List<Image> imagenesOcultas = new List<Image>();
-        private List<Image> lugaresDisponibles = new List<Image>();
+        private List<Image> imagenesSeleccionadas = new List<Image>();
+        private Tabla tabla;
         private CuentaSet cuenta;
         private string nombreUsuario;
+        private const string TEMATICA = "Carros";
+        private const int CANTIDADMINIMADECARTAS = 16;
+        private const int TIEMPOLIMITEPARAELEGIRCARTAS = 0;
 
-        public SeleccionCartasCarros(CuentaSet cuenta, int v, string nombreUsuario)
+
+        public SeleccionCartasCarros(CuentaSet cuenta, int tiempo, string nombreUsuario)
         {
             InitializeComponent();
-            this.tiempoDisponible = v;
+            CrearListaImagenesDisponibles();
+            tiempoDisponible = tiempo;
             this.nombreUsuario = nombreUsuario;
             this.cuenta = cuenta;
             GuardarLugaresDisponibles();
+            IniciarCuentaRegresiva();
+        }
+
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
+
+        private void IniciarCuentaRegresiva()
+        {
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
@@ -45,24 +55,31 @@ namespace ClienteLoteria
         private void Timer_Tick(object sender, EventArgs e)
         {
 
-            if (tiempoDisponible >= 0)
+            if (tiempoDisponible >= TIEMPOLIMITEPARAELEGIRCARTAS)
             {
-                segundos.Text = string.Format("{0}", tiempoDisponible % 60);
+                segundos.Text = tiempoDisponible.ToString();
                 tiempoDisponible--;
             }
             else
             {
                 timer.Stop();
                 tabla = new Tabla();
-                tabla.CartasDeTabla = lugaresDisponibles;
-                Partida ventana = new Partida(cuenta,nombreUsuario);
-                ventana.Tabla = tabla;
-                ventana.MostrarImagenesVisibles();
-                ventana.Show();
-                this.Close();
+
+                if (imagenesOcultas.Count < CANTIDADMINIMADECARTAS)
+                {
+                    GenerarTablaAleatoria();
+                    tabla.CartasDeTabla = imagenesSeleccionadas;
+                    Chat ventana = new Chat(tabla, cuenta, nombreUsuario, TEMATICA);
+                    DesplegarVentana(ventana);
+                }
+                else
+                {
+                    tabla.CartasDeTabla = imagenesSeleccionadas;
+                    Chat ventana = new Chat(tabla, cuenta, nombreUsuario, TEMATICA);
+                    DesplegarVentana(ventana);
+                }
             }
         }
-
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
         {
@@ -416,19 +433,19 @@ namespace ClienteLoteria
 
         private void OcultarCarta(Image imagen)
         {
-            imagen.Visibility = System.Windows.Visibility.Hidden;
+            imagen.Visibility = Visibility.Hidden;
             imagenesOcultas.Add(imagen);
         }
 
-        private void RestablecerImagen(Image e)
+        private void RestablecerImagen(Image imagenARestablecer)
         {
-            foreach (Image ima in imagenesOcultas)
+            foreach (Image imagen in imagenesOcultas)
             {
-                if (ima.Source.Equals(e.Source))
+                if (imagen.Source.Equals(imagenARestablecer.Source))
                 {
-                    ima.Visibility = System.Windows.Visibility.Visible;
-                    e.Source = null;
-                    imagenesOcultas.Remove(ima);
+                    imagen.Visibility = Visibility.Visible;
+                    imagenARestablecer.Source = null;
+                    imagenesOcultas.Remove(imagen);
                     break;
                 }
             }
@@ -436,29 +453,29 @@ namespace ClienteLoteria
 
         private void GuardarLugaresDisponibles()
         {
-            lugaresDisponibles.Add(imagenSeleccionada1);
-            lugaresDisponibles.Add(imagenSeleccionada2);
-            lugaresDisponibles.Add(imagenSeleccionada3);
-            lugaresDisponibles.Add(imagenSeleccionada4);
-            lugaresDisponibles.Add(imagenSeleccionada5);
-            lugaresDisponibles.Add(imagenSeleccionada6);
-            lugaresDisponibles.Add(imagenSeleccionada7);
-            lugaresDisponibles.Add(imagenSeleccionada8);
-            lugaresDisponibles.Add(imagenSeleccionada9);
-            lugaresDisponibles.Add(imagenSeleccionada10);
-            lugaresDisponibles.Add(imagenSeleccionada11);
-            lugaresDisponibles.Add(imagenSeleccionada12);
-            lugaresDisponibles.Add(imagenSeleccionada13);
-            lugaresDisponibles.Add(imagenSeleccionada14);
-            lugaresDisponibles.Add(imagenSeleccionada15);
-            lugaresDisponibles.Add(imagenSeleccionada16);
+            imagenesSeleccionadas.Add(imagenSeleccionada1);
+            imagenesSeleccionadas.Add(imagenSeleccionada2);
+            imagenesSeleccionadas.Add(imagenSeleccionada3);
+            imagenesSeleccionadas.Add(imagenSeleccionada4);
+            imagenesSeleccionadas.Add(imagenSeleccionada5);
+            imagenesSeleccionadas.Add(imagenSeleccionada6);
+            imagenesSeleccionadas.Add(imagenSeleccionada7);
+            imagenesSeleccionadas.Add(imagenSeleccionada8);
+            imagenesSeleccionadas.Add(imagenSeleccionada9);
+            imagenesSeleccionadas.Add(imagenSeleccionada10);
+            imagenesSeleccionadas.Add(imagenSeleccionada11);
+            imagenesSeleccionadas.Add(imagenSeleccionada12);
+            imagenesSeleccionadas.Add(imagenSeleccionada13);
+            imagenesSeleccionadas.Add(imagenSeleccionada14);
+            imagenesSeleccionadas.Add(imagenSeleccionada15);
+            imagenesSeleccionadas.Add(imagenSeleccionada16);
         }
 
         private void ValidarImagen(Image imagen)
         {
-            if (imagenesOcultas.Count < 16)
+            if (imagenesOcultas.Count < CANTIDADMINIMADECARTAS)
             {
-                foreach (var ima in lugaresDisponibles)
+                foreach (var ima in imagenesSeleccionadas)
                 {
                     if (ima.Source == null)
                     {
@@ -470,7 +487,7 @@ namespace ClienteLoteria
             }
             else
             {
-                MessageBox.Show("Máximo de cartas seleccionado");
+                MessageBox.Show(Application.Current.Resources["MensajeMaximoImagenes"].ToString());
             }
         }
 
@@ -478,8 +495,61 @@ namespace ClienteLoteria
         {
             timer.Stop();
             SeleccionTablaAleatoriaCarros ventana = new SeleccionTablaAleatoriaCarros(tiempoDisponible, cuenta, nombreUsuario);
-            ventana.Show();
-            this.Close();
+            DesplegarVentana(ventana);
+        }
+
+        private void CrearListaImagenesDisponibles()
+        {
+            Image imagen;
+
+            for (int i = 1; i <= 52; i++)
+            {
+                imagen = new Image();
+                Uri resourceUri = new Uri("RecursosTematicaCarros/" + i.ToString() + ".jpg", UriKind.Relative);
+                imagen.Source = new BitmapImage(resourceUri);
+                imagenesDisponibles.Add(imagen);
+            }
+        }
+
+        private void GenerarTablaAleatoria()
+        {
+            imagenesSeleccionadas.Clear();
+
+            CrearAleatorios(numeroDeImagenSeleccionada);
+
+            for (int i = 0; i <= 15; i++)
+            {
+                imagenesSeleccionadas.Add(AgregarImagenALista(i));
+            }
+        }
+
+        private Image AgregarImagenALista(int indice)
+        {
+            Image imagen = imagenesDisponibles[numeroDeImagenSeleccionada[indice]];
+            return imagen;
+        }
+
+        private void CrearAleatorios(List<int> imagenes)
+        {
+            int numeroImagen;
+
+            while (imagenes.Count < CANTIDADMINIMADECARTAS)
+            {
+                numeroImagen = GenerarNumeroAleatorio();
+                if (!imagenes.Contains(numeroImagen))
+                {
+                    imagenes.Add(numeroImagen);
+                }
+            }
+
+        }
+
+        private int GenerarNumeroAleatorio()
+        {
+            int numero;
+            Random numeroAleatorio = new Random();
+            numero = numeroAleatorio.Next(1, 52);
+            return numero;
         }
     }
 }

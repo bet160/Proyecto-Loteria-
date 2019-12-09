@@ -25,9 +25,9 @@ namespace ServidorLoteria
         [OperationContract(IsOneWay = true)]
         void SolicitarPuntajes();
         [OperationContract(IsOneWay = true)]
-        void EnviarInivitacion(string nombreUsuario,string tematica, string nombreRemitente);
+        void EnviarInivitacion(string mensaje, string nombreUsuario,string tematica, string nombreRemitente);
         [OperationContract(IsOneWay = true)]
-        void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica);
+        void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica,string emisor);
         [OperationContract(IsOneWay = true)]
         void FinalizarPartida(string nombreUsuario,string nombreRemitente);
         [OperationContract(IsOneWay = true)]
@@ -48,9 +48,9 @@ namespace ServidorLoteria
         [OperationContract(IsOneWay = true)]
         void DevuelvePuntajes(List<PuntajeUsuario> puntajes);
         [OperationContract(IsOneWay = true)]
-        void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica);
+        void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica);
         [OperationContract(IsOneWay = true)]
-        void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario);
+        void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario);
         [OperationContract(IsOneWay = true)]
         void RecibirFinPartida(string mensaje);
 

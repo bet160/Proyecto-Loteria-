@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LoteriaEmail
 {
@@ -34,9 +30,9 @@ namespace LoteriaEmail
                 correoEnviado = true;
                 return correoEnviado;
             }
-            catch (Exception)
+            catch (SmtpException)
             {
-                throw;
+                return correoEnviado;
             }
         } 
     }

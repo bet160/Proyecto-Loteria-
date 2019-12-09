@@ -1,33 +1,63 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using LoteriaEmail;
+using System.Windows.Threading;
+using WCF_User_Client.Model;
 using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 {
 
-    public partial class Chat : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
+    public partial class Chat : Window, IServicioCuentaUsuarioCallback
     {
-      
-        public Chat()
+
+        private Tabla tabla;
+        private CuentaSet cuenta;
+        private string nombreUsuario;
+        private int tiempoDisponible = 60;
+        private DispatcherTimer timer;
+        private string tematica;
+        private const int TIEMPOLIMITE = 0;
+
+        public Chat(Tabla tablaDePartida, CuentaSet cuenta, string nombreDeUsuario, string tematicaElegida)
         {
             InitializeComponent();
+            tabla = tablaDePartida;
+            this.cuenta = cuenta;
+            tematica = tematicaElegida;
+            nombreUsuario = nombreDeUsuario;
+            IniciarCuentaRegresiva();
         }
 
-       
+        private void IniciarCuentaRegresiva()
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            if (tiempoDisponible >= TIEMPOLIMITE)
+            {
+                segundosDisponibles.Content = tiempoDisponible.ToString();
+                tiempoDisponible--;
+            }
+            else
+            {
+                timer.Stop();
+                Partida ventana = new Partida(cuenta, nombreUsuario, tabla, tematica);
+                DesplegarVentana(ventana);
+            }
+        }
+
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
         {
@@ -59,12 +89,12 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }
@@ -74,9 +104,16 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirFinPartida(string nombreUsuario)
+        public void RecibirFinPartida(string mensaje)
         {
             throw new NotImplementedException();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InstanceContext instanceContext = new InstanceContext(this);
+            ServicioCuentaUsuarioClient cliente = new ServicioCuentaUsuarioClient(instanceContext);
+            cliente.EnviarMensajeChat(nombreUsuario,"mensaje de chat",cuenta.nombreUsuario);
         }
     }
 }

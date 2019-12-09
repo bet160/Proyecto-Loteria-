@@ -41,7 +41,7 @@
         </Border>
 
         <Border CornerRadius="0 0 40 40" Background="White" Margin="0,42,0,0"/>
-        <TextBlock Height="56" Margin="41,82.866,51,222.134" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=MensajeVerificacion}"></TextBlock>
+        <TextBlock Height="56" Margin="41,82.866,51,222.134" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=MensajeVerificacion}"/>
 
         <Button Margin="300,302.243,51,26.756" materialDesign:ButtonAssist.CornerRadius="11" Content="{DynamicResource ResourceKey=Continuar}" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FontFamily="Century Gothic" Click="DesplegarPrincipal"/>
         <Button Margin="59,302.243,0,26.756" Content="{DynamicResource ResourceKey=Cancelar}" materialDesign:ButtonAssist.CornerRadius="11" BorderBrush="#FFF90F0F" Background="White" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" HorizontalAlignment="Left" Width="98"  Click="DesplegarInicio" FontFamily="Century Gothic"/>

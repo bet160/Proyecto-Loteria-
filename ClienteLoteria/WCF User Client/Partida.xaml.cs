@@ -1,16 +1,9 @@
 ﻿using System;
-
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using WCF_User_Client.Model;
@@ -19,34 +12,36 @@ using WCF_User_Client.ServidorLoteria;
 namespace ClienteLoteria
 
 {
-    public partial class Partida : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
+    public partial class Partida : Window, IServicioCuentaUsuarioCallback
     {
-        //private List<Image> imagenesTabla = new List<Image>();
-        Tabla tabla;
+        private Tabla tabla;
         private List<Image> imagenesVisiblesUI = new List<Image>();
         private int tiempoDisponible = 5;
         private DispatcherTimer timer;
-        private List<int> pos = new List<int>();
         private List<Image> mazo = new List<Image>();
-        private int pc = 0;
+        private int numeroCartaActual = 0;
         private List<Image> cartasMarcadas = new List<Image>();
         private CuentaSet cuenta;
         private string nombreUsuario;
         private int puntaje = 3600;
+        private string tematica;
 
-        internal Tabla Tabla { get => tabla; set => tabla = value; }
-
-        //public List<Image> ImagenesTabla { get => imagenesTabla; set => imagenesTabla = value; }
-
-        public Partida(CuentaSet cuenta, string nombreUsuario)
+        public Partida(CuentaSet cuenta, string nombreUsuario, Tabla tablaDePartida, string tematicaElegida)
         {
             InitializeComponent();
             this.cuenta = cuenta;
             this.nombreUsuario = nombreUsuario;
+            tabla = tablaDePartida;
+            tematica = tematicaElegida;
             GuardarElementosEnListaDeImagenesVisiblesUI();
             Mazo();
-            Lista();
-            CambiarCarta(pc);
+            MostrarImagenesVisibles();
+            CambiarCarta(numeroCartaActual);
+            IniciarCuentaRegresiva();
+        }
+
+        private void IniciarCuentaRegresiva()
+        {
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
@@ -58,32 +53,36 @@ namespace ClienteLoteria
 
             if(tiempoDisponible >= 0)
             {
-                segundos.Text = string.Format("{0}", tiempoDisponible % 60);
+                segundos.Text = tiempoDisponible.ToString();
                 tiempoDisponible--;
             }
             else
             {
                 timer.Stop();
-                if(pc <= 51)
+                if(numeroCartaActual <= 51)
                 {
                     if(cartasMarcadas.Count < 16)
                     {
                         tiempoDisponible = 5;
-                        CambiarCarta(pc);
+                        CambiarCarta(numeroCartaActual);
                         timer.Start();
                     }
                     else
                     {
-                        InstanceContext instanceContext = new InstanceContext(this);
-                        WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-                        client.FinalizarPartida(cuenta.nombreUsuario,nombreUsuario);
-                        client.RegistrarPuntajeMáximo(cuenta.nombreUsuario,puntaje);
-                        cuenta.puntajeMaximo = puntaje;
-                        Principal ventana = new Principal(cuenta);
-                        this.Close();
-                        ventana.Show();
+                        try
+                        {
+                            InstanceContext instanceContext = new InstanceContext(this);
+                            ServicioCuentaUsuarioClient client = new ServicioCuentaUsuarioClient(instanceContext);
+                            client.FinalizarPartida(cuenta.nombreUsuario, nombreUsuario);
+                            client.RegistrarPuntajeMáximo(cuenta.nombreUsuario, puntaje);
+                            this.Close();
+                        }
+                        catch (EndpointNotFoundException)
+                        {
+                            MessageBox.Show(Application.Current.Resources["OperacionInvalida"].ToString());
+                        }
                     }
-                    if(pc > 16)
+                    if(numeroCartaActual > 16)
                     {
                         puntaje = puntaje - 100;
                     }
@@ -191,15 +190,15 @@ namespace ClienteLoteria
             }
             else
             {
-                MessageBox.Show("Imagen invalida");
+                MessageBox.Show(Application.Current.Resources["MensajeSeleccionInvalida"].ToString());
                 return false;
             }
         }
 
-        void CambiarCarta(int p)
+        void CambiarCarta(int nuevoNumeroDeCarta)
         {
-            imagenActual.Source = mazo[p].Source;
-            pc++;
+            imagenActual.Source = mazo[nuevoNumeroDeCarta].Source;
+            numeroCartaActual++;
         }
 
         void Mazo()
@@ -209,21 +208,9 @@ namespace ClienteLoteria
             for (int i = 1; i <= 52; i++)
             {
                 imagen = new Image();
-                Uri resourceUri = new Uri("RecursosTematicaCarros/" + i.ToString() + ".jpg", UriKind.Relative);
+                Uri resourceUri = new Uri("RecursosTematica" + tematica + "/" + i.ToString() + ".jpg", UriKind.Relative);
                 imagen.Source = new BitmapImage(resourceUri);
                 mazo.Add(imagen);
-                if (i > 52)
-                {
-                    this.Close();
-                }
-            }
-        }
-
-        void Lista()
-        {
-            for(int i =1; i<= 50; i++)
-            {
-                pos.Add(i);
             }
         }
 
@@ -269,7 +256,6 @@ namespace ClienteLoteria
             for(int i = 0; i<=15; i++)
             {
                 imagenesVisiblesUI[i].Source = tabla.CartasDeTabla[i].Source;
-                //imagenesVisiblesUI[i].Source = imagenesTabla[i].Source;
             }
         }
 
@@ -298,12 +284,12 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }

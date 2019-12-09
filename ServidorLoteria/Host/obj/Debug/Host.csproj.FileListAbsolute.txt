@@ -126,21 +126,39 @@ C:\Users\javie\Desktop\Proyecto\ProyectoVersion6\ServidorLoteria\Host\obj\Debug\
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion6\ServidorLoteria\Host\obj\Debug\Host.csproj.CopyComplete
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion6\ServidorLoteria\Host\obj\Debug\Host.exe
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion6\ServidorLoteria\Host\obj\Debug\Host.pdb
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\Host.exe.config
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\Host.exe
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\Host.pdb
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\AccesoBD.dll
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\CalculatorService.dll
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\EntityFramework.dll
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\AccesoBD.pdb
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\AccesoBD.dll.config
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\CalculatorService.pdb
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\CalculatorService.dll.config
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\EntityFramework.xml
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\obj\Debug\Host.csprojAssemblyReference.cache
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\obj\Debug\Host.csproj.CoreCompileInputs.cache
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\obj\Debug\Host.csproj.CopyComplete
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\obj\Debug\Host.exe
-C:\Users\javie\Desktop\Proyecto\ProyectoVersion7\ServidorLoteria\Host\obj\Debug\Host.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\Host.exe.config
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\Host.exe
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\Host.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\AccesoBD.dll
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\CalculatorService.dll
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\EntityFramework.dll
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\AccesoBD.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\AccesoBD.dll.config
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\CalculatorService.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\CalculatorService.dll.config
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\EntityFramework.xml
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\obj\Debug\Host.csprojAssemblyReference.cache
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\obj\Debug\Host.csproj.CoreCompileInputs.cache
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\obj\Debug\Host.csproj.CopyComplete
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\obj\Debug\Host.exe
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ServidorLoteria\Host\obj\Debug\Host.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\Host.exe.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\Host.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\Host.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\AccesoBD.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\CalculatorService.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\EntityFramework.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\AccesoBD.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\AccesoBD.dll.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\CalculatorService.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\CalculatorService.dll.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\EntityFramework.xml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\obj\Debug\Host.csprojAssemblyReference.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\obj\Debug\Host.csproj.CoreCompileInputs.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\obj\Debug\Host.csproj.CopyComplete
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\obj\Debug\Host.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ServidorLoteria\Host\obj\Debug\Host.pdb

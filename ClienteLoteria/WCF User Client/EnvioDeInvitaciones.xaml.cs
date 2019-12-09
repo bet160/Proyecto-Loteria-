@@ -1,48 +1,67 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using LoteriaEmail;
 using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class EnvioDeInvitaciones : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
+    public partial class EnvioDeInvitaciones : Window, IServicioCuentaUsuarioCallback
     {
         private CuentaSet cuenta;
-        private string v;
+        private string tematica;
 
-
-        public EnvioDeInvitaciones(CuentaSet cuenta, string v)
+        public EnvioDeInvitaciones(CuentaSet cuentaRecibida, string tematicaElegida)
         {
             InitializeComponent();
-            this.v = v;
-            this.cuenta = cuenta;
+            tematica = tematicaElegida;
+            cuenta = cuentaRecibida;
+        }
+
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
         }
 
         private void DesplegarSalaDeJuego(object sender, RoutedEventArgs e)
         {
+            string invitado = Invitado1.Text.Trim();
+            string mensaje = Application.Current.Resources["MensajeInvitacion"].ToString();
 
-            InstanceContext instanceContext = new InstanceContext(this);
-            WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-            client.EnviarInivitacion(cuenta.nombreUsuario,v, Invitado1.Text);
-            Principal ventana = new Principal(cuenta);
-            ventana.Show();
-            this.Close();
+            try
+            {
+                if (ValidarDatosIngresados(invitado))
+                {
+                    InstanceContext instanceContext = new InstanceContext(this);
+                    ServicioCuentaUsuarioClient client = new ServicioCuentaUsuarioClient(instanceContext);
+                    client.EnviarInivitacion(mensaje, cuenta.nombreUsuario, tematica, invitado);
+                    Principal ventana = new Principal(cuenta);
+                    DesplegarVentana(ventana);
+                }
+                else
+                {
+                    MessageBox.Show(Application.Current.Resources["DatosInvalidosInvitacion"].ToString());
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show(Application.Current.Resources["OperacionInvalida"].ToString());
+            }
+        }
+
+        private bool ValidarDatosIngresados(string codigo)
+        {
+            bool datosValidos = false;
+
+            if (codigo != "")
+            {
+                datosValidos = true;
+                return datosValidos;
+            }
+            else
+            {
+                return datosValidos;
+            }
         }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
@@ -69,6 +88,7 @@ namespace ClienteLoteria
 
         public void Respuesta(string mensaje)
         {
+            mensaje = Application.Current.Resources["MensajeUsuarioNoConectado"].ToString();
             MessageBox.Show(mensaje);
         }
 
@@ -82,20 +102,23 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
-           
+            throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
-            if (opcion == true)
+            string invitado = Invitado1.Text.Trim();
+            const int TIEMPOPARASELECCIONARTARJETAS = 60;
+
+            if (opcion)
             {
                 if (tematica.Equals("Carros"))
                 {
                     this.Dispatcher.Invoke(() =>
                     {
-                       SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta,60,Invitado1.Text);
+                        SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta, TIEMPOPARASELECCIONARTARJETAS, invitado);
                         this.Close();
                         ventana.Show();
 
@@ -105,16 +128,16 @@ namespace ClienteLoteria
                 {
                     this.Dispatcher.Invoke(() =>
                     {
-                       SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta,60,Invitado1.Text);
-                       this.Close();
-                       ventana.Show();
+                        SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta, TIEMPOPARASELECCIONARTARJETAS, invitado);
+                        this.Close();
+                        ventana.Show();
 
                     });
                 }
             }
             else
             {
-                MessageBox.Show("No se acepto la invitación");
+                MessageBox.Show(Application.Current.Resources["MensajeInvitacionRechazada"].ToString());
             }
         }
 
@@ -123,9 +146,10 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirFinPartida(string nombreUsuario)
+        public void RecibirFinPartida(string mensaje)
         {
             throw new NotImplementedException();
         }
+
     }
 }

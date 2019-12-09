@@ -19,3 +19,16 @@ C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csproj.CoreCompileInputs.cache
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.exe
 C:\Users\javie\Desktop\Proyecto\ProyectoVersion5\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe.config
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csprojAssemblyReference.cache
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csproj.CoreCompileInputs.cache
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.exe
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe.config
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\LoteriaEmail\bin\Debug\LoteriaEmail.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.csprojAssemblyReference.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.exe
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\LoteriaEmail\obj\Debug\LoteriaEmail.pdb

@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 using WCF_User_Client.Model;
+using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 
@@ -25,11 +19,22 @@ namespace ClienteLoteria
         private List<Image> imagenesTabla3 = new List<Image>();
         private List<Image> imagenesTabla4 = new List<Image>();
         private List<Image> imagenesVisiblesUI = new List<Image>();
-        private Tabla tabla = new Tabla(); 
+        private Tabla tabla = new Tabla();
+        private int tiempoDisponible;
+        private DispatcherTimer timer;
+        private CuentaSet cuenta;
+        private string nombreUsuario;
+        private const string TEMATICA = "Futbol";
+        private const int CANTIDADMINIMADECARTAS = 16;
+        private const int TIEMPOLIMITEPARAELEGIRCARTAS = 0;
 
-        public SeleccionTablaAleatoriaFutbol()
+        public SeleccionTablaAleatoriaFutbol(int tiempoDisponible, CuentaSet cuenta, string nombreUsuario)
         {
             InitializeComponent();
+            this.tiempoDisponible = tiempoDisponible;
+            this.cuenta = cuenta;
+            this.nombreUsuario = nombreUsuario;
+            IniciarCuentaRegresiva();
             CrearListaImagenesDisponibles();
             GuardarElementosEnListaDeImagenesVisiblesUI();
             guardarImagenesEnListaDeTabla(imagenesTabla1);
@@ -38,11 +43,43 @@ namespace ClienteLoteria
             guardarImagenesEnListaDeTabla(imagenesTabla4);
         }
 
-        private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            Inicio newForm = new Inicio();
-            newForm.Show();
+
+            if (tiempoDisponible >= TIEMPOLIMITEPARAELEGIRCARTAS)
+            {
+                segundos.Text = tiempoDisponible.ToString();
+                tiempoDisponible--;
+            }
+            else
+            {
+                timer.Stop();
+                ValidarSeleccion();
+                Chat ventana = new Chat(tabla, cuenta, nombreUsuario, TEMATICA);
+                DesplegarVentana(ventana);
+            }
+        }
+
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
             this.Close();
+        }
+
+        private void IniciarCuentaRegresiva()
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void ValidarSeleccion()
+        {
+            if (imagenSeleccionada1.Source == null)
+            {
+                tabla.CartasDeTabla = imagenesTabla1;
+            }
         }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
@@ -83,7 +120,7 @@ namespace ClienteLoteria
         {
             Image imagen;
 
-            for (int i=1; i<=52; i++)
+            for (int i = 1; i <= 52; i++)
             {
                 imagen = new Image();
                 Uri resourceUri = new Uri("RecursosTematicaFutbol/" + i.ToString() + ".jpg", UriKind.Relative);
@@ -114,17 +151,17 @@ namespace ClienteLoteria
 
         private void MostrarImagenesVisibles(List<Image> lista)
         {
-            for(int i = 0; i<=15; i++)
+            for (int i = 0; i <= 15; i++)
             {
                 imagenesVisiblesUI[i].Source = lista[i].Source;
             }
         }
- 
+
         private void guardarImagenesEnListaDeTabla(List<Image> lista)
         {
             CrearAleatorios(imagenesSeleccionadas);
 
-            for(int i = 0; i <= 15; i++)
+            for (int i = 0; i <= 15; i++)
             {
                 lista.Add(AgregarImagenALista(i));
             }
@@ -138,11 +175,12 @@ namespace ClienteLoteria
             return imagen;
         }
 
-        private void CrearAleatorios(List<int>imagenes)
+        private void CrearAleatorios(List<int> imagenes)
         {
             int numeroImagen;
 
-            while (imagenes.Count < 16) {
+            while (imagenes.Count < CANTIDADMINIMADECARTAS)
+            {
                 numeroImagen = GenerarNumeroAleatorio();
                 if (!imagenes.Contains(numeroImagen))
                 {
@@ -160,21 +198,10 @@ namespace ClienteLoteria
             return numero;
         }
 
-        private void DesplegarPartida(object sender, RoutedEventArgs e)
-        {
-            //Partida ventana = new Partida();
-            //ventana.ImagenesTabla = imagenesVisiblesUI;
-            //ventana.Tabla = tabla;
-            //ventana.MostrarImagenesVisibles();
-            //ventana.Show();
-            this.Close();
-        }
-
         private void DesplegarSeleccionPersonalizada(object sender, RoutedEventArgs e)
         {
-           // SeleccionCartasFutbol ventana = new SeleccionCartasFutbol();
-           // ventana.Show();
-           // this.Close();
+            SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta, tiempoDisponible, nombreUsuario);
+            DesplegarVentana(ventana);
         }
     }
 }

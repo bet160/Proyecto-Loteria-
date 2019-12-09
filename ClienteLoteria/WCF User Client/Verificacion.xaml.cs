@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ServiceModel;
 using System.Windows;
-using System.Windows.Controls;
 using ClienteLoteria.Model;
 using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 {
 
-    public partial class Verificacion : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
+    public partial class Verificacion : Window, IServicioCuentaUsuarioCallback
     {
         private string codigoVerificacion;
         private Usuario cuentaCreada;
 
-        public Verificacion()
+        public Verificacion(string codigoGenrado, Usuario usuarioCreado)
         {
             InitializeComponent();
+            codigoVerificacion = codigoGenrado;
+            cuentaCreada = usuarioCreado;
         }
-
-        public string CodigoVerificacion { get => codigoVerificacion; set => codigoVerificacion = value; }
-        internal Usuario CuentaCreada { get => cuentaCreada; set => cuentaCreada = value; }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
         {
@@ -31,19 +28,16 @@ namespace ClienteLoteria
                 if (String.Equals(codigoIngresado, codigoVerificacion))
                 {
                     RegistrarUsuario();
-                    InicioSesion inicio = new InicioSesion();
-                    inicio.Show();
-                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Codigo incorrecto");
+                    MessageBox.Show(Application.Current.Resources["CodigoIncorrecto"].ToString());
                 }
 
             }
             else
             {
-                MessageBox.Show("No puede dejar campos vacios ni llenarlos con espacios");
+                MessageBox.Show(Application.Current.Resources["DatosInvalidosVerificacion"].ToString());
             }
         }
 
@@ -62,11 +56,16 @@ namespace ClienteLoteria
             }
         }
 
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
+        }
+
         private void DesplegarInicio(object sender, RoutedEventArgs e)
         {
             Inicio ventana = new Inicio();
-            ventana.Show();
-            this.Close();
+            DesplegarVentana(ventana);
         }
 
         private void RegistrarUsuario()
@@ -74,18 +73,20 @@ namespace ClienteLoteria
             try
             {
                 InstanceContext instanceContext = new InstanceContext(this);
-                WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient cliente = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-                WCF_User_Client.ServidorLoteria.CuentaSet cuenta = new WCF_User_Client.ServidorLoteria.CuentaSet() {
+                ServicioCuentaUsuarioClient cliente = new ServicioCuentaUsuarioClient(instanceContext);
+                CuentaSet cuenta = new CuentaSet() {
                     nombreUsuario = cuentaCreada.NombreUsuario,
                     correo = cuentaCreada.Correo,
-                    contraseña = cuentaCreada.Contraseña
+                    contraseña = cuentaCreada.Contraseña,
+                    puntajeMaximo = 0
                 };
                 
                 cliente.GuardarCuentaUsuario(cuenta);
+                cliente.IniciarSesion(cuentaCreada.NombreUsuario, cuentaCreada.Contraseña);
             }
             catch (EndpointNotFoundException)
             {
-
+                MessageBox.Show(Application.Current.Resources["OperacionInvalida"].ToString());
             }
         }
 
@@ -106,12 +107,18 @@ namespace ClienteLoteria
 
         public void Respuesta(string mensaje)
         {
+            mensaje = Application.Current.Resources["MismoUsuario"].ToString();
             MessageBox.Show(mensaje);
         }
 
         public void DevuelveCuenta(CuentaSet cuenta)
         {
-            throw new NotImplementedException();
+            this.Dispatcher.Invoke(() =>
+            {
+                Principal ventana = new Principal(cuenta);
+                DesplegarVentana(ventana);
+
+            });
         }
 
         public void DevuelvePuntajes(PuntajeUsuario[] puntajes)
@@ -119,12 +126,12 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion,string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }
@@ -134,7 +141,7 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirFinPartida(string nombreUsuario)
+        public void RecibirFinPartida(string mensaje)
         {
             throw new NotImplementedException();
         }

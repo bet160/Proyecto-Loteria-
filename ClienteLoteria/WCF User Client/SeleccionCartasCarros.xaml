@@ -152,6 +152,6 @@
         </Rectangle>
         <Rectangle Stroke="Black" Margin="652,168,148,141" StrokeThickness="2"/>
         <Button Content="{DynamicResource ResourceKey=SeleccionAleatoria}" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Foreground="#DD000000" BorderBrush="#FF14F93D" Margin="822,628,294,71" Background="White" Click="DesplegarTablasAleaotias"/>
-        <TextBlock x:Name="segundos" Margin="477,83,599,568" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+        <TextBlock x:Name="segundos" Margin="560.799,75.993,738.994,606.208" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Width="84.506" TextAlignment="Center"/>
     </Grid>
 </Window>

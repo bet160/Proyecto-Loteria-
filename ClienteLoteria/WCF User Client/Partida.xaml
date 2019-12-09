@@ -85,7 +85,6 @@
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="832.285,110.651,235.514,274.65">
             <Image x:Name="imagenActual" Stretch="Fill"/>
         </Border>
-        <Button Content="Salir" Margin="577.5,672.801,612,10" Height="Auto" Click="DesplegarAleatoria"/>
         <Ellipse Fill="White" Margin="832.285,493.651,235.514,48.801" Stroke="DarkGreen" StrokeThickness="2"/>
         <TextBlock x:Name="segundos" Margin="832.285,493.651,235.514,48.801" FontFamily="Century Gothic" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100"/>
     </Grid>

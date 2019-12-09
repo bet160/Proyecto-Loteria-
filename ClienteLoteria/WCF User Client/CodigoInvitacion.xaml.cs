@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace ClienteLoteria
 {
@@ -19,14 +9,13 @@ namespace ClienteLoteria
     /// </summary>
     public partial class CodigoInvitacion : Window
     {
-        private string codigoVerificacion;
-
+        public string CodigoVerificacion { get; set; }
         public CodigoInvitacion()
         {
             InitializeComponent();
         }
 
-        public string CodigoVerificacion { get => codigoVerificacion; set => codigoVerificacion = value; }
+
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
         {
@@ -34,7 +23,7 @@ namespace ClienteLoteria
 
             if (ValidarDatosIngresados(codigoIngresado))
             {
-                if (String.Equals(codigoIngresado, codigoVerificacion))
+                if (String.Equals(codigoIngresado, CodigoVerificacion))
                 {
                     MessageBox.Show("Validacion exitosa");
                 }
@@ -70,17 +59,6 @@ namespace ClienteLoteria
             ventana.Show();
             this.Close();
         }
-
-        /* private void RegistrarUsuario()
-         {
-             ServidorLoteria.ServicioCuentaUsuarioClient cliente = new ServidorLoteria.ServicioCuentaUsuarioClient();
-             ServidorLoteria.Cuenta usuario = new ServidorLoteria.Cuenta();
-
-             usuario.nombreUsuario = textNombreUsuario.Text;
-             usuario.correo = textCorreo.Text;
-             usuario.contraseña = textContraseña.Text;
-             usuario.puntajeMaximo = "1234";
-         }*/
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
         {

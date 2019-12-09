@@ -41,18 +41,16 @@
         </Border>
 
         <Border CornerRadius="0 0 40 40" Background="White" Margin="0,42,0,0">
-            <TextBox Name ="contraseñaModificar"  HorizontalAlignment="Left" Height="39" Margin="177,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
+            <TextBox Name ="textBoxContraseña"  HorizontalAlignment="Left" Height="39" Margin="202,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157" materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=Contraseña}" materialDesign:HintAssist.IsFloating="True"/>
         </Border>
 
-        <Button Margin="310,310.986,41,26.013" materialDesign:ButtonAssist.CornerRadius="11" Content="Aceptar" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FontFamily="Century Gothic" Click="DesplegarPrincipal"/>
-        <Button Margin="32,310.986,0,26.013" Content="Cancelar" materialDesign:ButtonAssist.CornerRadius="11" BorderBrush="#FFF90F0F" Background="White" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" HorizontalAlignment="Left" Width="98" FontFamily="Century Gothic" Click="VolverPrincipal"/>
-        <materialDesign:PackIcon Kind="FaceOutline" Height="87" Width="95" Margin="56,67.16,0,0"/>
-        <TextBox Name ="nombreModificar"  Text="" Margin="177,78,131,265" FontFamily="Century Gothic" FontSize="14" RenderTransformOrigin="0.614,1.263"/>
-        <RadioButton Content="Español" Margin="325,243.977,50,104.023" FontFamily="Century Gothic"/>
-        <RadioButton Content="Ingles" Margin="217,243.977,158,104.023" RenderTransformOrigin="0.231,0.381" FontFamily="Century Gothic"/>
+        <Button Margin="310,310.986,41,26.013" materialDesign:ButtonAssist.CornerRadius="11" Content="{DynamicResource ResourceKey=Continuar}" Background="White" BorderBrush="#FF00E600" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" FontFamily="Century Gothic" Click="DesplegarPrincipal"/>
+        <Button Margin="32,310.986,0,26.013" Content="{DynamicResource ResourceKey=Cancelar}" materialDesign:ButtonAssist.CornerRadius="11" BorderBrush="#FFF90F0F" Background="White" BorderThickness="1" Foreground="#DD000000" FontWeight="Normal" HorizontalAlignment="Left" Width="98" FontFamily="Century Gothic" Click="VolverPrincipal"/>
+        <materialDesign:PackIcon Kind="FaceOutline" Height="87" Width="95" Margin="42,93.16,0,0"/>
+        <RadioButton Name="radioButtonEspañol" Content="{DynamicResource ResourceKey=Español}" Margin="325,243.977,50,104.023" FontFamily="Century Gothic" Checked="CambiarIdiomaAEspañol"/>
+        <RadioButton Name="radioButtonIngles" Content="{DynamicResource ResourceKey=Ingles}" Margin="217,243.977,158,104.023" RenderTransformOrigin="0.231,0.381" FontFamily="Century Gothic" Checked="CambiarIdiomaAIngles"/>
         <Rectangle Margin="32,227,41,98" Stroke="#FF020101"/>
-        <Label Content="Cambio de idioma" Margin="42,239,259,98" FontFamily="Century Gothic" FontSize="14"/>
-        <Label Content="nombre de usuario" HorizontalAlignment="Left" Margin="177,51,0,0" VerticalAlignment="Top" Width="118"/>
-        <Label Content="contraseña" HorizontalAlignment="Left" Margin="177,124,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label Content="{DynamicResource ResourceKey=CambioIdioma}" Margin="42,239,259,98" FontFamily="Century Gothic" FontSize="14"/>
+        <TextBox Name ="textBoxNombreUsuario"  HorizontalAlignment="Left" Height="39" Margin="201,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=NombreUsuario}" materialDesign:HintAssist.IsFloating="True"/>
     </Grid>
 </Window>

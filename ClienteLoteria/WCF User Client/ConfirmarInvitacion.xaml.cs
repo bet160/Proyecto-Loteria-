@@ -1,66 +1,62 @@
 ﻿using ClienteLoteria;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WCF_User_Client.ServidorLoteria;
 
 namespace WCF_User_Client
 {
-    /// <summary>
-    /// Lógica de interacción para ConfirmarInvitacion.xaml
-    /// </summary>
-    public partial class ConfirmarInvitacion : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
+    public partial class ConfirmarInvitacion : Window, IServicioCuentaUsuarioCallback
     {
         private string nombreUsuario;
         private string tematica;
         private CuentaSet cuenta;
+        private string mensaje;
 
-        public ConfirmarInvitacion(CuentaSet cuenta, string nombreUsuario, string tematica)
+        public ConfirmarInvitacion(CuentaSet cuenta, string nombreUsuario, string tematica,string mensaje)
         {
             InitializeComponent();
             this.cuenta = cuenta;
             this.nombreUsuario = nombreUsuario;
             this.tematica = tematica;
+            this.mensaje = mensaje;
+            MensajeInvitacion.Content = mensaje;
         }
+
 
         private void AceptarInvitacion(object sender, RoutedEventArgs e)
         {
-            InstanceContext instanceContext = new InstanceContext(this);
-            WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-            client.ConfirmacionInvitacion(true, nombreUsuario,tematica);
-            if (tematica.Equals("Carros"))
-            {
-                SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta,60,nombreUsuario);
-                this.Close();
-                ventana.Show();
-            }
-            if (tematica.Equals("Futbol"))
-            {
-                SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta, 60, nombreUsuario);
-                this.Close();
-                ventana.Show();
-            }
+            const int TIEMPOPARASELECIONARCARTAS = 60;
 
+            try
+            {
+                InstanceContext instanceContext = new InstanceContext(this);
+                ServicioCuentaUsuarioClient client = new ServicioCuentaUsuarioClient(instanceContext);
+                client.ConfirmacionInvitacion(true,cuenta.nombreUsuario,tematica,nombreUsuario);
+
+                 if (tematica.Equals("Carros"))
+                 {
+                     SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta,TIEMPOPARASELECIONARCARTAS,nombreUsuario);
+                     this.Close();
+                     ventana.Show();
+                 }else if (tematica.Equals("Futbol"))
+                 {
+                    SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta, TIEMPOPARASELECIONARCARTAS, nombreUsuario);
+                    this.Close();
+                    ventana.Show();
+                 }
+            } 
+            catch(InvalidOperationException)
+            {
+                MessageBox.Show(Application.Current.Resources["OparecionInvalida"].ToString());
+            }
         }
 
         private void RechazarInvitacion(object sender, RoutedEventArgs e)
         {
             InstanceContext instanceContext = new InstanceContext(this);
-            WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-
-
+            ServicioCuentaUsuarioClient cliente = new ServicioCuentaUsuarioClient(instanceContext);
+            cliente.ConfirmacionInvitacion(false, cuenta.nombreUsuario, tematica, nombreUsuario);
         }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
@@ -94,12 +90,12 @@ namespace WCF_User_Client
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion, string tematica,string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion, string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }
@@ -109,7 +105,7 @@ namespace WCF_User_Client
             throw new NotImplementedException();
         }
 
-        public void RecibirFinPartida(string nombreUsuario)
+        public void RecibirFinPartida(string mensaje)
         {
             throw new NotImplementedException();
         }

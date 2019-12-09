@@ -33,10 +33,10 @@
             </Button.Background>
         </Button>
         <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="21" Width="21.5" Margin="1282.799,10,0,0"/>
-        <Button Content="{DynamicResource ResourceKey=Jugar}" Height="Auto" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Margin="1181,650,95,49" Background="#FF0448FF" Foreground="#DDFFFFFF" BorderBrush="#FF043DFF" FontWeight="Bold" RenderTransformOrigin="0.714,0.647"/>
-        <Button Content="{DynamicResource ResourceKey=Tabla1}" materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="495,604,828,85" Background="White" BorderBrush="#FF7C03F4" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.41,3.56"/>
-        <Label Content="Chat" Margin="58,75,828,593" Foreground="#DD0000FF" FontFamily="Century Gothic" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="498" Height="63"/>
-        <Rectangle Stroke="Black" Margin="54,148,823,155" RenderTransformOrigin="0.5,0.5" Fill="White">
+        <Button materialDesign:ButtonAssist.CornerRadius="11" Height="Auto" Margin="1269.448,643.079,40.202,45.921" Background="White" BorderBrush="#FF7C03F4" FontFamily="Century Gothic" FontSize="20" FontWeight="Bold" RenderTransformOrigin="-0.41,3.56" Click="Button_Click"/>
+        <materialDesign:PackIcon Kind="Send" Margin="1292.448,645.38,0,0" Height="40" Width="37" RenderTransformOrigin="0.595,0.936"/>
+        <Label Content="{DynamicResource ResourceKey=EncabezadoChat}" Margin="845.948,78.849,40.351,589.452" Foreground="#DD0000FF" FontFamily="Century Gothic" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="498" Height="63"/>
+        <Rectangle Stroke="Black" Margin="841.799,151.699,35.201,115.301" RenderTransformOrigin="0.5,0.5" Fill="White">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -46,13 +46,22 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <ListView Margin="58,138,828,162" Name="lvUsers" RenderTransformOrigin="0.498,0.354" Background="White" BorderBrush="Black">
+        <ListView Margin="845.799,146.849,40.201,119.301" Name="lvUsers" RenderTransformOrigin="0.498,0.354" Background="White" BorderBrush="Black">
             <ListView.View>
                 <GridView>
 
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox Margin="58,605,921,85"/>
+        <TextBox Name ="Mensaje" Margin="845.948,644.079,133.052,45.921" materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=MensajeChat}" materialDesign:HintAssist.IsFloating="True" FontFamily="Century Gothic" Foreground="#FF17FF00" BorderBrush="#89302B97" FontWeight="Bold"/>
+        <TextBlock Text="{DynamicResource ResourceKey=Reglas}" Margin="43.5,95.636,865.5,572.665" FontFamily="Century Gothic" FontSize="24" Foreground="#DD0000FF"/>
+        <TextBlock Text="{DynamicResource ResourceKey=Reglas}" Margin="43.5,95.636,865.5,572.665" FontFamily="Century Gothic" FontSize="24" Foreground="#DD0000FF"/>
+        <TextBlock Height="56" Margin="43.5,163.636,597,511.665" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="20" TextAlignment="Left" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=Regla1}"/>
+        <TextBlock Height="56" Margin="43.5,239.136,597,436.165" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="20" TextAlignment="Left" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=Regla2}" HorizontalAlignment="Center"/>
+        <TextBlock Height="56" Margin="43.5,339.136,597,336.165" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="20" TextAlignment="Left" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=Regla3}"/>
+        <TextBlock Height="56" Margin="43.5,429.136,597,246.165" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="20" TextAlignment="Left" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=Regla4}"/>
+        <TextBlock Height="56" Margin="43.5,517,597,158.301" TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="20" TextAlignment="Left" Foreground="#FF980DCB" Text="{DynamicResource ResourceKey=Regla5}"/>
+        <Label Name="segundosDisponibles" Margin="422.799,635.88,775.5,32.421" Foreground="#DD0000FF" FontFamily="Century Gothic" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="186" Height="63"/>
+        <TextBlock Height="34.5" Margin="132,650.88,990,45.921" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" Foreground="Black" Text="{DynamicResource ResourceKey=MensajeTiempo}"/>
     </Grid>
 </Window>

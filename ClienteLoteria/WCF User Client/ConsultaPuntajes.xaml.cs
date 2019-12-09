@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WCF_User_Client.Model;
 using WCF_User_Client.ServidorLoteria;
 
@@ -28,10 +18,17 @@ namespace ClienteLoteria
         public ConsultaPuntajes(CuentaSet cuenta)
         {
             InitializeComponent();
-            InstanceContext instanceContext = new InstanceContext(this);
-            WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient cliente = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
-            cliente.SolicitarPuntajes();
-            this.cuenta = cuenta;
+            try
+            {
+                InstanceContext instanceContext = new InstanceContext(this);
+                ServicioCuentaUsuarioClient cliente = new ServicioCuentaUsuarioClient(instanceContext);
+                cliente.SolicitarPuntajes();
+                this.cuenta = cuenta;
+            }
+            catch (EndpointNotFoundException)
+            {
+                MessageBox.Show(Application.Current.Resources["OperacionInvalida"].ToString());
+            }
         }
 
         private void DesplegarPrincipal(object sender, RoutedEventArgs e)
@@ -79,12 +76,12 @@ namespace ClienteLoteria
             });
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
             throw new NotImplementedException();
         }
 
-        public void RecibirConfirmacion(bool opcion,string temtica,string nombreUsuario)
+        public void RecibirConfirmacion(bool opcion,string tematica, string nombreUsuario)
         {
             throw new NotImplementedException();
         }
@@ -94,7 +91,7 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirFinPartida(string nombreUsuario)
+        public void RecibirFinPartida(string mensaje)
         {
             throw new NotImplementedException();
         }

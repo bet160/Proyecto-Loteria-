@@ -8,3 +8,22 @@ C:\Users\beto\Documents\ProyectoLoteria\ClienteLoteria\Recursos_en-US\obj\Debug\
 C:\Users\beto\Documents\ProyectoLoteria\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.csproj.CoreCompileInputs.cache
 C:\Users\beto\Documents\ProyectoLoteria\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.dll
 C:\Users\beto\Documents\ProyectoLoteria\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\bin\Debug\Recursos_en-US.dll
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\bin\Debug\Recursos_en-US.pdb
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.csprojAssemblyReference.cache
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US_MarkupCompile.cache
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US_MarkupCompile.lref
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Strings.baml
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.g.resources
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.csproj.CoreCompileInputs.cache
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.dll
+C:\Users\beto\Documents\SEPTIMO SEMESTRE\TECNOLOGIAS\ProyectoCasiTerminado\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\bin\Debug\Recursos_en-US.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\bin\Debug\Recursos_en-US.pdb
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.csprojAssemblyReference.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US_MarkupCompile.cache
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US_MarkupCompile.lref
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\obj\Debug\Strings.baml
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.g.resources
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.dll
+C:\Users\javie\Desktop\Proyecto\ProyectoVersion8\ClienteLoteria\Recursos_en-US\obj\Debug\Recursos_en-US.pdb

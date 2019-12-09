@@ -11,7 +11,18 @@ namespace ServidorLoteria
     [ServiceBehavior(ConcurrencyMode= ConcurrencyMode.Single,InstanceContextMode = InstanceContextMode.Single)]
     public class ServicioCuentaUsuario : IServicioCuentaUsuario
     {
-        readonly Dictionary<ICalculatorServiceCallback, string> _users  = new Dictionary<ICalculatorServiceCallback, string>();
+        readonly Dictionary<ICalculatorServiceCallback, string> usuariosConectados  = new Dictionary<ICalculatorServiceCallback, string>();
+        private ICalculatorServiceCallback callbackChannel;
+
+        public ServicioCuentaUsuario()
+        {
+
+        }
+
+        public ServicioCuentaUsuario(ICalculatorServiceCallback callbackCreator)
+        {
+            this.callbackChannel = callbackCreator ?? throw new ArgumentNullException("callbackCreator");
+        }
 
         public void GuardarCuentaUsuario(CuentaSet cuenta)
         {
@@ -44,12 +55,17 @@ namespace ServidorLoteria
             try
             {
                 BDLoteriaEntities db = new BDLoteriaEntities();
-                db.CuentaSet.Where(d => d.nombreUsuario == nombreUsuario && d.contraseña == contraseña).First();
+                //db.CuentaSet.Where(d => d.nombreUsuario == nombreUsuario && d.contraseña == contraseña).First();
                 var cuenta = (from per in db.CuentaSet where per.nombreUsuario == nombreUsuario && per.contraseña == contraseña select per).First();
                 OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>().DevuelveCuenta(cuenta);
                 var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
-                _users[connection] = nombreUsuario;
-                Console.WriteLine(nombreUsuario + ": Ha iniciado sesión");
+                usuariosConectados[connection] = nombreUsuario;
+                /*var connection = callbackChannel;
+                    _users[connection] = nombreUsuario;
+                Func<ICalculatorServiceCallback> channel = () => callbackChannel;
+                callbackChannel.DevuelveCuenta(cuenta);*/
+                Console.WriteLine(cuenta.nombreUsuario + ": Ha iniciado sesión");
+                Console.WriteLine("Puntaje: " + cuenta.puntajeMaximo);
                 db.Dispose();
             }
             catch (InvalidOperationException)
@@ -67,7 +83,6 @@ namespace ServidorLoteria
                 var c = (from per in po.CuentaSet where per.nombreUsuario == cuenta.nombreUsuario select per).First();
                 c.correo = cuenta.correo;
                 c.contraseña = cuenta.contraseña;
-                c.fotoPerfil = cuenta.fotoPerfil;
                 po.SaveChanges();
                 Console.WriteLine("Se ha modificado");
                 po.Dispose();
@@ -117,13 +132,13 @@ namespace ServidorLoteria
             Thread.Sleep(50);
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
 
-            foreach (var other in _users)
+            foreach (var destinatario in usuariosConectados)
             {
-                    if (other.Value.Equals(nombreRemitente))
+                    if (destinatario.Value.Equals(nombreRemitente))
                     {
-                        if (other.Key == connection)
+                        if (destinatario.Key == connection)
                             continue;
-                        other.Key.MensajeChat(mensaje1);
+                        destinatario.Key.MensajeChat(mensaje1);
                     }
             }
         }
@@ -158,21 +173,22 @@ namespace ServidorLoteria
         public void CerrarSesion(string nombreUsuario)
         {
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
-            _users[connection] = nombreUsuario;
+            usuariosConectados[connection] = nombreUsuario;
         }
 
-        public void EnviarInivitacion(string nombreUsuario, string tematica, string nombreRemitente)
+        public void EnviarInivitacion(string mensaje, string nombreUsuario, string tematica, string nombreRemitente)
         {
             try
             {
                 var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
 
-                foreach (var other in _users)
+                foreach (var invitado in usuariosConectados)
                 {
-                    if ((other.Value.Equals(nombreRemitente))&&(!other.Value.Equals(nombreUsuario))){
-                        if (other.Key == connection)
+                    if ((invitado.Value.Equals(nombreRemitente)) && (!invitado.Value.Equals(nombreUsuario)))
+                    {
+                        if (invitado.Key == connection)
                             continue;
-                        other.Key.RecibirInvitacion("Quiere jugar contigo", nombreUsuario, tematica);
+                        invitado.Key.RecibirInvitacion(nombreUsuario, mensaje, tematica);
                     }
 
                 }
@@ -184,32 +200,33 @@ namespace ServidorLoteria
 
         }
 
-        public void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica)
+        public void ConfirmacionInvitacion(bool opcion, string nombreUsuario, string tematica,string emisor)
         {
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
 
-            foreach (var other in _users)
+            foreach (var usuarioRemitente in usuariosConectados)
             {
-                    if (other.Value.Equals(nombreUsuario))
+                    if (usuarioRemitente.Value.Equals(emisor))
                     {
-                        if (other.Key == connection)
+                        if (usuarioRemitente.Key == connection)
                             continue;
-                    other.Key.RecibirConfirmacion(opcion,tematica,nombreUsuario);
+                            usuarioRemitente.Key.RecibirConfirmacion(opcion,tematica,nombreUsuario);
                     }
             }
+
         }
 
         public void FinalizarPartida(string nombreUsuario, string nombreRemitente)
         {
             var connection = OperationContext.Current.GetCallbackChannel<ICalculatorServiceCallback>();
 
-            foreach (var other in _users)
+            foreach (var jugadorPerdedor in usuariosConectados)
             {
-                if (other.Value.Equals(nombreRemitente))
+                if (jugadorPerdedor.Value.Equals(nombreRemitente))
                 {
-                    if (other.Key == connection)
+                    if (jugadorPerdedor.Key == connection)
                         continue;
-                    other.Key.RecibirFinPartida("El usuario "+nombreUsuario+" ha ganado la partida");
+                    jugadorPerdedor.Key.RecibirFinPartida("El usuario "+nombreUsuario+" ha ganado la partida");
                 }
             }
 

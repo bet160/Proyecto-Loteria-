@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace LoteriaEmail
 {
-    class ClaseMain
+    public static class ClaseMain
     {
         static void Main(string[] args)
         {
-
+            //No hace nada
         }
     }
 }

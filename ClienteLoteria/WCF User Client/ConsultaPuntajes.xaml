@@ -46,7 +46,7 @@
         <ListView Margin="52,147,34,81" Name="lvUsers" RenderTransformOrigin="0.498,0.354">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="NombreUsuario" Width="120" DisplayMemberBinding="{Binding NombreUsuario}" />
+                    <GridViewColumn Header="NombreUsuario" Width="160" DisplayMemberBinding="{Binding NombreUsuario}" />
                     <GridViewColumn Header="Puntaje" Width="150" DisplayMemberBinding="{Binding Puntaje}" />
                 </GridView>
             </ListView.View>

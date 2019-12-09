@@ -1,31 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using ClienteLoteria.Model;
 using WCF_User_Client;
 using WCF_User_Client.ServidorLoteria;
 
 namespace ClienteLoteria
 {
-    /// <summary>
-    /// Lógica de interacción para InicioSesion.xaml
-    /// </summary>
-    /// 
-    [CallbackBehavior(UseSynchronizationContext = false)]
-    public partial class InicioSesion : Window, WCF_User_Client.ServidorLoteria.IServicioCuentaUsuarioCallback
-    {
 
+    [CallbackBehavior(UseSynchronizationContext = false)]
+    public partial class InicioSesion : Window, IServicioCuentaUsuarioCallback
+    {
         private CuentaSet cuenta;
         public InicioSesion()
         {
@@ -34,26 +18,27 @@ namespace ClienteLoteria
 
         private void IniciarSesion(object sender, RoutedEventArgs e)
         {
-            string nombreUsuario = textBoxNombreUsuario.Text;
-            string contraseña = passwordBoxContraseña.Password;
+            string nombreUsuario = textBoxNombreUsuario.Text.Trim();
+            string contraseña = passwordBoxContraseña.Password.Trim();
 
             try
             {
                 InstanceContext instanceContext = new InstanceContext(this);
-                WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient client = new WCF_User_Client.ServidorLoteria.ServicioCuentaUsuarioClient(instanceContext);
+                ServicioCuentaUsuarioClient cliente = new ServicioCuentaUsuarioClient(instanceContext);
 
                 if(ValidarDatosIngresados(nombreUsuario, contraseña))
                 {
-                    client.IniciarSesion(nombreUsuario, contraseña);
+                    cliente.IniciarSesion(nombreUsuario, contraseña);
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Datos invalidos");
+                    MessageBox.Show(Application.Current.Resources["DatosInvalidos"].ToString());
                 }   
             }
             catch (EndpointNotFoundException)
             {
-                
+                MessageBox.Show(Application.Current.Resources["OperacionInvalida"].ToString());
             }
         }
 
@@ -75,9 +60,8 @@ namespace ClienteLoteria
 
         private void DesplegarVentanaInicio(object sender, RoutedEventArgs e)
         {
-            Inicio newForm = new Inicio();
-            newForm.Show();
-            this.Close();
+            Inicio ventana = new Inicio();
+            DesplegarVentana(ventana);
         }
 
         private void CerrarVentana(object sender, RoutedEventArgs e)
@@ -92,24 +76,31 @@ namespace ClienteLoteria
 
         public void MensajeChat(string mensaje)
         {
-            throw new NotImplementedException();
+           
+            
         }
 
         public void Respuesta(string mensaje)
         {
+            mensaje = Application.Current.Resources["CredencialesInvalidas"].ToString();
             MessageBox.Show(mensaje);
         }
 
         public void DevuelveCuenta(CuentaSet cuenta)
         {
-            this.cuenta = cuenta;
-            this.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() =>
             {
+                this.cuenta = cuenta;
                 Principal ventana = new Principal(cuenta);
-                this.Close();
-                ventana.Show();
+                DesplegarVentana(ventana);
                
             });
+        }
+
+        private void DesplegarVentana(Window ventana)
+        {
+            ventana.Show();
+            this.Close();
         }
 
         public void DevuelvePuntajes(PuntajeUsuario[] puntajes)
@@ -117,15 +108,13 @@ namespace ClienteLoteria
             throw new NotImplementedException();
         }
 
-        public void RecibirInvitacion(string mensaje, string nombreUsuario, string tematica)
+        public void RecibirInvitacion(string nombreUsuario, string mensaje, string tematica)
         {
-
-            this.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() =>
             {
-                this.Close();
-                ConfirmarInvitacion ventana = new ConfirmarInvitacion(cuenta,nombreUsuario,tematica);
-                ventana.MensajeInvitacion.Content = nombreUsuario + " " + mensaje + " en la tematica de " + tematica;
-                ventana.Show();
+                ConfirmarInvitacion ventana = new ConfirmarInvitacion(cuenta,nombreUsuario,tematica,mensaje);
+                DesplegarVentana(ventana);
+
             });
         }
 
@@ -135,9 +124,9 @@ namespace ClienteLoteria
             {
                 if (tematica.Equals("Carros"))
                 {
-                    this.Dispatcher.Invoke(() =>
+                    Dispatcher.Invoke(() =>
                     {
-                        SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta,60,nombreUsuario);
+                        SeleccionCartasCarros ventana = new SeleccionCartasCarros(cuenta, 60, nombreUsuario);
                         this.Close();
                         ventana.Show();
 
@@ -146,9 +135,9 @@ namespace ClienteLoteria
                 if (tematica.Equals("Futbol"))
                 {
                     MessageBox.Show("Se ha aceptado su invitación");
-                    this.Dispatcher.Invoke(() =>
+                    Dispatcher.Invoke(() =>
                     {
-                        SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta,60,nombreUsuario);
+                        SeleccionCartasFutbol ventana = new SeleccionCartasFutbol(cuenta, 60, nombreUsuario);
                         this.Close();
                         ventana.Show();
 

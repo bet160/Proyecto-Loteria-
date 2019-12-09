@@ -32,7 +32,6 @@
             </Button.Background>
         </Button>
         <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="21" Width="21.5" Margin="1282.799,10,0,0"/>
-        <Button Content="{DynamicResource ResourceKey=RegresarAPersonalizada}" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Foreground="#DD000000" BorderBrush="#FF14F93D" Margin="869,614,263,85" Background="White" Click="DesplegarSeleccionPersonalizada"/>
         <Rectangle Stroke="Black" Margin="46.5,84,805.5,85.5"/>
         <Border BorderBrush="Black" Background="White" BorderThickness="1" Margin="70.285,110.651,1210.514,511.65">
             <Image x:Name="imagenSeleccionada1" Stretch="Fill"/>
@@ -89,6 +88,7 @@
         <Label Content="{DynamicResource ResourceKey=MensajeTablaAleatoria}" Margin="629.951,178.928,67.049,488.947" Foreground="#DD0000FF" FontFamily="Century Gothic" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="687.299" Height="63.426"/>
         <Rectangle Stroke="Black" Margin="642.118,277.334,67.049,452.967" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
         <Rectangle Stroke="Black" Margin="642.118,554.001,67.049,176.3" RenderTransformOrigin="0.5,0.5" Fill="#FF020202"/>
-        <TextBlock x:Name="segundos" Margin="477,83,599,568" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" />
+        <TextBlock x:Name="segundos" Margin="944.799,84,354.994,598.201" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Width="84.506" TextAlignment="Center"/>
+        <Button Content="{DynamicResource ResourceKey=RegresarAPersonalizada}" Height="32" materialDesign:ButtonAssist.CornerRadius="11" BorderThickness="1" FontFamily="Century Gothic" Foreground="#DD000000" BorderBrush="#FF14F93D" Margin="869,614,263,85" Background="White" Click="DesplegarSeleccionPersonalizada"/>
     </Grid>
 </Window>
