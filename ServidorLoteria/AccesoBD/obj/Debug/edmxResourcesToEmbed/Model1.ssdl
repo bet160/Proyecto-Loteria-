@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDLoteriaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BDLoteriaModelStoreContainer">
+    <EntitySet Name="CuentaSet" EntityType="BDLoteriaModel.Store.CuentaSet" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CuentaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreUsuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="correo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="contraseña" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="puntajeMaximo" Type="bigint" Nullable="true" />
+    <Property Name="fotoPerfil" Type="tinyint" Nullable="true" />
+  </EntityType>
+</Schema>
